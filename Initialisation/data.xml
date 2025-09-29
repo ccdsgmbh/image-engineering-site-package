@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<T3RecordExport version="13.0" workspace="0">
+  <records>
+    <T3Record table="pages" uid="1" pid="0">
+      <fields>
+        <field index="pid">0</field>
+        <field index="title">Image Engineering</field>
+        <field index="slug">/</field>
+        <field index="doktype">1</field>
+        <field index="hidden">0</field>
+        <field index="is_siteroot">1</field>
+        <field index="backend_layout">siteTemplateDefault</field>
+        <field index="TSconfig">TCEMAIN.clearCacheCmd = pages</field>
+      </fields>
+    </T3Record>
+    <T3Record table="pages" uid="2" pid="1">
+      <fields>
+        <field index="pid">1</field>
+        <field index="title">Products</field>
+        <field index="slug">/products</field>
+        <field index="doktype">1</field>
+        <field index="hidden">0</field>
+      </fields>
+    </T3Record>
+    <T3Record table="pages" uid="3" pid="1">
+      <fields>
+        <field index="pid">1</field>
+        <field index="title">Industries</field>
+        <field index="slug">/industries</field>
+        <field index="doktype">1</field>
+        <field index="hidden">0</field>
+      </fields>
+    </T3Record>
+    <T3Record table="pages" uid="4" pid="1">
+      <fields>
+        <field index="pid">1</field>
+        <field index="title">Contact</field>
+        <field index="slug">/contact</field>
+        <field index="doktype">1</field>
+        <field index="hidden">0</field>
+      </fields>
+    </T3Record>
+    <T3Record table="tt_content" uid="100" pid="1">
+      <fields>
+        <field index="pid">1</field>
+        <field index="CType">textmedia</field>
+        <field index="header">Welcome to Image Engineering</field>
+        <field index="bodytext">&lt;p&gt;This page uses the Image Engineering site template with Tailwind CSS and jQuery.&lt;/p&gt;</field>
+        <field index="colPos">1</field>
+        <field index="sorting">128</field>
+        <field index="deleted">0</field>
+        <field index="tstamp">1700000000</field>
+        <field index="crdate">1700000000</field>
+        <field index="cruser_id">0</field>
+        <field index="sys_language_uid">0</field>
+        <field index="hidden">0</field>
+      </fields>
+    </T3Record>
+  </records>
+</T3RecordExport>

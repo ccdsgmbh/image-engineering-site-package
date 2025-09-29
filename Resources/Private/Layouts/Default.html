@@ -1,16 +1,33 @@
-{namespace f=TYPO3\\CMS\\Fluid\\ViewHelpers}
+<f:spaceless>
 <!DOCTYPE html>
-<html lang="{f:if(condition: siteLanguage.twoLetterIsoCode, then: siteLanguage.twoLetterIsoCode, else: 'en')}">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="utf-8" />
-    <f:render partial="Shared/Meta" arguments="{_all}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><f:if condition="{data.title}"><f:then>{data.title} – Image Engineering</f:then><f:else>Image Engineering</f:else></f:if></title>
+    <f:asset.script identifier="tailwind-config" standalone="1">
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#facc15',
+                        midnight: '#0f172a'
+                    }
+                }
+            }
+        };
+    </f:asset.script>
+    <f:render section="Head" optional="1" />
+    <f:render section="Meta" optional="1" />
 </head>
-<body class="site-template" data-page-uid="{data.uid}">
-    <a class="skip-link" href="#content">{f:translate(key: 'layout.skipToContent', extensionName: 'site_template')}</a>
-    <f:render partial="Navigation/Main" arguments="{mainNavigation: mainNavigation, settings: settings}" />
-    <main id="content" class="site-main">
+<body class="bg-slate-950 text-slate-100 antialiased">
+    <a class="sr-only focus:not-sr-only focus:absolute focus:p-4" href="#page-content">Skip to content</a>
+    <f:flashMessages class="container mx-auto mt-4" />
+    <main id="page-content">
         <f:render section="Main" />
     </main>
-    <f:render partial="Footer/Main" arguments="{settings: settings}" />
+    <f:render section="Footer" optional="1" />
 </body>
 </html>
+</f:spaceless>

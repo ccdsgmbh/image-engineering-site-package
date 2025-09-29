@@ -1,0 +1,18 @@
+plugin.tx_sitetemplate.view {
+    layoutRootPaths.10 = EXT:site_template/Resources/Private/Layouts/
+    partialRootPaths.10 = EXT:site_template/Resources/Private/Partials/
+    templateRootPaths.10 = EXT:site_template/Resources/Private/Templates/
+}
+
+siteTemplate {
+    assets {
+        cdn {
+            tailwind = https://cdn.tailwindcss.com
+            jquery = https://code.jquery.com/jquery-3.7.1.min.js
+        }
+        images {
+            logo = EXT:site_template/Resources/Public/Images/logo-ie-white.png
+            hero = EXT:site_template/Resources/Public/Images/precision-testing-hero.jpg
+        }
+    }
+}

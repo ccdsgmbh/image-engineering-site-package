@@ -1,19 +1,18 @@
 <?php
 $EM_CONF[$_EXTKEY] = [
-    'title' => 'Site Template',
-    'description' => 'TYPO3 v13 site package for Image Engineering.',
+    'title' => 'Image Engineering Site Template',
+    'description' => 'Site package extension providing layouts, TypoScript, and initialization data.',
     'category' => 'templates',
-    'state' => 'stable',
-    'clearCacheOnLoad' => true,
     'author' => 'Image Engineering',
-    'author_email' => 'devs@image-engineering.com',
+    'author_email' => 'dev@image-engineering.example',
+    'state' => 'beta',
+    'clearcacheonload' => 1,
     'version' => '1.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '13.0.0-13.9.99',
-            'fluid_styled_content' => '13.0.0-13.9.99'
+            'typo3' => '13.0.0-13.9.99'
         ],
         'conflicts' => [],
-        'suggests' => []
-    ]
+        'suggests' => [],
+    ],
 ];

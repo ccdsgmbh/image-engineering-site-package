@@ -1,0 +1,22 @@
+name: image-engineering/site-template
+label: 'Image Engineering Site Template'
+description: 'Base layout, TypoScript and initialization for Image Engineering.'
+sorting: 10
+icon: 'EXT:site_template/Resources/Public/Icons/Extension.svg'
+
+typoScript:
+  - path: 'EXT:site_template/Configuration/Sets/SitePackage/constants.typoscript'
+    type: constants
+  - path: 'EXT:site_template/Configuration/Sets/SitePackage/setup.typoscript'
+    type: setup
+
+pageTsConfig:
+  - 'EXT:site_template/Configuration/Sets/SitePackage/Page.tsconfig'
+
+initialization:
+  imports:
+    - type: records
+      source: 'EXT:site_template/Initialisation/data.xml'
+  siteConfiguration:
+    - identifier: main
+      source: 'EXT:site_template/Initialisation/Site/main/config.yaml'

@@ -1,24 +1,32 @@
-{namespace f=TYPO3\\CMS\\Fluid\\ViewHelpers}
-<header class="site-header">
-    <div class="site-header__inner">
-        <a class="site-header__logo" href="/">{settings.branding.name}</a>
-        <nav class="site-header__nav" aria-label="Main navigation">
-            <ul>
-                <f:for each="{mainNavigation}" as="item">
-                    <li class="{f:if(condition: item.active, then: 'is-active', else: '')}">
-                        <a href="{item.link}" target="{item.target}" title="{item.title}">{item.title}</a>
-                        <f:if condition="{item.children}">
-                            <ul>
-                                <f:for each="{item.children}" as="child">
-                                    <li class="{f:if(condition: child.active, then: 'is-active', else: '')}">
-                                        <a href="{child.link}" target="{child.target}" title="{child.title}">{child.title}</a>
-                                    </li>
-                                </f:for>
-                            </ul>
-                        </f:if>
-                    </li>
+<header data-site-header class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+    <div class="mx-auto max-w-7xl px-6 py-4">
+        <div class="flex items-center justify-between gap-6 rounded-full border border-slate-800/60 bg-slate-950/70 px-6 py-3 shadow-glow backdrop-blur">
+            <a href="/" class="flex items-center gap-3">
+                <img src="{f:uri.resource(path: 'Images/logo-ie-white.png')}" alt="Image Engineering" class="h-8 w-auto" />
+                <span class="hidden text-sm font-medium tracking-widest text-slate-300 sm:inline">Image Engineering</span>
+            </a>
+            <nav class="hidden items-center gap-6 md:flex">
+                <f:for each="{mainMenu}" as="item">
+                    <a href="{item.link}" class="text-sm font-medium text-slate-200 transition hover:text-brand" data-scroll="{item.link}">
+                        {item.title}
+                    </a>
                 </f:for>
-            </ul>
-        </nav>
+            </nav>
+            <a href="#contact" data-scroll="#contact" class="gradient-brand hidden rounded-full px-5 py-2 text-sm font-semibold text-slate-900 shadow-inner transition hover:shadow-lg md:inline-flex">Talk to an expert</a>
+            <button type="button" class="inline-flex items-center justify-center gap-2 text-slate-200 md:hidden" data-toggle-navigation>
+                <span class="text-sm font-medium">Menu</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" /></svg>
+            </button>
+        </div>
+        <div class="mt-3 hidden rounded-2xl border border-slate-800/60 bg-slate-950/95 p-6 md:hidden" data-mobile-navigation>
+            <nav class="flex flex-col gap-3">
+                <f:for each="{mainMenu}" as="item">
+                    <a href="{item.link}" class="text-base font-medium text-slate-200 transition hover:text-brand" data-scroll="{item.link}">
+                        {item.title}
+                    </a>
+                </f:for>
+                <a href="#contact" data-scroll="#contact" class="rounded-full bg-brand px-5 py-3 text-center text-base font-semibold text-slate-900">Talk to an expert</a>
+            </nav>
+        </div>
     </div>
 </header>

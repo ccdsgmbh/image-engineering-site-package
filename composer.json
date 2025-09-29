@@ -1,11 +1,10 @@
 {
   "name": "image-engineering/site-template",
-  "description": "TYPO3 v13 site package for Image Engineering",
   "type": "typo3-cms-extension",
-  "version": "1.0.0",
+  "description": "Site package for Image Engineering based on Tailwind and jQuery",
   "license": "MIT",
   "require": {
-    "php": "^8.2",
+    "php": ">=8.2",
     "typo3/cms-core": "^13.0"
   },
   "autoload": {
