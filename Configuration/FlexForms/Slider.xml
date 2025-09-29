@@ -6,69 +6,6 @@
         <TCEforms>
           <sheetTitle>LLL:EXT:site_template/Resources/Private/Language/locallang_db.xlf:flexform.slider.sheet</sheetTitle>
         </TCEforms>
-        <el>
-          <slideItems>
-            <section>1</section>
-            <title>LLL:EXT:site_template/Resources/Private/Language/locallang_db.xlf:flexform.slider.items</title>
-            <el>
-              <slide>
-                <TCEforms>
-                  <label>LLL:EXT:site_template/Resources/Private/Language/locallang_db.xlf:flexform.slider.item</label>
-                </TCEforms>
-                <el>
-                  <name>
-                    <TCEforms>
-                      <label>LLL:EXT:site_template/Resources/Private/Language/locallang_db.xlf:flexform.slider.name</label>
-                      <config>
-                        <type>input</type>
-                        <eval>trim</eval>
-                      </config>
-                    </TCEforms>
-                  </name>
-                  <position>
-                    <TCEforms>
-                      <label>LLL:EXT:site_template/Resources/Private/Language/locallang_db.xlf:flexform.slider.position</label>
-                      <config>
-                        <type>input</type>
-                        <eval>trim</eval>
-                      </config>
-                    </TCEforms>
-                  </position>
-                  <quote>
-                    <TCEforms>
-                      <label>LLL:EXT:site_template/Resources/Private/Language/locallang_db.xlf:flexform.slider.quote</label>
-                      <config>
-                        <type>text</type>
-                        <rows>4</rows>
-                        <eval>trim</eval>
-                      </config>
-                    </TCEforms>
-                  </quote>
-                  <link>
-                    <TCEforms>
-                      <label>LLL:EXT:site_template/Resources/Private/Language/locallang_db.xlf:flexform.slider.link</label>
-                      <config>
-                        <type>input</type>
-                        <renderType>link</renderType>
-                        <eval>trim</eval>
-                      </config>
-                    </TCEforms>
-                  </link>
-                  <image>
-                    <TCEforms>
-                      <label>LLL:EXT:site_template/Resources/Private/Language/locallang_db.xlf:flexform.slider.image</label>
-                      <config>
-                        <type>input</type>
-                        <eval>trim</eval>
-                        <placeholder>fileadmin/user_upload/engineers/laura.jpg</placeholder>
-                      </config>
-                    </TCEforms>
-                  </image>
-                </el>
-              </slide>
-            </el>
-          </slideItems>
-        </el>
       </ROOT>
     </slides>
   </sheets>
