@@ -1,0 +1,21 @@
+{
+  "name": "image-engineering/site-template",
+  "description": "TYPO3 v13 site package for Image Engineering",
+  "type": "typo3-cms-extension",
+  "version": "1.0.0",
+  "license": "MIT",
+  "require": {
+    "php": "^8.2",
+    "typo3/cms-core": "^13.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ImageEngineering\\SiteTemplate\\": "Classes/"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "site_template"
+    }
+  }
+}

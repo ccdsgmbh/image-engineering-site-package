@@ -1,0 +1,30 @@
+rootPageId: 1
+websiteTitle: 'Image Engineering'
+base: 'https://image-engineering.local/'
+baseVariants:
+  - base: 'https://{env:HTTP_HOST}/'
+    condition: 'applicationContext == "Development"'
+    enabled: true
+languages:
+  - title: English
+    enabled: true
+    languageId: 0
+    base: /
+    locale: en_US.UTF-8
+    iso-639-1: en
+    navigationTitle: English
+    hreflang: en-US
+    direction: ltr
+errorHandling:
+  - errorCode: 404
+    errorHandler: Page
+    errorContentSource: 't3://page?uid=404'
+routes:
+  - route: robots.txt
+    type: staticText
+    content: |
+      User-agent: *
+      Disallow:
+sitemap:
+  generation: static
+  fileName: 'sitemap.xml'

@@ -1,0 +1,19 @@
+label: 'Image Engineering Site Template'
+description: 'TYPO3 v13 site set with Fluid templates, custom content elements, and demo content.'
+version: 1.0.0
+type: site
+imports:
+  - identifier: typo3/fluid-styled-content
+  - resource: 'EXT:site_template/Configuration/TypoScript/constants.typoscript'
+    type: typoScript
+  - resource: 'EXT:site_template/Configuration/TypoScript/setup.typoscript'
+    type: typoScript
+initialization:
+  - identifier: imageEngineeringDemo
+    label: 'Image Engineering demo pages'
+    description: 'Creates a starter page tree and demo content for the Image Engineering template.'
+    pages: 'EXT:site_template/Configuration/Site/Default/Initialization/pages.yaml'
+    content: 'EXT:site_template/Configuration/Site/Default/Initialization/content.yaml'
+    files: 'EXT:site_template/Configuration/Site/Default/Initialization/files.yaml'
+siteConfiguration:
+  import: 'EXT:site_template/Initialization/Site/ImageEngineering/config.yaml'

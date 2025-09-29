@@ -1,0 +1,213 @@
+content:
+  page-home:
+    - identifier: home-hero
+      colPos: 0
+      CType: ccds_hero
+      header: 'Test Charts Made by Image Engineering'
+      subheader: 'Precision image quality testing equipment'
+      bodytext: 'We develop and manufacture high-precision test charts for professional image quality testing. Order directly from our shop now.'
+      tx_site_template_primary_label: 'Discover Charts'
+      tx_site_template_primary_link: 'https://www.image-engineering.de/products/charts'
+      tx_site_template_secondary_label: 'Trusted Across All Industries'
+      tx_site_template_secondary_link: '#trusted-industries'
+      tx_site_template_highlight_items: '[{"value":"200+","label":"Test chart variants"},{"value":"0.01%","label":"Measurement tolerance"},{"value":"15+","label":"Years of experience"}]'
+      assets:
+        - '@file.hero-image'
+    - identifier: home-announcement
+      colPos: 0
+      CType: ccds_announcement
+      header: 'Meet us at the Automotive Imaging Forum'
+      bodytext: 'Join our engineers for a live workshop about VCX aligned camera testing.'
+      tx_site_template_primary_label: 'Reserve your seat'
+      tx_site_template_primary_link: 'https://www.image-engineering.de/events/automotive-imaging'
+      tx_site_template_announcement_icon: 'calendar'
+    - identifier: home-tiles
+      colPos: 0
+      CType: ccds_tiles
+      header: 'Trusted Across All Industries'
+      subheader: 'Advanced testing workflows for every imaging challenge.'
+      bodytext: ''
+      pi_flexform: |-
+        <?xml version="1.0" encoding="utf-8"?>
+        <T3FlexForms>
+          <data>
+            <sheet index="tiles">
+              <language index="lDEF">
+                <field index="tileItems">
+                  <value index="vDEF">
+                    <el>
+                      <tile_1>
+                        <value index="ID">tile_1</value>
+                        <el>
+                          <title>
+                            <value index="vDEF">Photography</value>
+                          </title>
+                          <description>
+                            <value index="vDEF">Digital cameras for professional and amateur applications.</value>
+                          </description>
+                          <link>
+                            <value index="vDEF">https://www.image-engineering.de/industries/photography</value>
+                          </link>
+                          <icon>
+                            <value index="vDEF">📷</value>
+                          </icon>
+                        </el>
+                      </tile_1>
+                      <tile_2>
+                        <value index="ID">tile_2</value>
+                        <el>
+                          <title>
+                            <value index="vDEF">Automotive &amp; ADAS</value>
+                          </title>
+                          <description>
+                            <value index="vDEF">Camera systems in vehicles, driver assistance and autonomous driving.</value>
+                          </description>
+                          <link>
+                            <value index="vDEF">https://www.image-engineering.de/industries/automotive</value>
+                          </link>
+                          <icon>
+                            <value index="vDEF">🚗</value>
+                          </icon>
+                        </el>
+                      </tile_2>
+                      <tile_3>
+                        <value index="ID">tile_3</value>
+                        <el>
+                          <title>
+                            <value index="vDEF">Mobile Imaging</value>
+                          </title>
+                          <description>
+                            <value index="vDEF">Image quality testing according to VCX standards.</value>
+                          </description>
+                          <link>
+                            <value index="vDEF">https://www.image-engineering.de/industries/mobile</value>
+                          </link>
+                          <icon>
+                            <value index="vDEF">📱</value>
+                          </icon>
+                        </el>
+                      </tile_3>
+                      <tile_4>
+                        <value index="ID">tile_4</value>
+                        <el>
+                          <title>
+                            <value index="vDEF">Medical Imaging</value>
+                          </title>
+                          <description>
+                            <value index="vDEF">Endoscopy and diagnostic pipelines with dependable results.</value>
+                          </description>
+                          <link>
+                            <value index="vDEF">https://www.image-engineering.de/industries/medical</value>
+                          </link>
+                          <icon>
+                            <value index="vDEF">🩺</value>
+                          </icon>
+                        </el>
+                      </tile_4>
+                    </el>
+                  </value>
+                </field>
+              </language>
+            </sheet>
+          </data>
+        </T3FlexForms>
+    - identifier: home-slider
+      colPos: 0
+      CType: ccds_slider
+      header: 'Speak with Our Engineers'
+      subheader: 'Schedule an appointment with the team behind our lab deployments.'
+      bodytext: 'Our experts help you identify the right standards for your application and develop customized testing solutions.'
+      pi_flexform: |-
+        <?xml version="1.0" encoding="utf-8"?>
+        <T3FlexForms>
+          <data>
+            <sheet index="slides">
+              <language index="lDEF">
+                <field index="slideItems">
+                  <value index="vDEF">
+                    <el>
+                      <slide_1>
+                        <value index="ID">slide_1</value>
+                        <el>
+                          <name>
+                            <value index="vDEF">Laura Neumann</value>
+                          </name>
+                          <position>
+                            <value index="vDEF">Lead Optical Systems</value>
+                          </position>
+                          <quote>
+                            <value index="vDEF">I help you turn complex test setups into reliable, reproducible workflows.</value>
+                          </quote>
+                          <link>
+                            <value index="vDEF">https://www.image-engineering.de/contact</value>
+                          </link>
+                          <image>
+                            <value index="vDEF">fileadmin/user_upload/site-template/team-laura.jpg</value>
+                          </image>
+                        </el>
+                      </slide_1>
+                      <slide_2>
+                        <value index="ID">slide_2</value>
+                        <el>
+                          <name>
+                            <value index="vDEF">Markus Stein</value>
+                          </name>
+                          <position>
+                            <value index="vDEF">Senior Imaging Engineer</value>
+                          </position>
+                          <quote>
+                            <value index="vDEF">From sensor tuning to ISO and VCX compliance—let&apos;s make your measurements future-proof.</value>
+                          </quote>
+                          <link>
+                            <value index="vDEF">https://www.image-engineering.de/contact</value>
+                          </link>
+                          <image>
+                            <value index="vDEF">fileadmin/user_upload/site-template/team-markus.jpg</value>
+                          </image>
+                        </el>
+                      </slide_2>
+                      <slide_3>
+                        <value index="ID">slide_3</value>
+                        <el>
+                          <name>
+                            <value index="vDEF">Aisha Rahman</value>
+                          </name>
+                          <position>
+                            <value index="vDEF">Image Quality Specialist</value>
+                          </position>
+                          <quote>
+                            <value index="vDEF">I focus on practical, automated pipelines for camera validation at scale.</value>
+                          </quote>
+                          <link>
+                            <value index="vDEF">https://www.image-engineering.de/contact</value>
+                          </link>
+                          <image>
+                            <value index="vDEF">fileadmin/user_upload/site-template/team-aisha.jpg</value>
+                          </image>
+                        </el>
+                      </slide_3>
+                    </el>
+                  </value>
+                </field>
+              </language>
+            </sheet>
+          </data>
+        </T3FlexForms>
+  page-solutions:
+    - identifier: solutions-intro
+      colPos: 0
+      CType: textmedia
+      header: 'Solutions built on measurable performance'
+      bodytext: '<p>Image Engineering delivers laboratory-proven workflows for automotive, mobile, medical, broadcast, and machine vision projects.</p>'
+  page-industries:
+    - identifier: industries-intro
+      colPos: 0
+      CType: textmedia
+      header: 'Industries we support'
+      bodytext: '<p>From camera benchmarking to end-to-end production pipelines, we help you translate metrics into business-critical insights.</p>'
+  page-contact:
+    - identifier: contact-intro
+      colPos: 0
+      CType: textmedia
+      header: 'Contact our engineering team'
+      bodytext: '<p>Email <a href="mailto:info@image-engineering.de">info@image-engineering.de</a> or call +49 2273 99 99 0 to schedule a consultation.</p>'

@@ -1,0 +1,15 @@
+{namespace f=TYPO3\\CMS\\Fluid\\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <div class="page-intro">
+        <h1>{data.title}</h1>
+        <f:if condition="{data.subtitle}">
+            <p class="page-intro__subtitle">{data.subtitle}</p>
+        </f:if>
+    </div>
+
+    <div class="page-content">
+        <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: data.uid, colPos: 0}" />
+    </div>
+</f:section>

@@ -1,0 +1,67 @@
+{namespace f=TYPO3\\CMS\\Fluid\\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <section class="ce ce-hero">
+        <div class="ce-hero__background">
+            <f:if condition="{files}">
+                <f:then>
+                    <f:for each="{files}" as="file" iteration="iterator">
+                        <f:if condition="{iterator.isFirst}">
+                            <picture>
+                                <img src="{file.publicUrl}" alt="{file.properties.alternative}" loading="lazy" />
+                            </picture>
+                        </f:if>
+                    </f:for>
+                </f:then>
+                <f:else>
+                    <picture>
+                        <img src="{f:uri.resource(path: 'Public/Media/precision-testing-hero.jpg', extensionName: 'site_template')}" alt="{f:translate(key: 'hero.defaultAlt', extensionName: 'site_template')}" loading="lazy" />
+                    </picture>
+                </f:else>
+            </f:if>
+        </div>
+
+        <div class="ce-hero__inner">
+            <div class="ce-hero__content">
+                <f:if condition="{data.header}">
+                    <h2>{data.header}</h2>
+                </f:if>
+                <f:if condition="{data.subheader}">
+                    <p class="ce-hero__subheadline">{data.subheader}</p>
+                </f:if>
+                <f:if condition="{data.bodytext}">
+                    <p class="ce-hero__lead">{data.bodytext}</p>
+                </f:if>
+
+                <div class="ce-hero__actions">
+                    <f:if condition="{data.tx_site_template_primary_label}">
+                        <f:link.typolink
+                            parameter="{data.tx_site_template_primary_link}"
+                            class="btn btn--primary">
+                            {data.tx_site_template_primary_label}
+                        </f:link.typolink>
+                    </f:if>
+                    <f:if condition="{data.tx_site_template_secondary_label}">
+                        <f:link.typolink
+                            parameter="{data.tx_site_template_secondary_link}"
+                            class="btn btn--secondary">
+                            {data.tx_site_template_secondary_label}
+                        </f:link.typolink>
+                    </f:if>
+                </div>
+
+                <f:if condition="{tx_site_template_highlight_itemsArray}">
+                    <ul class="ce-hero__stats">
+                        <f:for each="{tx_site_template_highlight_itemsArray}" as="item">
+                            <li>
+                                <span class="ce-hero__stat-value">{item.value}</span>
+                                <span class="ce-hero__stat-label">{item.label}</span>
+                            </li>
+                        </f:for>
+                    </ul>
+                </f:if>
+            </div>
+        </div>
+    </section>
+</f:section>

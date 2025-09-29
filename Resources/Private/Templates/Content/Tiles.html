@@ -1,0 +1,39 @@
+{namespace f=TYPO3\\CMS\\Fluid\\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <section class="ce ce-tiles">
+        <div class="ce-tiles__header">
+            <f:if condition="{data.header}">
+                <h2>{data.header}</h2>
+            </f:if>
+            <f:if condition="{data.subheader}">
+                <p class="ce-tiles__lead">{data.subheader}</p>
+            </f:if>
+            <f:if condition="{data.bodytext}">
+                <p>{data.bodytext}</p>
+            </f:if>
+        </div>
+
+        <div class="ce-tiles__grid">
+            <f:for each="{flexform.tiles.tileItems}" as="tile">
+                <article class="ce-tiles__item">
+                    <f:if condition="{tile.icon}">
+                        <div class="ce-tiles__icon" aria-hidden="true">{tile.icon}</div>
+                    </f:if>
+                    <f:if condition="{tile.title}">
+                        <h3>{tile.title}</h3>
+                    </f:if>
+                    <f:if condition="{tile.description}">
+                        <p>{tile.description}</p>
+                    </f:if>
+                    <f:if condition="{tile.link}">
+                        <f:link.typolink parameter="{tile.link}" class="ce-tiles__link">
+                            {f:translate(key: 'content.tiles.cta', extensionName: 'site_template')}
+                        </f:link.typolink>
+                    </f:if>
+                </article>
+            </f:for>
+        </div>
+    </section>
+</f:section>

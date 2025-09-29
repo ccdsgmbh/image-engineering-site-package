@@ -1,0 +1,16 @@
+{namespace f=TYPO3\\CMS\\Fluid\\ViewHelpers}
+<!DOCTYPE html>
+<html lang="{f:if(condition: siteLanguage.twoLetterIsoCode, then: siteLanguage.twoLetterIsoCode, else: 'en')}">
+<head>
+    <meta charset="utf-8" />
+    <f:render partial="Shared/Meta" arguments="{_all}" />
+</head>
+<body class="site-template" data-page-uid="{data.uid}">
+    <a class="skip-link" href="#content">{f:translate(key: 'layout.skipToContent', extensionName: 'site_template')}</a>
+    <f:render partial="Navigation/Main" arguments="{mainNavigation: mainNavigation, settings: settings}" />
+    <main id="content" class="site-main">
+        <f:render section="Main" />
+    </main>
+    <f:render partial="Footer/Main" arguments="{settings: settings}" />
+</body>
+</html>
