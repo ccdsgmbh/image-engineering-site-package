@@ -134,7 +134,7 @@ lib.dynamicContent {
         table = tt_content
         select {
             orderBy = sorting
-            where = colPos = ###colPos###
+            where = colPos = 0
             where.insertData = 1
             languageField = sys_language_uid
             pidInList.data = page:uid
@@ -145,7 +145,16 @@ lib.dynamicContent {
 # Provide shortcuts to render dynamic content in Fluid
 sitepackage.content.main < lib.dynamicContent
 sitepackage.content.hero < lib.dynamicContent
+sitepackage.content.hero.10.select.where = colPos = 10
+sitepackage.content.industries < lib.dynamicContent
+sitepackage.content.industries.10.select.where = colPos = 20
 sitepackage.content.banner < lib.dynamicContent
+sitepackage.content.banner.10.select.where = colPos = 5
 sitepackage.content.feature < lib.dynamicContent
+sitepackage.content.feature.10.select.where = colPos = 40
 sitepackage.content.news < lib.dynamicContent
+sitepackage.content.news.10.select.where = colPos = 30
 sitepackage.content.standards < lib.dynamicContent
+sitepackage.content.standards.10.select.where = colPos = 40
+sitepackage.content.footerwidgets < lib.dynamicContent
+sitepackage.content.footerwidgets.10.select.where = colPos = 80
