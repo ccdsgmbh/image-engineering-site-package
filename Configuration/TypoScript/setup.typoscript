@@ -13,6 +13,7 @@ config {
 }
 
 page = PAGE
+page.typeNum = 0
 page {
   shortcutIcon = EXT:ie_site_template/Resources/Public/Images/logo-ie-white.png
   meta {
