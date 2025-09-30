@@ -1,0 +1,26 @@
+##############################################
+# Image Engineering Site Template Constants
+##############################################
+
+sitepackage {
+  siteName = Image Engineering
+  baseUrl = https://www.image-engineering.de/
+
+  storagePid = 1
+
+  main {
+    navigationRoot = 1
+    logo = Images/logo-ie-white.png
+  }
+
+  footer {
+    navigationRoot = 1
+  }
+
+  assets {
+    tailwindCdn = https://cdn.tailwindcss.com?plugins=forms,typography
+    jqueryCdn = https://code.jquery.com/jquery-3.7.1.min.js
+    navigationJs = EXT:ie_site_template/Resources/Public/JavaScript/navigation.js
+    siteCss = EXT:ie_site_template/Resources/Public/Css/site.css
+  }
+}

@@ -1,244 +1,38 @@
 <f:layout name="Default" />
 
-<f:section name="Main">
-    <f:render partial="Navigation/Main" arguments="{mainMenu: mainMenu}" />
-
-    <section class="relative flex min-h-screen items-center overflow-hidden pt-24">
-        <div class="absolute inset-0">
-            <img src="{f:uri.resource(path: 'EXT:site_template/Resources/Public/Images/precision-testing-hero.jpg')}" alt="Precision engineering laboratory" class="h-full w-full object-cover animate-ken-burns" />
-            <div class="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-slate-950/60 to-slate-900/40"></div>
-        </div>
-        <div class="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 py-20 lg:flex-row lg:items-center">
-            <div class="max-w-3xl space-y-8">
-                <span class="badge-soft">Imaging quality excellence</span>
-                <h1 class="text-4xl font-light leading-tight text-white sm:text-6xl lg:text-7xl">
-                    Test Charts crafted by
-                    <span class="block font-semibold tracking-tight text-brand">Image Engineering</span>
-                </h1>
-                <p class="text-lg leading-relaxed text-slate-200/90 sm:text-xl">
-                    We develop and manufacture high-precision test charts for professional image quality testing. Order directly from our shop or talk to our engineers to tailor a solution for your lab.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="/products" class="inline-flex items-center gap-3 rounded-full bg-brand px-8 py-3 text-base font-semibold text-slate-900 shadow-lg shadow-brand/30 transition hover:-translate-y-1">Discover Charts</a>
-                    <a href="#trusted-industries" data-scroll="#trusted-industries" class="inline-flex items-center gap-2 rounded-full border border-slate-200/30 px-8 py-3 text-base font-semibold text-slate-100 transition hover:border-brand hover:text-brand">Trusted across industries</a>
-                </div>
-                <dl class="flex flex-wrap gap-8 pt-6 text-slate-200/80">
-                    <div>
-                        <dt class="text-sm uppercase tracking-[0.32em]">Variants</dt>
-                        <dd class="text-3xl font-semibold text-white">200+</dd>
-                    </div>
-                    <div>
-                        <dt class="text-sm uppercase tracking-[0.32em]">Tolerance</dt>
-                        <dd class="text-3xl font-semibold text-white">0.01%</dd>
-                    </div>
-                    <div>
-                        <dt class="text-sm uppercase tracking-[0.32em]">Experience</dt>
-                        <dd class="text-3xl font-semibold text-white">15 yrs</dd>
-                    </div>
-                </dl>
-            </div>
-            <aside class="card-floating max-w-sm p-6 backdrop-blur">
-                <h2 class="text-base font-semibold uppercase tracking-[0.32em] text-slate-300">Showcase</h2>
-                <p class="mt-3 text-sm text-slate-300/90">
-                    Explore our chart portfolio, efficient illumination, and modular lab automation bundles.
-                </p>
-                <ul class="mt-6 space-y-4 text-sm text-slate-200/80">
-                    <li class="flex items-start gap-3">
-                        <span class="mt-1 inline-flex h-2 w-2 flex-none rounded-full bg-brand"></span>
-                        IEEE &amp; ISO certified references for lab use
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="mt-1 inline-flex h-2 w-2 flex-none rounded-full bg-brand"></span>
-                        Custom chart engineering with rapid prototyping
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="mt-1 inline-flex h-2 w-2 flex-none rounded-full bg-brand"></span>
-                        Automated result analysis via IQ-Analyzer-X
-                    </li>
-                </ul>
-                <a href="/downloads" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand transition hover:translate-x-1">
-                    Download capability deck
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0-6-6m6 6-6 6" />
-                    </svg>
-                </a>
-            </aside>
-        </div>
-    </section>
-
-    <section id="trusted-industries" class="relative z-10 mx-auto -mt-16 max-w-6xl px-6">
-        <div class="section-surface overflow-hidden p-10 shadow-2xl">
-            <div class="flex flex-col gap-10 lg:flex-row lg:items-center">
-                <div class="lg:w-2/5 space-y-5">
-                    <span class="badge-soft">Trusted industries</span>
-                    <h2 class="text-3xl font-semibold text-white">
-                        Precision workflows for automotive, medical and machine vision partners.
-                    </h2>
-                    <p class="text-base text-slate-300">
-                        Our engineering team delivers calibrated setups for end-to-end measurement. From optical benches to climate chambers, each bundle integrates seamlessly with your certification routines.
-                    </p>
-                    <div class="grid gap-4 sm:grid-cols-2">
-                        <div class="rounded-2xl border border-slate-600/30 p-4">
-                            <h3 class="text-lg font-semibold text-white">Automotive</h3>
-                            <p class="mt-2 text-sm text-slate-300">In-cabin, ADAS and autonomous validation with controlled illumination.</p>
-                        </div>
-                        <div class="rounded-2xl border border-slate-600/30 p-4">
-                            <h3 class="text-lg font-semibold text-white">Medical Imaging</h3>
-                            <p class="mt-2 text-sm text-slate-300">Auditable workflows for surgical robotics and diagnostics.</p>
-                        </div>
-                        <div class="rounded-2xl border border-slate-600/30 p-4">
-                            <h3 class="text-lg font-semibold text-white">Machine Vision</h3>
-                            <p class="mt-2 text-sm text-slate-300">Benchmark complex lighting conditions with repeatable setups.</p>
-                        </div>
-                        <div class="rounded-2xl border border-slate-600/30 p-4">
-                            <h3 class="text-lg font-semibold text-white">Broadcast</h3>
-                            <p class="mt-2 text-sm text-slate-300">HDR pipelines optimized for live production quality gates.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:w-3/5 grid gap-6 sm:grid-cols-2">
-                    <figure class="card-floating overflow-hidden">
-                        <img src="{f:uri.resource(path: 'EXT:site_template/Resources/Public/Images/industry-automotive.jpg')}" alt="Automotive test lab" class="h-48 w-full object-cover" />
-                        <figcaption class="px-6 py-4 text-sm text-slate-300/90">Advanced driver assistance calibration rigs</figcaption>
-                    </figure>
-                    <figure class="card-floating overflow-hidden">
-                        <img src="{f:uri.resource(path: 'EXT:site_template/Resources/Public/Images/industry-medical.jpg')}" alt="Medical imaging" class="h-48 w-full object-cover" />
-                        <figcaption class="px-6 py-4 text-sm text-slate-300/90">Certified setups for medical robotics</figcaption>
-                    </figure>
-                    <figure class="card-floating overflow-hidden sm:col-span-2">
-                        <img src="{f:uri.resource(path: 'EXT:site_template/Resources/Public/Images/industry-machine-vision.jpg')}" alt="Machine vision" class="h-64 w-full object-cover" />
-                        <figcaption class="px-6 py-4 text-sm text-slate-300/90">Machine vision benchmarking with climate control</figcaption>
-                    </figure>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="mx-auto mt-24 max-w-6xl px-6">
-        <div class="grid gap-8 lg:grid-cols-[1.1fr_.9fr]">
-            <div class="section-surface p-10">
-                <div class="flex items-start justify-between gap-6">
-                    <div>
-                        <span class="badge-soft">Latest updates</span>
-                        <h2 class="mt-4 text-3xl font-semibold text-white">News &amp; releases</h2>
-                        <p class="mt-3 text-base text-slate-300">New software additions and measurement accessories from our engineering backlog.</p>
-                    </div>
-                    <a href="/news" class="link-underline text-sm font-medium text-slate-200">All news</a>
-                </div>
-                <div class="mt-8 grid gap-6 md:grid-cols-3">
-                    <article class="card-floating overflow-hidden">
-                        <img src="{f:uri.resource(path: 'EXT:site_template/Resources/Public/Images/news-iq-analyzer-x.png')}" alt="IQ Analyzer X" class="h-32 w-full object-cover" />
-                        <div class="p-5">
-                            <p class="text-xs uppercase tracking-[0.3em] text-slate-400">Software</p>
-                            <h3 class="mt-3 text-lg font-semibold text-white">IQ-Analyzer X 3.2</h3>
-                            <p class="mt-2 text-sm text-slate-300">Redesigned color workflows and API hooks for lab automation.</p>
-                        </div>
-                    </article>
-                    <article class="card-floating overflow-hidden">
-                        <img src="{f:uri.resource(path: 'EXT:site_template/Resources/Public/Images/news-te300.png')}" alt="TE300 chart" class="h-32 w-full object-cover" />
-                        <div class="p-5">
-                            <p class="text-xs uppercase tracking-[0.3em] text-slate-400">Hardware</p>
-                            <h3 class="mt-3 text-lg font-semibold text-white">TE300 dynamic HDR chart</h3>
-                            <p class="mt-2 text-sm text-slate-300">Extended contrast ratios and thermal stability across test cycles.</p>
-                        </div>
-                    </article>
-                    <article class="card-floating overflow-hidden">
-                        <img src="{f:uri.resource(path: 'EXT:site_template/Resources/Public/Images/news-geocal-xl.png')}" alt="GeoCal" class="h-32 w-full object-cover" />
-                        <div class="p-5">
-                            <p class="text-xs uppercase tracking-[0.3em] text-slate-400">Workflow</p>
-                            <h3 class="mt-3 text-lg font-semibold text-white">GeoCal XL bundle</h3>
-                            <p class="mt-2 text-sm text-slate-300">Turn-key geometric calibration with integrated reporting templates.</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-            <aside class="section-light rounded-3xl p-10 shadow-lg" id="standards">
-                <span class="badge-soft text-slate-800">Standards leadership</span>
-                <h2 class="mt-4 text-3xl font-semibold text-slate-900">Active members of IEEE, ISO and EMVA committees.</h2>
-                <p class="mt-3 text-base text-slate-700">
-                    We co-author global imaging standards and provide workshops to help your teams implement them quickly.
-                </p>
-                <div class="mt-8 flex flex-wrap items-center gap-6">
-                    <img src="{f:uri.resource(path: 'EXT:site_template/Resources/Public/Images/iso-standards-logo.png')}" alt="ISO" class="h-12 w-auto" />
-                    <img src="{f:uri.resource(path: 'EXT:site_template/Resources/Public/Images/ieee-logo.jpg')}" alt="IEEE" class="h-12 w-auto rounded-lg shadow-soft" />
-                    <img src="{f:uri.resource(path: 'EXT:site_template/Resources/Public/Images/emva-logo.jpg')}" alt="EMVA" class="h-12 w-auto rounded-lg shadow-soft" />
-                </div>
-                <a href="/events" class="mt-8 inline-flex items-center gap-2 rounded-full border border-slate-900/40 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-900">
-                    Join a masterclass
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0-6-6m6 6-6 6" />
-                    </svg>
-                </a>
-            </aside>
-        </div>
-    </section>
-
-    <section id="contact" class="mx-auto mt-24 max-w-5xl px-6">
-        <div class="section-surface flex flex-col gap-8 p-12 lg:flex-row lg:items-center">
-            <div class="lg:w-2/3 space-y-5">
-                <span class="badge-soft">Partner with us</span>
-                <h2 class="text-3xl font-semibold text-white">Need a tailored testing setup?</h2>
-                <p class="text-base text-slate-300">
-                    Our engineers can configure modular lighting, automation and chart bundles that align with your KPIs. Tell us about your lab environment and we will prepare a readiness plan within 48 hours.
-                </p>
-            </div>
-            <div class="lg:w-1/3">
-                <div class="card-floating p-6">
-                    <form class="space-y-4">
-                        <div>
-                            <label class="block text-xs uppercase tracking-[0.42em] text-slate-400">Name</label>
-                            <input type="text" class="mt-2 w-full rounded-lg border border-slate-700/70 bg-slate-900/70 px-4 py-2 text-sm focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/40" placeholder="Your name" />
-                        </div>
-                        <div>
-                            <label class="block text-xs uppercase tracking-[0.42em] text-slate-400">Email</label>
-                            <input type="email" class="mt-2 w-full rounded-lg border border-slate-700/70 bg-slate-900/70 px-4 py-2 text-sm focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/40" placeholder="you@company.com" />
-                        </div>
-                        <div>
-                            <label class="block text-xs uppercase tracking-[0.42em] text-slate-400">Project focus</label>
-                            <textarea rows="3" class="mt-2 w-full rounded-lg border border-slate-700/70 bg-slate-900/70 px-4 py-2 text-sm focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/40" placeholder="Tell us about your measurement goals"></textarea>
-                        </div>
-                        <button type="submit" class="w-full rounded-full bg-brand px-6 py-3 text-sm font-semibold text-slate-900 transition hover:-translate-y-0.5">Request consultation</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+<f:section name="Head">
+    <title>
+        <f:if condition="{data.seo_title}">
+            <f:then>{data.seo_title}</f:then>
+            <f:else>{data.title} | {siteName}</f:else>
+        </f:if>
+    </title>
+    <meta name="description" content="{f:if(condition: data.description, then: data.description, else: 'Image Engineering website')}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <f:render partial="Meta/Seo" arguments="{_all}" optional="true" />
 </f:section>
 
-<f:section name="Footer">
-    <footer class="mt-24 bg-slate-950/95 py-16">
-        <div class="mx-auto flex max-w-6xl flex-col gap-12 px-6 md:flex-row md:items-start md:justify-between">
-            <div class="max-w-sm space-y-4">
-                <img src="{f:uri.resource(path: 'EXT:site_template/Resources/Public/Images/logo-ie-white.png')}" alt="Image Engineering" class="h-9 w-auto" />
-                <p class="text-sm text-slate-400">
-                    Image Engineering advances imaging quality through calibrated charts, illumination and analysis software. We support R&amp;D teams worldwide with reliable benchmarking infrastructure.
-                </p>
-            </div>
-            <div class="footer-grid flex-1">
-                <div>
-                    <h3>Navigate</h3>
-                    <f:cObject typoscriptObjectPath="lib.footerMenu" />
-                </div>
-                <div>
-                    <h3>Resources</h3>
-                    <ul class="mt-3 space-y-2 text-sm text-slate-300">
-                        <li><a class="link-underline" href="/downloads">Downloads</a></li>
-                        <li><a class="link-underline" href="/events">Events</a></li>
-                        <li><a class="link-underline" href="/image-download">Media kit</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Contact</h3>
-                    <ul class="mt-3 space-y-2 text-sm text-slate-300">
-                        <li>Labs: Kerpen, Germany</li>
-                        <li>Email: <a class="link-underline" href="mailto:contact@image-engineering.com">contact@image-engineering.com</a></li>
-                        <li>Phone: +49 2273 9213-0</li>
-                    </ul>
+<f:section name="Body">
+    <div class="relative min-h-screen flex flex-col bg-[#121418] text-white">
+        <div aria-hidden="true" class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(217,196,9,0.12),_transparent_60%)]"></div>
+        <div aria-hidden="true" class="absolute inset-0 opacity-40 mix-blend-screen" style="background-image: url('{f:uri.resource(path: logo, extensionName: \"IeSiteTemplate\")}'); background-repeat: no-repeat; background-position: 120% -20%; background-size: 35%;"></div>
+
+        <f:render partial="Navigation/Main" arguments="{mainNavigation: mainNavigation, utilityNavigation: utilityNavigation, languageNavigation: languageNavigation, logo: logo, siteName: siteName}" />
+
+        <main id="content" class="relative z-10 flex-1 pt-48 pb-32">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <f:flashMessages />
+                <div class="grid gap-16">
+                    <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: data.uid, colPos: 0}" />
                 </div>
             </div>
-        </div>
-        <div class="mt-12 border-t border-slate-800/70 pt-6 text-center text-xs text-slate-500">
-            © <f:format.date format="Y" /> Image Engineering. All rights reserved.
-        </div>
-    </footer>
+        </main>
+
+        <f:render partial="Footer/Main" arguments="{footerNavigation: footerNavigation, siteName: siteName}" />
+    </div>
 </f:section>
+
+<f:section name="FooterAssets" />

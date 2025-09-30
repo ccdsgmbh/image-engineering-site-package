@@ -1,0 +1,260 @@
+##############################################
+# Image Engineering Site Template Setup
+##############################################
+
+config {
+  absRefPrefix = auto
+  baseURL = {$sitepackage.baseUrl}
+  no_cache = 0
+  metaCharset = utf-8
+  sys_language_overlay = 1
+  renderCharset = utf-8
+  linkVars = L
+  contentObjectExceptionHandler = 0
+}
+
+page = PAGE
+page {
+  typeNum = 0
+
+  meta {
+    viewport = width=device-width, initial-scale=1
+    robots = index,follow
+    description.data = page:description
+    author = Image Engineering
+  }
+
+  includeCSS.site = {$sitepackage.assets.siteCss}
+  includeCSS.site.media = all
+
+  headerData.40 = TEXT
+  headerData.40 {
+    value (
+      <script>
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                background: '#121418',
+                foreground: '#F8F9FB',
+                primary: '#d9c409',
+                secondary: '#4B4A4A',
+                accent: '#f3f3f3'
+              },
+              boxShadow: {
+                glow: '0 0 40px rgba(217, 196, 9, 0.15)'
+              },
+              borderRadius: {
+                xl: '1rem'
+              }
+            }
+          }
+        };
+      </script>
+    )
+    insertData = 0
+  }
+
+  includeJS {
+    tailwind = {$sitepackage.assets.tailwindCdn}
+    tailwind.external = 1
+  }
+
+  includeJSFooter {
+    jquery = {$sitepackage.assets.jqueryCdn}
+    jquery.external = 1
+    navigation = {$sitepackage.assets.navigationJs}
+  }
+
+  10 = FLUIDTEMPLATE
+  10 {
+    layoutRootPaths {
+      10 = EXT:ie_site_template/Resources/Private/Layouts/
+    }
+    templateRootPaths {
+      10 = EXT:ie_site_template/Resources/Private/Templates/Page/
+    }
+    partialRootPaths {
+      10 = EXT:ie_site_template/Resources/Private/Partials/
+    }
+    file = EXT:ie_site_template/Resources/Private/Templates/Page/Default.html
+
+    dataProcessing {
+      10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+      10 {
+        levels = 3
+        expandAll = 1
+        includeNotInMenu = 0
+        entryLevel = 0
+        as = mainNavigation
+        special = directory
+        special.value = {$sitepackage.main.navigationRoot}
+      }
+
+      20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+      20 {
+        levels = 1
+        expandAll = 0
+        includeNotInMenu = 0
+        entryLevel = 0
+        as = utilityNavigation
+        special = directory
+        special.value = {$sitepackage.main.navigationRoot}
+      }
+
+      30 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+      30 {
+        levels = 2
+        expandAll = 1
+        includeNotInMenu = 0
+        entryLevel = 0
+        as = footerNavigation
+        special = directory
+        special.value = {$sitepackage.footer.navigationRoot}
+      }
+
+      40 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
+      40 {
+        as = languageNavigation
+        languages = auto
+        addQueryString = 1
+        addQueryString.method = GET
+      }
+    }
+
+    variables {
+      siteName = {$sitepackage.siteName}
+      logo = {$sitepackage.main.logo}
+    }
+
+    settings {
+      logo = {$sitepackage.main.logo}
+    }
+  }
+}
+
+##############################################
+# Fallback navigation objects for TypoScript usage
+##############################################
+
+lib.breadcrumb = HMENU
+lib.breadcrumb {
+  special = rootline
+  special.range = 0|-1
+  1 = TMENU
+  1 {
+    NO = 1
+    NO {
+      doNotLinkIt = 0
+      stdWrap.htmlSpecialChars = 1
+      ATagParams = class="text-sm text-white/70 hover:text-white transition-colors"
+    }
+    CUR < .NO
+    CUR {
+      ATagParams = class="text-sm text-white font-semibold"
+    }
+    wrap = <nav class="text-sm" aria-label="breadcrumb"><ol class="flex items-center gap-2">|</ol></nav>
+    NO.wrapItemAndSub = <li class="flex items-center gap-2">|</li>
+  }
+}
+
+lib.footerNavigation = HMENU
+lib.footerNavigation {
+  special = directory
+  special.value = {$sitepackage.footer.navigationRoot}
+  1 = TMENU
+  1 {
+    wrap = <ul class="space-y-2">|</ul>
+    NO = 1
+    NO {
+      wrapItemAndSub = <li>|</li>
+      ATagParams = class="text-sm text-white/80 hover:text-white transition-colors"
+    }
+    ACT < .NO
+    ACT {
+      ATagParams = class="text-sm text-white font-semibold"
+    }
+  }
+}
+
+lib.mainNavigation = HMENU
+lib.mainNavigation {
+  special = directory
+  special.value = {$sitepackage.main.navigationRoot}
+  1 = TMENU
+  1 {
+    expAll = 1
+    wrap = <ul class="hidden xl:flex items-center gap-6">|</ul>
+    NO = 1
+    NO {
+      wrapItemAndSub = <li class="relative group">|</li>
+      ATagParams = class="flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-white/80 hover:text-[#d9c409] transition-colors"
+    }
+    ACT < .NO
+    ACT {
+      ATagParams = class="flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-[#d9c409] font-semibold"
+    }
+    IFSUB < .NO
+    IFSUB {
+      ATagParams = class="flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-white/80 hover:text-[#d9c409] transition-colors after:content-[''] after:inline-block after:w-2 after:h-2 after:rounded-full after:bg-[#d9c409] after:opacity-0 group-hover:after:opacity-100"
+    }
+    ACTIFSUB < .IFSUB
+    ACTIFSUB {
+      ATagParams = class="flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-[#d9c409] font-semibold after:content-[''] after:inline-block after:w-2 after:h-2 after:rounded-full after:bg-[#d9c409]"
+    }
+  }
+  2 = TMENU
+  2 {
+    wrap = <div class="mega-menu absolute left-0 top-full mt-4 hidden group-hover:block w-[720px] bg-[#f3f3f3] text-[#1f1f1f] border border-white/10 rounded-2xl shadow-2xl shadow-black/20 p-8">|</div>
+    NO = 1
+    NO {
+      wrapItemAndSub = <div class="grid grid-cols-1 md:grid-cols-2 gap-4">|</div>
+      ATagParams = class="block text-lg font-semibold text-[#1f1f1f] hover:text-[#d9c409] transition-colors"
+    }
+    ACT < .NO
+    ACT {
+      ATagParams = class="block text-lg font-semibold text-[#d9c409]"
+    }
+  }
+  3 = TMENU
+  3 {
+    wrap = <ul class="mt-3 space-y-2">|</ul>
+    NO = 1
+    NO {
+      wrapItemAndSub = <li>|</li>
+      ATagParams = class="text-sm text-[#3e3e3e] hover:text-[#d9c409] transition-colors"
+    }
+    ACT < .NO
+    ACT {
+      ATagParams = class="text-sm text-[#d9c409] font-medium"
+    }
+  }
+}
+
+lib.mobileNavigation =< lib.mainNavigation
+lib.mobileNavigation {
+  1.wrap = <ul class="flex flex-col gap-4">|</ul>
+  2.wrap = <div class="pl-4 space-y-3">|</div>
+  3.wrap = <div class="pl-4 space-y-1">|</div>
+}
+
+lib.dynamicContent = COA
+lib.dynamicContent {
+  10 = LOAD_REGISTER
+  10.colPos.cObject = TEXT
+  10.colPos.cObject.field = colPos
+  20 = CONTENT
+  20 {
+    table = tt_content
+    select {
+      where = colPos={register:colPos}
+      where.insertData = 1
+      orderBy = sorting
+      pidInList.data = data:pageUid
+      languageField = sys_language_uid
+    }
+    stdWrap.wrap = <div class="space-y-12">|</div>
+  }
+  30 = RESTORE_REGISTER
+}
