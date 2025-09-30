@@ -1,14 +1,1 @@
-ieSiteTemplate = ie_site_template
-ieSiteTemplate {
-  pageIds {
-    home = 1
-    automotive = 2
-  }
-  assets {
-    logo = EXT:ie_site_template/Resources/Public/Images/logo-ie-white.png
-  }
-  cdn {
-    tailwind = https://cdn.tailwindcss.com
-    fontRoboto = https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;600;700&display=swap
-  }
-}
+# IE Site Template constants placeholder

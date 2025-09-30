@@ -1,48 +1,21 @@
-config {
-  doctype = html5
-  absRefPrefix = /
-  admPanel = 0
-  debug = 0
-  no_cache = 0
-  sendCacheHeaders = 1
-  prefixLocalAnchors = all
-}
-
 page = PAGE
 page {
-  typeNum = 0
-  shortcutIcon = {$ieSiteTemplate.assets.logo}
-  meta.viewport = width=device-width, initial-scale=1
-  meta.description = Image Engineering delivers precision image quality testing solutions for cameras, sensors and optics.
-  meta.robots = index,follow
-
-  10 = FLUIDTEMPLATE
-  10 {
-    layoutRootPaths.0 = EXT:ie_site_template/Resources/Private/Layouts/Page/
-    templateRootPaths.0 = EXT:ie_site_template/Resources/Private/Templates/Page/
-    partialRootPaths.0 = EXT:ie_site_template/Resources/Private/Partials/Page/
-
-    templateName = CASE
-    templateName {
-      key.data = page:uid
-      1 = TEXT
-      1.value = Home
-      2 = TEXT
-      2.value = Automotive
-      default = TEXT
-      default.value = Home
+    includeCSS {
+        010_ie_site = EXT:ie_site_template/Resources/Public/Css/site.css
+        020_googleFonts = https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap
+        020_googleFonts.external = 1
     }
 
-    settings {
-      cdnTailwind = {$ieSiteTemplate.cdn.tailwind}
-      fontRoboto = {$ieSiteTemplate.cdn.fontRoboto}
-      assets.logo = {$ieSiteTemplate.assets.logo}
+    includeJS {
+        010_tailwindConfig = EXT:ie_site_template/Resources/Public/JavaScript/tailwind-config.js
+        020_tailwind = https://cdn.tailwindcss.com
+        020_tailwind.external = 1
+        020_tailwind.disableCompression = 1
     }
-  }
 
-  includeCSS.site = EXT:ie_site_template/Resources/Public/Css/site.css
-  includeCSS.site.media = all
-
-  includeJSFooter.site = EXT:ie_site_template/Resources/Public/JavaScript/site.js
+    headerData.10 = TEXT
+    headerData.10.value (
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    )
 }
-

@@ -1,19 +1,20 @@
 <?php
+
 $EM_CONF[$_EXTKEY] = [
-    'title' => 'IE Site Template',
-    'description' => 'Site package that delivers the Image Engineering basic layout using Fluid, TypoScript and Tailwind CSS.',
+    'title' => 'Image Engineering Site Template',
+    'description' => 'Sitepackage delivering Tailwind-based styling and TypoScript.',
     'category' => 'templates',
     'author' => 'Image Engineering',
     'author_email' => 'info@image-engineering.de',
     'state' => 'beta',
-    'clearCacheOnLoad' => 1,
+    'clearCacheOnLoad' => true,
     'version' => '1.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '13.0.0-13.4.99',
-            'frontend' => '13.0.0-13.4.99'
+            'typo3' => '13.0.0-13.9.99',
+            'php' => '8.2.0-8.9.99'
         ],
         'conflicts' => [],
-        'suggests' => []
-    ]
+        'suggests' => [],
+    ],
 ];
