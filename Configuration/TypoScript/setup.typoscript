@@ -1,174 +1,229 @@
-#############################
-# Base page configuration
-#############################
-
 config {
-    absRefPrefix = auto
-    doctype = html5
-    linkVars = L
-    no_cache = 0
-    sendCacheHeaders = 1
+  absRefPrefix = auto
+  baseURL = {$ie_site_template.baseUrl}
+  metaViewport = width=device-width, initial-scale=1
+  no_cache = 0
+  contentObjectExceptionHandler = 0
 }
 
 page = PAGE
 page {
-    typeNum = 0
-    10 = FLUIDTEMPLATE
-    10 {
-        layoutRootPaths.10 = EXT:ie_site_template/Resources/Private/Layouts/
-        partialRootPaths.10 = EXT:ie_site_template/Resources/Private/Partials/
-        templateRootPaths.10 = EXT:ie_site_template/Resources/Private/Templates/Page/
+  typeNum = 0
+  meta.description = Image Engineering site package template
+  10 = FLUIDTEMPLATE
+  10 {
+    layoutRootPaths.10 = EXT:ie_site_template/Resources/Private/Layouts/
+    partialRootPaths.10 = EXT:ie_site_template/Resources/Private/Partials/
+    templateRootPaths.10 = EXT:ie_site_template/Resources/Private/Templates/Page/
 
-        templateName = CASE
-        templateName {
-            key.data = levelfield:-1, backend_layout_next_level, slide
-            default = TEXT
-            default.value = Default
-            home = TEXT
-            home.value = Home
-            automotive = TEXT
-            automotive.value = Automotive
-        }
+    dataProcessing {
+      10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+      10 {
+        as = mainNavigation
+        levels = 2
+        expandAll = 1
+        entryLevel = 0
+        includeSpacer = 1
+      }
 
-        variables {
-            mainNavigation < lib.mainNavigation
-            footerNavigation < lib.footerNavigation
-            heroContent < lib.content.hero
-            introContent < lib.content.intro
-            industriesContent < lib.content.industries
-            capabilitiesContent < lib.content.capabilities
-            newsContent < lib.content.news
-            standardsContent < lib.content.standards
-            ctaContent < lib.content.cta
-            contactContent < lib.content.contact
-
-            automotiveHero < lib.content.automotiveHero
-            automotiveApplications < lib.content.automotiveApplications
-            automotiveStandards < lib.content.automotiveStandards
-            automotiveSolutions < lib.content.automotiveSolutions
-            automotiveProducts < lib.content.automotiveProducts
-            automotiveCta < lib.content.automotiveCta
-            automotiveContact < lib.content.automotiveContact
-
-            mainContent < lib.content.main
-
-            siteLogo = TEXT
-            siteLogo.value = {ieSiteTemplate.logoLight}
-            siteLogo.insertData = 1
-            logoLinkUid = TEXT
-            logoLinkUid.data = leveluid:0
-        }
+      20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+      20 {
+        as = footerNavigation
+        levels = 1
+        special = directory
+        special.value = 0
+      }
     }
 
-    includeCSS {
-        site = EXT:ie_site_template/Resources/Public/Styles/site.css
+    variables {
+      TopBanner < lib.contentTopBanner
+      HeroPrimary < lib.contentHeroPrimary
+      HeroSecondary < lib.contentHeroSecondary
+      Industries < lib.contentIndustries
+      News < lib.contentNews
+      Standards < lib.contentStandards
+      LeadContent < lib.contentLead
+      AutomotiveHero < lib.contentAutomotiveHero
+      AutomotiveHighlights < lib.contentAutomotiveHighlights
+      AutomotiveApplications < lib.contentAutomotiveApplications
+      AutomotiveStandards < lib.contentAutomotiveStandards
+      AutomotiveProducts < lib.contentAutomotiveProducts
+      AutomotiveLogos < lib.contentAutomotiveLogos
+      AutomotiveContact < lib.contentAutomotiveContact
     }
+  }
 
-    includeJSLibs {
-    }
+  includeCSS.site = EXT:ie_site_template/Resources/Public/Styles/site.css
+  includeCSS.site.media = all
 
-    includeJSFooter {
-        site = EXT:ie_site_template/Resources/Public/JavaScript/site.js
-    }
+  includeJSFooterlibs.jquery = https://code.jquery.com/jquery-3.7.1.min.js
+  includeJSFooterlibs.jquery.external = 1
+  includeJSFooterlibs.jquery.disableCompression = 1
+  includeJSFooterlibs.jquery.integrity = sha256-6ZvYFvCwUateh1ytY1/6Yr2vNh+lX6YsJhBKt3vn1Kg=
+  includeJSFooterlibs.jquery.crossorigin = anonymous
+
+  includeJSFooter.site = EXT:ie_site_template/Resources/Public/JavaScript/site.js
+  includeJSFooter.site.async = 0
 }
 
-#############################
-# Navigation
-#############################
+[page["uid"] == 1]
+page.10.templateName = Home
+[elseif page["uid"] == 2]
+page.10.templateName = Automotive
+[else]
+page.10.templateName = Default
+[end]
 
-lib.mainNavigation = HMENU
-lib.mainNavigation {
-    entryLevel = 0
-    wrap = <ul class="main-nav">|</ul>
-    1 = TMENU
-    1 {
-        expAll = 0
-        NO {
-            wrapItemAndSub = <li class="main-nav__item">|</li>
-            ATagParams = class="main-nav__link"
-        }
-        ACT < .NO
-        ACT {
-            ATagParams = class="main-nav__link main-nav__link--active"
-        }
-    }
+lib.contentTopBanner = CONTENT
+lib.contentTopBanner {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos=10
+    orderBy = sorting
+    languageField = sys_language_uid
+  }
 }
 
-lib.footerNavigation = HMENU
-lib.footerNavigation {
-    special = directory
-    special.value.data = leveluid:0
-    wrap = <ul class="footer-nav">|</ul>
-    1 = TMENU
-    1 {
-        NO {
-            wrapItemAndSub = <li class="footer-nav__item">|</li>
-            ATagParams = class="footer-nav__link"
-        }
-        ACT < .NO
-        ACT {
-            ATagParams = class="footer-nav__link footer-nav__link--active"
-        }
-    }
+lib.contentHeroPrimary = CONTENT
+lib.contentHeroPrimary {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos=11
+    orderBy = sorting
+    languageField = sys_language_uid
+  }
 }
 
-#############################
-# Content areas
-#############################
-
-lib.content =
-lib.content {
-    hero < styles.content.get
-    hero.select.where = colPos = 10
-
-    intro < styles.content.get
-    intro.select.where = colPos = 11
-
-    industries < styles.content.get
-    industries.select.where = colPos = 12
-
-    capabilities < styles.content.get
-    capabilities.select.where = colPos = 13
-
-    news < styles.content.get
-    news.select.where = colPos = 14
-
-    standards < styles.content.get
-    standards.select.where = colPos = 15
-
-    cta < styles.content.get
-    cta.select.where = colPos = 16
-
-    contact < styles.content.get
-    contact.select.where = colPos = 17
-
-    automotiveHero < styles.content.get
-    automotiveHero.select.where = colPos = 20
-
-    automotiveApplications < styles.content.get
-    automotiveApplications.select.where = colPos = 21
-
-    automotiveStandards < styles.content.get
-    automotiveStandards.select.where = colPos = 22
-
-    automotiveSolutions < styles.content.get
-    automotiveSolutions.select.where = colPos = 23
-
-    automotiveProducts < styles.content.get
-    automotiveProducts.select.where = colPos = 24
-
-    automotiveCta < styles.content.get
-    automotiveCta.select.where = colPos = 25
-
-    automotiveContact < styles.content.get
-    automotiveContact.select.where = colPos = 26
+lib.contentHeroSecondary = CONTENT
+lib.contentHeroSecondary {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos=12
+    orderBy = sorting
+    languageField = sys_language_uid
+  }
 }
 
-lib.content.main < styles.content.get
-lib.content.main.select.where = colPos = 0
+lib.contentIndustries = CONTENT
+lib.contentIndustries {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos=20
+    orderBy = sorting
+    languageField = sys_language_uid
+  }
+}
 
-#############################
-# Utility values
-#############################
-lib.currentYear = TEXT
-lib.currentYear.data = date:Y
+lib.contentNews = CONTENT
+lib.contentNews {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos=30
+    orderBy = sorting
+    languageField = sys_language_uid
+  }
+}
+
+lib.contentStandards = CONTENT
+lib.contentStandards {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos=40
+    orderBy = sorting
+    languageField = sys_language_uid
+  }
+}
+
+lib.contentLead = CONTENT
+lib.contentLead {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos=50
+    orderBy = sorting
+    languageField = sys_language_uid
+  }
+}
+
+lib.contentAutomotiveHero = CONTENT
+lib.contentAutomotiveHero {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos=110
+    orderBy = sorting
+    languageField = sys_language_uid
+  }
+}
+
+lib.contentAutomotiveHighlights = CONTENT
+lib.contentAutomotiveHighlights {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos=111
+    orderBy = sorting
+    languageField = sys_language_uid
+  }
+}
+
+lib.contentAutomotiveApplications = CONTENT
+lib.contentAutomotiveApplications {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos=120
+    orderBy = sorting
+    languageField = sys_language_uid
+  }
+}
+
+lib.contentAutomotiveStandards = CONTENT
+lib.contentAutomotiveStandards {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos=130
+    orderBy = sorting
+    languageField = sys_language_uid
+  }
+}
+
+lib.contentAutomotiveProducts = CONTENT
+lib.contentAutomotiveProducts {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos=140
+    orderBy = sorting
+    languageField = sys_language_uid
+  }
+}
+
+lib.contentAutomotiveLogos = CONTENT
+lib.contentAutomotiveLogos {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos=150
+    orderBy = sorting
+    languageField = sys_language_uid
+  }
+}
+
+lib.contentAutomotiveContact = CONTENT
+lib.contentAutomotiveContact {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos=160
+    orderBy = sorting
+    languageField = sys_language_uid
+  }
+}

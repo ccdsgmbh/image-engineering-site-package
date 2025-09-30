@@ -1,27 +1,20 @@
+identifier: ie-site
 rootPageId: 1
 base: 'https://p-cfmuvv.project.space/'
-websiteTitle: 'Image Engineering'
-
-languages:
-  - title: English
-    enabled: true
-    languageId: 0
-    base: /
-    typo3Language: en
-    locale: en_US.UTF-8
-    iso-639-1: en
-    navigationTitle: English
-    hreflang: en-US
-    direction: ltr
-    flag: gb
-
+baseVariants: {  }
 errorHandling:
   - errorCode: 404
-    errorHandler: Page
-    errorContentSource: 't3://page?uid=404'
-  - errorCode: 403
-    errorHandler: Page
-    errorContentSource: 't3://page?uid=403'
-
-routes: { }
-routeEnhancers: { }
+    errorHandler: Fluid
+    options:
+      templateFile: EXT:ie_site_template/Resources/Private/Templates/Page/Error404.html
+languages:
+  - title: English
+    navigationTitle: English
+    base: /
+    locale: en_US
+    iso-639-1: en
+    hreflang: en-US
+    direction: ltr
+    languageId: 0
+    flag: gb
+websiteTitle: 'Image Engineering'

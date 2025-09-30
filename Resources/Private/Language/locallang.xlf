@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xliff version="1.2" xmlns:t3="http://typo3.org/schemas/xliff">
-  <file source-language="en" datatype="plaintext" original="messages" t3:id="ie_site_template">
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2">
+  <file source-language="en" datatype="plaintext" original="messages" product-name="ie_site_template">
     <body>
-      <trans-unit id="sitepackage.label" xml:space="preserve">
-        <source>Image Engineering site package</source>
+      <trans-unit id="navigation.contact">
+        <source>Contact</source>
+      </trans-unit>
+      <trans-unit id="footer.address">
+        <source>Image Engineering GmbH &amp; Co. KG</source>
       </trans-unit>
     </body>
   </file>

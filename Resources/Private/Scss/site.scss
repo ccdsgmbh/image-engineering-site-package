@@ -1,1 +1,8 @@
-// Source SCSS for Image Engineering site package. Compile to Public/Styles/site.css when theming updates are required.
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Source stylesheet for the Image Engineering site package.
+ * Compile with Tailwind CSS (production configuration located in README.md).
+ */

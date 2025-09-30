@@ -4,6 +4,7 @@
 Create a TYPO Version 13 **site package extension** that delivers the website configuration and basic layout.  
 The extension must be installable via Composer.
 The extension is only for the basic layout including Fluid Templates, CSS, JS, Layout-Images like Logo and TypoScript.
+The CSS must be based on tailwindcss and the JS on jQuery.
 Read ./rendered/index.html for the home page template
 Read ./rendered/automotive.html for a subpage template
 Identify and create the necessary Fluid Templates, CSS, JS, Layout-Images like Logo and TypoScript to replicate the exact layout of the website ./rendered/index.html and ./rendered/automotive.html
@@ -17,7 +18,7 @@ The target site base URL is https://p-cfmuvv.project.space/
 **Type:** `typo3-cms-extension`  
 **Target:** TYPO3 13.x, PHP 8.2+
 
-## Extension structure (do not create files if not needed)
+## Extension structure (do not create files or folder as placeholders if not needed)
 ```
 ├── composer.json                 ← defines package, type=typo3-cms-extension
 ├── ext_emconf.php                ← TYPO3 extension metadata
@@ -72,18 +73,6 @@ The target site base URL is https://p-cfmuvv.project.space/
 │       ├── JavaScript/           ← site.js (jQuery/Vite output)
 │       ├── Images/               ← public images/icons
 │       └── Icons/                ← SVG/Backend icons for CEs
-│
-├── Documentation/                ← reST / Sphinx documentation
-│   ├── Index.rst
-│   ├── installation.rst
-│   ├── content.rst
-│   └── development.rst
-│
-├── Tests/
-│   ├── Unit/                     ← PHPUnit unit tests
-│   │   └── Utility/
-│   │       └── JsonUtilityTest.php
-│   └── phpunit.xml.dist          ← PHPUnit config
 │
 └── README.md                     ← Extension overview
 ```

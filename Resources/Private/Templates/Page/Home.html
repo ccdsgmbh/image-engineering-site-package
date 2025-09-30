@@ -1,76 +1,157 @@
+{namespace f=TYPO3\\CMS\\Fluid\\ViewHelpers}
 <f:layout name="Default" />
 
-<f:section name="Main">
-    <f:if condition="{heroContent}">
-        <section class="hero hero--home">
-            <div class="hero__background"></div>
-            <div class="hero__inner">
-                {heroContent -> f:format.raw()}
-            </div>
-        </section>
-    </f:if>
+<f:section name="Body">
+    <f:alias map="{
+        industries: {
+            0: { label: 'PH', name: 'Photography', description: 'Digital cameras for professional and amateur applications' },
+            1: { label: 'MB', name: 'Mobile Phones', description: 'Image quality testing according to VCX standards' },
+            2: { label: 'AD', name: 'Automotive & ADAS', description: 'Camera systems in vehicles, driver assistance and autonomous driving' },
+            3: { label: 'BC', name: 'Broadcast & HDTV', description: 'Video transmission, TV cameras, color-accurate reproduction' },
+            4: { label: 'SV', name: 'Security / Surveillance', description: 'CCTV systems and advanced surveillance imaging' },
+            5: { label: 'MV', name: 'Machine Vision', description: 'Inspection, robotics and quality control applications' },
+            6: { label: 'MD', name: 'Medical / Endoscopy', description: 'Image quality in medical imaging and diagnostic systems' },
+            7: { label: 'SC', name: 'Scanning & Archiving', description: 'Digitization of documents, books and photographic assets' }
+        },
+        newsItems: {
+            0: { date: 'July 21, 2025', title: 'EMVA 1288 becoming ISO 24942', text: 'Dietmar Wueller is leading the effort to migrate EMVA 1288 into ISO 24942, enhancing global standards for image quality testing.', image: 'news-emva-1288-logo.png' },
+            1: { date: 'June 20, 2025', title: 'TE300 – A new skin tone test chart', text: 'Introducing the TE300 Skin Tone Checker: a modern tool for assessing skin tone accuracy with real-world spectral data.', image: 'news-te300.png' },
+            2: { date: 'May 27, 2025', title: 'AI-powered image quality analysis software', text: 'The iQ-Analyzer-X introduces advanced AI-powered tools for automation and video analysis to streamline testing workflows.', image: 'news-iq-analyzer-x.png' }
+        },
+        standards: {
+            0: { code: 'IEEE P2020', description: 'Automotive Image Quality Standard', category: 'Automotive', status: 'Active Member' },
+            1: { code: 'ISO 12233', description: 'Resolution and Spatial Frequency Responses', category: 'Photography', status: 'Compliant' },
+            2: { code: 'ISO 14524', description: 'Methods for measuring opto-electronic conversion functions', category: 'Photography', status: 'Compliant' },
+            3: { code: 'ISO 15739', description: 'Noise measurements for digital cameras', category: 'Photography', status: 'Compliant' },
+            4: { code: 'IEC 61966-2-1', description: 'Colour measurement and management – sRGB colour space', category: 'Color Science', status: 'Compliant' },
+            5: { code: 'EMVA 1288', description: 'Characterization of image sensors and cameras', category: 'Machine Vision', status: 'Compliant' }
+        }
+    }">
+        <div class="min-h-screen bg-background text-foreground">
+            <f:render partial="Shared/Header" arguments="{mainNavigation: mainNavigation, TopBanner: TopBanner}" />
+            <main id="main" class="relative">
+                <section class="relative min-h-screen overflow-hidden home-hero">
+                    <div class="absolute inset-0">
+                        <img src="{f:uri.resource(path: 'Images/precision-testing-hero.jpg')}" alt="Precision engineering test setup" class="w-full h-full object-cover hero-image"/>
+                        <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.32) 45%, rgba(0,0,0,0) 100%);"></div>
+                    </div>
+                    <div class="h-24 lg:h-28"></div>
+                    <div class="container mx-auto px-6 py-24 relative z-10">
+                        <div class="max-w-3xl space-y-8">
+                            <p class="text-sm uppercase tracking-[0.4em] text-white-70">High-precision Test Charts</p>
+                            <h1 class="text-4xl md:text-6xl lg:text-7xl font-light leading-[0.9] text-white">
+                                Test Charts<br />
+                                <span class="font-medium">Made by Image Engineering</span>
+                            </h1>
+                            <p class="text-lg md:text-2xl text-white-85 font-light leading-relaxed max-w-2xl">
+                                We develop and manufacture test charts for professional image quality testing. Order directly from our shop or talk to us about bespoke solutions tailored to your lab.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <a href="#industries" class="btn-primary">Discover Charts</a>
+                                <a href="#trusted-industries" class="btn-secondary">Trusted Across All Industries</a>
+                            </div>
+                            <div class="flex flex-wrap gap-12 pt-6 text-white-90 stats">
+                                <div>
+                                    <div class="text-3xl font-medium">200+</div>
+                                    <div class="text-sm uppercase tracking-[0.35em] text-white-60">Test Chart Variants</div>
+                                </div>
+                                <div>
+                                    <div class="text-3xl font-medium">0.01%</div>
+                                    <div class="text-sm uppercase tracking-[0.35em] text-white-60">Measurement Tolerance</div>
+                                </div>
+                                <div>
+                                    <div class="text-3xl font-medium">15+</div>
+                                    <div class="text-sm uppercase tracking-[0.35em] text-white-60">Years of Experience</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-    <f:if condition="{introContent}">
-        <section class="section section--intro">
-            <div class="section__inner">
-                {introContent -> f:format.raw()}
-            </div>
-        </section>
-    </f:if>
+                <section id="trusted-industries" class="py-24 bg-slate-50 text-light-foreground">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center mb-16 space-y-4">
+                            <p class="text-xs uppercase tracking-[0.4em] text-light-muted">Industries</p>
+                            <h2 class="text-4xl md:text-5xl font-semibold tracking-tight">Trusted Across All Industries</h2>
+                            <p class="text-xl text-light-muted max-w-3xl mx-auto font-light">
+                                Our advanced image processing solutions drive innovation across camera, sensor and automation projects worldwide.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-6xl mx-auto">
+                            <f:for each="{industries}" as="industry">
+                                <div class="group flex flex-col items-center text-center space-y-4">
+                                    <div class="w-24 h-24 rounded-full border-ie-blue-30 bg-ie-blue-10 flex items-center justify-center text-ie-blue shadow-soft transition-transform duration-300 group-hover:scale-105">
+                                        <span class="text-lg font-semibold tracking-[0.4em]">{industry.label}</span>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <h3 class="text-lg font-medium">{industry.name}</h3>
+                                        <p class="text-sm text-light-muted font-light leading-relaxed">
+                                            {industry.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            </f:for>
+                        </div>
+                    </div>
+                </section>
 
-    <f:if condition="{mainContent}">
-        <section class="section section--content">
-            <div class="section__inner section__inner--narrow">
-                {mainContent -> f:format.raw()}
-            </div>
-        </section>
-    </f:if>
+                <section id="news" class="py-20 bg-news text-white">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center mb-16 space-y-4">
+                            <p class="text-xs uppercase tracking-[0.4em] text-white-60">Updates</p>
+                            <h2 class="text-4xl font-semibold">Latest News</h2>
+                            <p class="text-lg text-white-70 max-w-3xl mx-auto">
+                                Stay updated with the latest developments in image quality testing and measurement technology.
+                            </p>
+                        </div>
+                        <div class="grid gap-8 md:grid-cols-3">
+                            <f:for each="{newsItems}" as="news">
+                                <article class="bg-white-5 backdrop-blur rounded-2xl overflow-hidden border border-white-10 shadow-elegant hover:shadow-strong transition-all duration-300">
+                                    <div class="aspect-video overflow-hidden">
+                                        <img src="{f:uri.resource(path: 'Images/{news.image}')}" alt="{news.title}" class="w-full h-full object-cover" />
+                                    </div>
+                                    <div class="p-6 space-y-4">
+                                        <div class="text-xs uppercase tracking-[0.35em] text-white-50">{news.date}</div>
+                                        <h3 class="text-2xl font-semibold leading-tight">{news.title}</h3>
+                                        <p class="text-white-70 leading-relaxed text-sm">{news.text}</p>
+                                        <a href="#" class="inline-flex items-center gap-2 uppercase tracking-[0.3em] text-xs text-primary hover:text-white transition-colors">Read more<span>→</span></a>
+                                    </div>
+                                </article>
+                            </f:for>
+                        </div>
+                    </div>
+                </section>
 
-    <f:if condition="{industriesContent}">
-        <section class="section section--industries">
-            <div class="section__inner">
-                {industriesContent -> f:format.raw()}
-            </div>
-        </section>
-    </f:if>
-
-    <f:if condition="{capabilitiesContent}">
-        <section class="section section--capabilities">
-            <div class="section__inner">
-                {capabilitiesContent -> f:format.raw()}
-            </div>
-        </section>
-    </f:if>
-
-    <f:if condition="{newsContent}">
-        <section class="section section--news">
-            <div class="section__inner">
-                {newsContent -> f:format.raw()}
-            </div>
-        </section>
-    </f:if>
-
-    <f:if condition="{standardsContent}">
-        <section class="section section--standards">
-            <div class="section__inner">
-                {standardsContent -> f:format.raw()}
-            </div>
-        </section>
-    </f:if>
-
-    <f:if condition="{ctaContent}">
-        <section class="section section--cta">
-            <div class="section__inner">
-                {ctaContent -> f:format.raw()}
-            </div>
-        </section>
-    </f:if>
-
-    <f:if condition="{contactContent}">
-        <section class="section section--contact">
-            <div class="section__inner">
-                {contactContent -> f:format.raw()}
-            </div>
-        </section>
-    </f:if>
+                <section id="standards" class="py-24 bg-white text-black">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center mb-12 space-y-4">
+                            <p class="text-xs uppercase tracking-[0.4em] text-gray-400">Standards &amp; Memberships</p>
+                            <h2 class="text-3xl md:text-4xl font-semibold">Shaping Global Standards</h2>
+                            <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                                Our engineers actively participate in the development of the most important international standards for image quality testing.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-16">
+                            <f:for each="{0: 'logo-ieee-new.jpg', 1: 'logo-iso-new.jpg', 2: 'logo-iec-new.jpg', 3: 'logo-emva-new.jpg'}" as="logo">
+                                <div class="w-32 h-32 bg-white rounded-xl shadow-soft flex items-center justify-center p-4">
+                                    <img src="{f:uri.resource(path: 'Images/{logo}')}" alt="Standard logo" class="max-w-full max-h-full object-contain" />
+                                </div>
+                            </f:for>
+                        </div>
+                        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                            <f:for each="{standards}" as="standard">
+                                <div class="rounded-2xl border border-gray-200 bg-gray-50 p-6 shadow-soft hover:shadow-strong transition-shadow duration-300 flex flex-col gap-3">
+                                    <div class="text-xs uppercase tracking-[0.35em] text-gray-400">{standard.category}</div>
+                                    <h3 class="text-xl font-semibold text-black">{standard.code}</h3>
+                                    <p class="text-gray-600 leading-relaxed text-sm">{standard.description}</p>
+                                    <div class="mt-auto text-xs uppercase tracking-[0.3em] text-ie-navy">{standard.status}</div>
+                                </div>
+                            </f:for>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <f:render partial="Shared/Footer" arguments="{mainNavigation: mainNavigation}" />
+        </div>
+    </f:alias>
 </f:section>

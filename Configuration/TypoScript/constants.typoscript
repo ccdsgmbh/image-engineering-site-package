@@ -1,17 +1,10 @@
-#############################
-# Image Engineering constants
-#############################
-
-ieSiteTemplate {
-    baseUrl = https://p-cfmuvv.project.space/
-    assetsPath = EXT:ie_site_template/Resources/Public/
-    logoLight = EXT:ie_site_template/Resources/Public/Images/logo-ie-light.svg
-    logoDark = EXT:ie_site_template/Resources/Public/Images/logo-ie-dark.svg
-}
-
-page {
-    meta {
-        viewport = width=device-width, initial-scale=1.0
-        robots = index,follow
-    }
+ie_site_template {
+  siteName = Image Engineering
+  baseUrl = https://p-cfmuvv.project.space/
+  assets {
+    logoPrimary = EXT:ie_site_template/Resources/Public/Images/logo-ie-white.png
+    logoSecondary = EXT:ie_site_template/Resources/Public/Images/logo-ie-black.png
+    heroHome = EXT:ie_site_template/Resources/Public/Images/precision-testing-hero.jpg
+    heroAutomotive = EXT:ie_site_template/Resources/Public/Images/automotive-hero-clean-new.jpg
+  }
 }

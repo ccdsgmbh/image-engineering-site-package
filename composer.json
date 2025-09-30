@@ -1,24 +1,19 @@
 {
-    "name": "image-engineering/ie-site-template",
-    "description": "Image Engineering site package template for TYPO3 13",
-    "type": "typo3-cms-extension",
-    "license": "MIT",
-    "require": {
-        "typo3/cms-core": "^13.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "ImageEngineering\\IeSiteTemplate\\": "Classes/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "ImageEngineering\\IeSiteTemplate\\Tests\\": "Tests/"
-        }
-    },
-    "extra": {
-        "typo3/cms": {
-            "extension-key": "ie_site_template"
-        }
+  "name": "image-engineering/ie-site-template",
+  "description": "Site package providing the Image Engineering base layout and configuration for TYPO3 13.",
+  "type": "typo3-cms-extension",
+  "license": "MIT",
+  "require": {
+    "typo3/cms-core": "^13.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ImageEngineering\\IeSiteTemplate\\": "Classes/"
     }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "ie_site_template"
+    }
+  }
 }

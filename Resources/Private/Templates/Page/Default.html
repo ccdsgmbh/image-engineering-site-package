@@ -1,21 +1,28 @@
+{namespace f=TYPO3\\CMS\\Fluid\\ViewHelpers}
 <f:layout name="Default" />
 
-<f:section name="Main">
-    <f:if condition="{heroContent}">
-        <section class="section section--hero">
-            <div class="section__inner">{heroContent -> f:format.raw()}</div>
-        </section>
-    </f:if>
-
-    <section class="section section--content">
-        <div class="section__inner section__inner--narrow">
-            {mainContent -> f:format.raw()}
-        </div>
-    </section>
-
-    <f:if condition="{ctaContent}">
-        <section class="section section--cta">
-            <div class="section__inner">{ctaContent -> f:format.raw()}</div>
-        </section>
-    </f:if>
+<f:section name="Body">
+    <div class="min-h-screen bg-background text-foreground">
+        <f:render partial="Shared/Header" arguments="{mainNavigation: mainNavigation, TopBanner: TopBanner}" />
+        <main id="main" class="container mx-auto px-6 py-24 space-y-16">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl font-light tracking-tight mb-6">{page.title}</h1>
+                <p class="text-lg text-muted-foreground">
+                    This page is powered by the Image Engineering site package. Add your content elements to the configured backend layout columns to populate this template.
+                </p>
+            </div>
+            <div class="grid gap-12 md:grid-cols-[2fr_1fr]">
+                <div class="space-y-8">
+                    <f:cObject typoscriptObjectPath="lib.contentHeroPrimary" />
+                    <f:cObject typoscriptObjectPath="lib.contentLead" />
+                    <f:cObject typoscriptObjectPath="styles.content.get" />
+                </div>
+                <aside class="space-y-8">
+                    <f:cObject typoscriptObjectPath="lib.contentHeroSecondary" />
+                    <f:cObject typoscriptObjectPath="styles.content.getRight" />
+                </aside>
+            </div>
+        </main>
+        <f:render partial="Shared/Footer" arguments="{mainNavigation: mainNavigation}" />
+    </div>
 </f:section>

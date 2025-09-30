@@ -1,0 +1,23 @@
+{namespace f=TYPO3\\CMS\\Fluid\\ViewHelpers}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Page not found</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{f:uri.resource(path: 'Styles/site.css')}" />
+</head>
+<body class="bg-background text-foreground font-roboto flex items-center justify-center min-h-screen">
+    <div class="text-center space-y-6 px-6">
+        <span class="text-xs uppercase tracking-[0.4em] text-muted-foreground">Error 404</span>
+        <h1 class="text-5xl font-light tracking-tight">Page not found</h1>
+        <p class="text-lg text-muted-foreground max-w-xl mx-auto">
+            The requested page could not be located. Please check the URL or return to the home page.
+        </p>
+        <a href="/" class="btn-primary inline-flex items-center justify-center">Back to home</a>
+    </div>
+</body>
+</html>

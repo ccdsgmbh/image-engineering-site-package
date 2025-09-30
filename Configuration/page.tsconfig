@@ -1,203 +1,200 @@
 mod {
-    web_layout {
-        BackendLayouts {
-            default {
-                title = Default Page
-                config {
-                    backend_layout {
-                        colCount = 1
-                        rowCount = 1
-                        rows {
-                            1 {
-                                columns {
-                                    1 {
-                                        name = Main Content
-                                        colPos = 0
-                                    }
-                                }
-                            }
-                        }
-                    }
+  web_layout {
+    BackendLayouts {
+      home {
+        title = Home
+        config {
+          backend_layout {
+            colCount = 4
+            rowCount = 6
+            rows {
+              1 {
+                columns {
+                  1 {
+                    name = Announcement Banner
+                    colPos = 10
+                    colspan = 4
+                  }
                 }
-            }
-            home {
-                title = Home: Image Engineering
-                config {
-                    backend_layout {
-                        colCount = 1
-                        rowCount = 9
-                        rows {
-                            1 {
-                                columns {
-                                    1 {
-                                        name = Hero
-                                        colPos = 10
-                                    }
-                                }
-                            }
-                            2 {
-                                columns {
-                                    1 {
-                                        name = Intro / Highlights
-                                        colPos = 11
-                                    }
-                                }
-                            }
-                            3 {
-                                columns {
-                                    1 {
-                                        name = Main Content
-                                        colPos = 0
-                                    }
-                                }
-                            }
-                            4 {
-                                columns {
-                                    1 {
-                                        name = Industries Grid
-                                        colPos = 12
-                                    }
-                                }
-                            }
-                            5 {
-                                columns {
-                                    1 {
-                                        name = Capabilities & Services
-                                        colPos = 13
-                                    }
-                                }
-                            }
-                            6 {
-                                columns {
-                                    1 {
-                                        name = News & Updates
-                                        colPos = 14
-                                    }
-                                }
-                            }
-                            7 {
-                                columns {
-                                    1 {
-                                        name = Standards & Partnerships
-                                        colPos = 15
-                                    }
-                                }
-                            }
-                            8 {
-                                columns {
-                                    1 {
-                                        name = Call to Action
-                                        colPos = 16
-                                    }
-                                }
-                            }
-                            9 {
-                                columns {
-                                    1 {
-                                        name = Contact / Footer CTA
-                                        colPos = 17
-                                    }
-                                }
-                            }
-                        }
-                    }
+              }
+              2 {
+                columns {
+                  1 {
+                    name = Hero Content
+                    colPos = 11
+                    colspan = 3
+                  }
+                  2 {
+                    name = Hero Secondary
+                    colPos = 12
+                    colspan = 1
+                  }
                 }
-            }
-
-            automotive {
-                title = Automotive Landing
-                config {
-                    backend_layout {
-                        colCount = 1
-                        rowCount = 8
-                        rows {
-                            1 {
-                                columns {
-                                    1 {
-                                        name = Hero
-                                        colPos = 20
-                                    }
-                                }
-                            }
-                            2 {
-                                columns {
-                                    1 {
-                                        name = Main Applications
-                                        colPos = 21
-                                    }
-                                }
-                            }
-                            3 {
-                                columns {
-                                    1 {
-                                        name = Standards
-                                        colPos = 22
-                                    }
-                                }
-                            }
-                            4 {
-                                columns {
-                                    1 {
-                                        name = Solutions Overview
-                                        colPos = 23
-                                    }
-                                }
-                            }
-                            5 {
-                                columns {
-                                    1 {
-                                        name = Key Products
-                                        colPos = 24
-                                    }
-                                }
-                            }
-                            6 {
-                                columns {
-                                    1 {
-                                        name = CTA / Lead Capture
-                                        colPos = 25
-                                    }
-                                }
-                            }
-                            7 {
-                                columns {
-                                    1 {
-                                        name = Contact Area
-                                        colPos = 26
-                                    }
-                                }
-                            }
-                            8 {
-                                columns {
-                                    1 {
-                                        name = Generic Content
-                                        colPos = 0
-                                    }
-                                }
-                            }
-                        }
-                    }
+              }
+              3 {
+                columns {
+                  1 {
+                    name = Industries Highlight
+                    colPos = 20
+                    colspan = 4
+                  }
                 }
+              }
+              4 {
+                columns {
+                  1 {
+                    name = News & Stories
+                    colPos = 30
+                    colspan = 2
+                  }
+                  2 {
+                    name = Standards & Expertise
+                    colPos = 40
+                    colspan = 2
+                  }
+                }
+              }
+              5 {
+                columns {
+                  1 {
+                    name = Lead Generation
+                    colPos = 50
+                    colspan = 4
+                  }
+                }
+              }
             }
+          }
         }
-    }
+      }
 
-    SHARED {
-        colPos_list = 0,10,11,12,13,14,15,16,17,20,21,22,23,24,25,26
-    }
-}
+      default {
+        title = Default Page
+        config {
+          backend_layout {
+            colCount = 3
+            rowCount = 4
+            rows {
+              1 {
+                columns {
+                  1 {
+                    name = Banner / Hero
+                    colPos = 11
+                    colspan = 3
+                  }
+                }
+              }
+              2 {
+                columns {
+                  1 {
+                    name = Main Content
+                    colPos = 0
+                    colspan = 2
+                  }
+                  2 {
+                    name = Sidebar
+                    colPos = 1
+                    colspan = 1
+                  }
+                }
+              }
+              3 {
+                columns {
+                  1 {
+                    name = Footer Lead
+                    colPos = 50
+                    colspan = 3
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
 
-TCEMAIN.table.pages {
-    backend_layout {
-        removeItems = 
-        altLabels.default = Default Page
-        altLabels.home = Home Layout
-        altLabels.automotive = Automotive Layout
+      automotive {
+        title = Automotive Landing Page
+        config {
+          backend_layout {
+            colCount = 4
+            rowCount = 7
+            rows {
+              1 {
+                columns {
+                  1 {
+                    name = Banner
+                    colPos = 10
+                    colspan = 4
+                  }
+                }
+              }
+              2 {
+                columns {
+                  1 {
+                    name = Hero Narrative
+                    colPos = 110
+                    colspan = 2
+                  }
+                  2 {
+                    name = Hero Visuals
+                    colPos = 111
+                    colspan = 2
+                  }
+                }
+              }
+              3 {
+                columns {
+                  1 {
+                    name = Automotive Highlights
+                    colPos = 120
+                    colspan = 4
+                  }
+                }
+              }
+              4 {
+                columns {
+                  1 {
+                    name = Standards & Testing
+                    colPos = 130
+                    colspan = 4
+                  }
+                }
+              }
+              5 {
+                columns {
+                  1 {
+                    name = Product Grid
+                    colPos = 140
+                    colspan = 4
+                  }
+                }
+              }
+              6 {
+                columns {
+                  1 {
+                    name = Logos & Partners
+                    colPos = 150
+                    colspan = 4
+                  }
+                }
+              }
+              7 {
+                columns {
+                  1 {
+                    name = Contact CTA
+                    colPos = 160
+                    colspan = 4
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
-    backend_layout_next_level {
-        removeItems = 
-        altLabels.default = Default Page
-        altLabels.home = Home Layout
-        altLabels.automotive = Automotive Layout
-    }
+  }
+
+  SHARED {
+    defaultLanguageFlag = gb
+  }
 }

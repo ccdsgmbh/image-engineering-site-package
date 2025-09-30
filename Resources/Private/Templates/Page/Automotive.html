@@ -1,60 +1,184 @@
+{namespace f=TYPO3\\CMS\\Fluid\\ViewHelpers}
 <f:layout name="Default" />
 
-<f:section name="Main">
-    <f:if condition="{automotiveHero}">
-        <section class="hero hero--automotive">
-            <div class="hero__background hero__background--light"></div>
-            <div class="hero__inner">
-                {automotiveHero -> f:format.raw()}
-            </div>
-        </section>
-    </f:if>
+<f:section name="Body">
+    <f:alias map="{
+        applications: {
+            0: { title: 'In-Cabin Performance Testing', text: 'Driver and occupant monitoring systems combine near-infrared sensors with controlled illumination to keep passengers safe and comfortable.' },
+            1: { title: 'ADAS Performance Testing', text: 'Advanced Driver Assistance Systems (ADAS) require rigorous validation to guarantee reliable warnings and autonomous manoeuvres in all situations.' },
+            2: { title: 'Geometric Camera Calibration', text: 'Precise geometric calibration ensures that vehicles interpret spatial information correctly and react accurately to road scenarios.' },
+            3: { title: 'Climate-Controlled Testing', text: 'Extreme weather simulations validate thermal stability and responsiveness across the entire automotive sensor stack.' }
+        },
+        standards: {
+            0: { logo: 'logo-ieee-new.jpg', name: 'IEEE P2020', text: 'Defines measurement methods and KPIs for camera based ADAS performance and safety validation.' },
+            1: { logo: 'logo-emva-new.jpg', name: 'EMVA 1288 / ISO 24942', text: 'Benchmarks machine vision camera performance for production and laboratory workflows.' },
+            2: { logo: 'logo-iso-new.jpg', name: 'ISO 19093', text: 'Specifies low-light performance evaluation procedures for automotive camera systems.' }
+        },
+        products: {
+            0: { image: 'arcturus-main-product-new.png', name: 'Arcturus', text: 'High-intensity light source with unmatched stability for dynamic scenes.' },
+            1: { image: 'le7-product.png', name: 'LE7 VIS-IR', text: 'Uniform lightbox with iQ-LED technology configurable between 380–1050 nm.' },
+            2: { image: 'geocal-product.jpg', name: 'GEOCAL', text: 'Compact geometric calibration system generating infinity light grids.' },
+            3: { image: 'climate-chamber.png', name: 'iQ-Climate Chamber', text: 'Temperature-controlled environment for repeatable automotive tests.' },
+            4: { image: 'te292-vis-ir.png', name: 'TE292 VIS-IR', text: 'Spectral sensitivity test chart optimised for VIS-NIR calibrations.' },
+            5: { image: 'iq-analyzer-new.png', name: 'iQ-Analyzer-X', text: 'AI-enabled analysis software covering the complete KPI portfolio.' }
+        },
+        solutions: {
+            0: { image: 'solutions-in-cabin.png', title: 'In-Cabin Testing', text: 'Infrared capable light sources and transparent charts support modern DMS/OMS workflows.' },
+            1: { image: 'solutions-adas.png', title: 'ADAS Performance', text: 'High dynamic range lighting with Vega and Arcturus recreates demanding traffic scenarios.' },
+            2: { image: 'solutions-geometric-calibration.jpg', title: 'Geometric Calibration', text: 'GEOCAL reduces lab footprint while delivering precise spatial alignment data.' },
+            3: { image: 'solutions-climate-control.png', title: 'Climate Control', text: 'Climate chambers maintain reproducible test conditions from -40°C to +85°C.' }
+        }
+    }">
+        <div class="min-h-screen bg-white text-ie-navy">
+            <f:render partial="Shared/Header" arguments="{mainNavigation: mainNavigation, TopBanner: TopBanner}" />
+            <main id="main" class="relative">
+                <section class="relative bg-scandi-white pt-32 pb-24 overflow-hidden">
+                    <div class="absolute inset-y-0 right-0 w-full md:w-1/2 opacity-90">
+                        <img src="{f:uri.resource(path: 'Images/automotive-hero-clean-new.jpg')}" alt="Automotive test laboratory" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0" style="background: linear-gradient(270deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.65) 45%, rgba(255,255,255,0) 100%);"></div>
+                    </div>
+                    <div class="container mx-auto px-6 relative z-10">
+                        <div class="max-w-2xl space-y-8">
+                            <p class="text-xs uppercase tracking-[0.4em] text-scandi-grey">Automotive Solutions</p>
+                            <h1 class="text-5xl lg:text-6xl font-light leading-[0.95] text-light-foreground">
+                                Automotive<br />
+                                <span class="font-medium">Image Quality</span>
+                            </h1>
+                            <p class="text-xl text-scandi-grey leading-relaxed">
+                                Precision-engineered camera system test solutions for robust vehicle safety, performance and autonomy.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <a href="#applications" class="btn-primary">Discover Automotive Solutions</a>
+                                <a href="#contact" class="btn-secondary">Talk to our team</a>
+                            </div>
+                            <div class="flex flex-wrap gap-12 pt-8 text-light-foreground-80">
+                                <div>
+                                    <div class="text-2xl font-medium">99.9%</div>
+                                    <div class="text-xs uppercase tracking-[0.35em] text-scandi-grey">Measurement Accuracy</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-medium">50 ms</div>
+                                    <div class="text-xs uppercase tracking-[0.35em] text-scandi-grey">Real-time Response</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-medium">100+</div>
+                                    <div class="text-xs uppercase tracking-[0.35em] text-scandi-grey">ADAS Projects</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-    <f:if condition="{automotiveApplications}">
-        <section class="section section--applications">
-            <div class="section__inner">
-                {automotiveApplications -> f:format.raw()}
-            </div>
-        </section>
-    </f:if>
+                <section id="applications" class="py-24 bg-gray-50">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center mb-16 space-y-4">
+                            <p class="text-xs uppercase tracking-[0.35em] text-scandi-grey">Applications</p>
+                            <h2 class="text-3xl md:text-4xl font-semibold text-light-foreground">Main Applications</h2>
+                            <p class="text-lg text-scandi-grey max-w-2xl mx-auto">
+                                Automotive camera systems cover a broad spectrum of tasks that contribute to vehicle safety, comfort and performance.
+                            </p>
+                        </div>
+                        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
+                            <f:for each="{applications}" as="application">
+                                <article class="bg-white border border-gray-200 rounded-2xl p-8 shadow-soft flex flex-col text-center hover:shadow-strong transition-all duration-300">
+                                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-ie-blue-10 border-2 border-ie-blue-25 flex items-center justify-center text-ie-blue text-sm font-semibold tracking-[0.35em] uppercase">IE</div>
+                                    <h3 class="text-xl font-semibold text-light-foreground mb-4 leading-tight">{application.title}</h3>
+                                    <p class="text-sm text-scandi-grey leading-relaxed flex-1">{application.text}</p>
+                                    <a href="#contact" class="mt-6 inline-flex justify-center items-center btn-tertiary">Learn more</a>
+                                </article>
+                            </f:for>
+                        </div>
+                    </div>
+                </section>
 
-    <f:if condition="{automotiveStandards}">
-        <section class="section section--automotive-standards">
-            <div class="section__inner">
-                {automotiveStandards -> f:format.raw()}
-            </div>
-        </section>
-    </f:if>
+                <section id="standards" class="py-24 bg-white">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center mb-16 space-y-4">
+                            <p class="text-xs uppercase tracking-[0.35em] text-scandi-grey">Standards</p>
+                            <h2 class="text-3xl md:text-4xl font-semibold text-light-foreground">Automotive International Standards</h2>
+                            <p class="text-lg text-scandi-grey max-w-2xl mx-auto">
+                                A look at the crucial industry standards for automotive image quality performance testing and evaluation.
+                            </p>
+                        </div>
+                        <div class="grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
+                            <f:for each="{standards}" as="standard">
+                                <article class="bg-white border border-gray-200 rounded-2xl p-8 shadow-soft hover:shadow-strong transition-all duration-300 flex flex-col text-center">
+                                    <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-white flex items-center justify-center p-4 border border-gray-200">
+                                        <img src="{f:uri.resource(path: 'Images/{standard.logo}')}" alt="{standard.name}" class="max-w-full max-h-full object-contain" />
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-light-foreground mb-4">{standard.name}</h3>
+                                    <p class="text-sm text-scandi-grey leading-relaxed flex-1">{standard.text}</p>
+                                    <a href="#contact" class="mt-6 inline-flex justify-center items-center btn-tertiary">Learn more</a>
+                                </article>
+                            </f:for>
+                        </div>
+                    </div>
+                </section>
 
-    <f:if condition="{automotiveSolutions}">
-        <section class="section section--solutions">
-            <div class="section__inner">
-                {automotiveSolutions -> f:format.raw()}
-            </div>
-        </section>
-    </f:if>
+                <section id="products" class="py-24 bg-gray-50">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center mb-16 space-y-4">
+                            <p class="text-xs uppercase tracking-[0.35em] text-scandi-grey">Products</p>
+                            <h2 class="text-3xl md:text-4xl font-semibold text-light-foreground">Essential Test Equipment</h2>
+                            <p class="text-lg text-scandi-grey max-w-2xl mx-auto">
+                                Modular hardware and software components for end-to-end automotive camera validation.
+                            </p>
+                        </div>
+                        <div class="grid gap-10 md:grid-cols-2 xl:grid-cols-3 max-w-6xl mx-auto">
+                            <f:for each="{products}" as="product">
+                                <article class="bg-white rounded-2xl border border-gray-200 shadow-soft hover:shadow-strong transition-all duration-300 overflow-hidden flex flex-col">
+                                    <div class="aspect-video bg-gray-100">
+                                        <img src="{f:uri.resource(path: 'Images/{product.image}')}" alt="{product.name}" class="w-full h-full object-contain" />
+                                    </div>
+                                    <div class="p-6 space-y-3 flex-1 flex flex-col">
+                                        <h3 class="text-xl font-semibold text-light-foreground">{product.name}</h3>
+                                        <p class="text-sm text-scandi-grey leading-relaxed flex-1">{product.text}</p>
+                                        <a href="#contact" class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-ie-blue">Discuss setup<span>→</span></a>
+                                    </div>
+                                </article>
+                            </f:for>
+                        </div>
+                    </div>
+                </section>
 
-    <f:if condition="{automotiveProducts}">
-        <section class="section section--products">
-            <div class="section__inner">
-                {automotiveProducts -> f:format.raw()}
-            </div>
-        </section>
-    </f:if>
+                <section id="solutions" class="py-24 bg-white">
+                    <div class="container mx-auto px-6">
+                        <div class="grid gap-12 lg:grid-cols-2">
+                            <f:for each="{solutions}" as="solution">
+                                <article class="rounded-2xl border border-gray-200 overflow-hidden shadow-soft hover:shadow-strong transition-all duration-300">
+                                    <div class="aspect-video bg-gray-100">
+                                        <img src="{f:uri.resource(path: 'Images/{solution.image}')}" alt="{solution.title}" class="w-full h-full object-cover" />
+                                    </div>
+                                    <div class="p-8 space-y-4">
+                                        <h3 class="text-2xl font-semibold text-light-foreground">{solution.title}</h3>
+                                        <p class="text-sm text-scandi-grey leading-relaxed">{solution.text}</p>
+                                    </div>
+                                </article>
+                            </f:for>
+                        </div>
+                    </div>
+                </section>
 
-    <f:if condition="{automotiveCta}">
-        <section class="section section--cta">
-            <div class="section__inner">
-                {automotiveCta -> f:format.raw()}
-            </div>
-        </section>
-    </f:if>
-
-    <f:if condition="{automotiveContact}">
-        <section class="section section--contact">
-            <div class="section__inner">
-                {automotiveContact -> f:format.raw()}
-            </div>
-        </section>
-    </f:if>
+                <section id="contact" class="py-24 bg-ie-blue text-white relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-40 mix-blend-screen">
+                        <img src="{f:uri.resource(path: 'Images/arcturus-automotive-lab-installation.jpg')}" alt="Automotive lab" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="container mx-auto px-6 relative z-10">
+                        <div class="max-w-3xl space-y-6">
+                            <p class="text-xs uppercase tracking-[0.35em] text-white-70">Partner with us</p>
+                            <h2 class="text-4xl font-semibold">Ready to accelerate your automotive imaging roadmap?</h2>
+                            <p class="text-lg text-white-80 leading-relaxed">
+                                Our experts help you define, test and certify camera performance across ADAS, in-cabin monitoring and autonomous driving use cases.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <a href="mailto:info@image-engineering.de" class="btn-invert">Schedule a consultation</a>
+                                <a href="tel:+492231691150" class="btn-outline-light">Call +49 2231 6911-50</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <f:render partial="Shared/Footer" arguments="{mainNavigation: mainNavigation}" />
+        </div>
+    </f:alias>
 </f:section>
