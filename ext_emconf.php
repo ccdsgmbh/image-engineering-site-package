@@ -1,6 +1,6 @@
 <?php
 
-$EM_CONF[$_EXTKEY] = [
+$EM_CONF['ie_site_template'] = [
     'title' => 'Image Engineering Site Template',
     'description' => 'Site package delivering the Image Engineering layout with Fluid templates, TypoScript, CSS, and assets.',
     'category' => 'templates',

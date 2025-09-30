@@ -34,8 +34,9 @@ Ignore any password protection or login functionality
 │   │   ├── constants.typoscript  ← TypoScript constants
 │   │   └── setup.typoscript      ← TypoScript setup, FLUIDTEMPLATE wiring
 │   │
+│   ├── page.tsconfig            ← backend page TSconfig (RTE, backend layout, etc.)
 │   ├── PageTS/
-│   │   └── TCEFORM.tsconfig      ← backend customizations
+│   │   └── TCEFORM.tsconfig      ← backend form customizations
 │   │
 │   ├── Routes/
 │   │   └── Frontend.yaml         ← Extbase routes for JSON/AJAX
