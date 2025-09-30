@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><f:if condition="{data.title}"><f:then>{data.title -> f:format.htmlspecialchars()}</f:then><f:else>Image Engineering</f:else></f:if></title>
+</head>
+<body class="min-h-screen bg-[#141414] text-white">
+    <f:cObject typoscriptObjectPath="lib.mainNavigation" />
+
+    <main class="pt-40">
+        <div class="mx-auto w-full max-w-6xl px-6">
+            <f:cObject typoscriptObjectPath="lib.contentElement" data="{colPos: 0}" />
+        </div>
+    </main>
+</body>
+</html>

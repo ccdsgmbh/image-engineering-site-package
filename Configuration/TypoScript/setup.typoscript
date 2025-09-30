@@ -18,4 +18,100 @@ page {
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     )
+
+    10 = FLUIDTEMPLATE
+    10 {
+        templateRootPaths.10 = EXT:ie_site_template/Resources/Private/Templates/
+        layoutRootPaths.10 = EXT:ie_site_template/Resources/Private/Layouts/
+        partialRootPaths.10 = EXT:ie_site_template/Resources/Private/Partials/
+        templateName = Index
+    }
+}
+
+lib.mainNavigation = COA
+lib.mainNavigation {
+    wrap = <nav class="fixed top-8 left-4 right-4 z-40 bg-[#4B4A4A]/95 backdrop-blur-sm rounded-xl shadow-lg border border-white/10">|</nav>
+
+    10 = COA
+    10 {
+        wrap = <div class="w-full px-6 py-6"><div class="flex items-center justify-between w-full">|</div></div>
+
+        10 = COA
+        10 {
+            wrap = <div class="hidden 2xl:flex items-center gap-6 ml-[300px]">|</div>
+
+            10 = HMENU
+            10 {
+                entryLevel = 0
+
+                1 = TMENU
+                1 {
+                    noBlur = 1
+                    wrap = |
+
+                    NO = 1
+                    NO {
+                        ATagBeforeWrap = 1
+                        wrapItemAndSub = <div class="relative">|</div>
+                        ATagParams = class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 px-3 py-2 rounded-md text-base font-medium text-white hover:bg-[#d9c409] hover:text-black transition-colors duration-200 bg-transparent border-none h-auto"
+                        stdWrap.htmlSpecialChars = 1
+                        ATagTitle.field = nav_title // title
+                    }
+
+                    ACT < .NO
+                    ACT.ATagParams = class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 px-3 py-2 rounded-md text-base font-medium text-black bg-[#d9c409] hover:bg-[#c4b108] transition-colors duration-200 border border-[#d9c409]"
+
+                    CUR < .ACT
+                    CURIFSUB < .ACT
+                    IFSUB < .NO
+                }
+            }
+        }
+
+        20 = TEXT
+        20.value (
+            <div class="hidden 2xl:flex ml-auto">
+                <div class="flex items-center gap-4">
+                    <div class="relative">
+                        <div class="relative">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-white/60">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.3-4.3"></path>
+                            </svg>
+                            <input type="text" class="flex h-10 w-36 rounded-md border border-white/20 bg-white/10 px-3 py-2 pl-10 pr-10 text-base text-white placeholder:text-white/60 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium focus:bg-white focus:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:text-sm" placeholder="Search..." />
+                        </div>
+                    </div>
+                    <button type="button" class="flex h-10 w-[60px] items-center justify-between rounded-md border border-[#103e7c] bg-[#103e7c] px-3 py-2 text-sm text-white transition-all duration-300 hover:bg-[#0d3468] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
+                        <span>EN</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 opacity-50" aria-hidden="true">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
+                    <a class="flex h-10 w-[60px] items-center justify-center gap-2 rounded-md border border-[#d9c409] bg-[#d9c409] px-4 py-2 text-lg font-medium text-black transition-all duration-300 hover:border-[#c4b108] hover:bg-[#c4b108] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" href="/contact">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+                        </svg>
+                        <span class="sr-only">Contact</span>
+                    </a>
+                </div>
+            </div>
+        )
+
+        30 = TEXT
+        30.value (
+            <div class="2xl:hidden ml-auto relative z-50">
+                <button class="flex h-10 w-10 items-center justify-center rounded-md bg-[#d9c409] text-black shadow-lg transition-colors hover:bg-[#c5b008]" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-[3]">
+                        <line x1="4" x2="20" y1="6" y2="6"></line>
+                        <line x1="4" x2="20" y1="12" y2="12"></line>
+                        <line x1="4" x2="20" y1="18" y2="18"></line>
+                    </svg>
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+            </div>
+        )
+    }
+
+    20 = TEXT
+    20.value = <div class="2xl:hidden relative"></div>
 }
