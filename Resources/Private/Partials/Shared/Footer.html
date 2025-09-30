@@ -1,0 +1,20 @@
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">
+      <f:variable name="logoUri">
+        <f:uri.resource path="Images/logo-ie-white.png" extensionName="IeSiteTemplate" />
+      </f:variable>
+      <img src="{logoUri}" alt="{settings.logo.alt}" class="site-footer__logo" />
+      <p class="site-footer__claim">Precision tools for professional image quality testing.</p>
+    </div>
+    <div class="site-footer__nav">
+      <f:cObject typoscriptObjectPath="lib.navigationFooter" />
+    </div>
+    <div class="site-footer__content">
+      <f:cObject typoscriptObjectPath="lib.footerContent" />
+    </div>
+  </div>
+  <div class="site-footer__meta">
+    <p>&copy; {f:format.date(date: 'now', format: 'Y')} {settings.siteName}. All rights reserved.</p>
+  </div>
+</footer>

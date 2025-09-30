@@ -1,70 +1,45 @@
-##############################################
-# Image Engineering Site Template Setup
-##############################################
+##############################
+# Image Engineering Site Package
+# TypoScript setup
+##############################
 
 config {
   absRefPrefix = auto
-  baseURL = {$sitepackage.baseUrl}
+  doctype = html5
   no_cache = 0
-  metaCharset = utf-8
-  sys_language_overlay = 1
   renderCharset = utf-8
+  language = en
   linkVars = L
-  contentObjectExceptionHandler = 0
 }
 
 page = PAGE
 page {
-  typeNum = 0
-
+  shortcutIcon = EXT:ie_site_template/Resources/Public/Images/logo-ie-white.png
   meta {
-    viewport = width=device-width, initial-scale=1
-    robots = index,follow
-    description.data = page:description
-    author = Image Engineering
+    viewport = width=device-width, initial-scale=1.0
+    X-UA-Compatible = IE=edge
   }
-
-  includeCSS.site = {$sitepackage.assets.siteCss}
-  includeCSS.site.media = all
-
-  headerData.40 = TEXT
-  headerData.40 {
-    value (
-      <script>
-        window.tailwind = window.tailwind || {};
-        window.tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                background: '#121418',
-                foreground: '#F8F9FB',
-                primary: '#d9c409',
-                secondary: '#4B4A4A',
-                accent: '#f3f3f3'
-              },
-              boxShadow: {
-                glow: '0 0 40px rgba(217, 196, 9, 0.15)'
-              },
-              borderRadius: {
-                xl: '1rem'
-              }
-            }
-          }
-        };
-      </script>
-    )
-    insertData = 0
-  }
-
-  includeJS {
-    tailwind = {$sitepackage.assets.tailwindCdn}
+  includeCSS {
+    tailwind = {$ieSiteTemplate.scripts.tailwindCdn}
     tailwind.external = 1
-  }
+    tailwind.disableCompression = 1
+    tailwind.excludeFromConcatenation = 1
 
-  includeJSFooter {
-    jquery = {$sitepackage.assets.jqueryCdn}
+    site = EXT:ie_site_template/Resources/Public/Css/site.css
+    site.media = all
+  }
+  includeJSFooterlibs {
+    jquery = {$ieSiteTemplate.scripts.jqueryCdn}
     jquery.external = 1
-    navigation = {$sitepackage.assets.navigationJs}
+    jquery.disableCompression = 1
+    jquery.excludeFromConcatenation = 1
+    jquery.integrity = sha256-d29nMR9BXTrmNBLt9Pl6xNcNehJIK/gB1LsKCCK/A8Q=
+    jquery.crossorigin = anonymous
+  }
+  includeJSFooter {
+    site = EXT:ie_site_template/Resources/Public/JavaScript/site.js
+    site.async = 0
+    site.defer = 1
   }
 
   10 = FLUIDTEMPLATE
@@ -72,189 +47,167 @@ page {
     layoutRootPaths {
       10 = EXT:ie_site_template/Resources/Private/Layouts/
     }
-    templateRootPaths {
-      10 = EXT:ie_site_template/Resources/Private/Templates/Page/
-    }
     partialRootPaths {
       10 = EXT:ie_site_template/Resources/Private/Partials/
     }
-    file = EXT:ie_site_template/Resources/Private/Templates/Page/Default.html
-
-    dataProcessing {
-      10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-      10 {
-        levels = 3
-        expandAll = 1
-        includeNotInMenu = 0
-        entryLevel = 0
-        as = mainNavigation
-        special = directory
-        special.value = {$sitepackage.main.navigationRoot}
-      }
-
-      20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-      20 {
-        levels = 1
-        expandAll = 0
-        includeNotInMenu = 0
-        entryLevel = 0
-        as = utilityNavigation
-        special = directory
-        special.value = {$sitepackage.main.navigationRoot}
-      }
-
-      30 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-      30 {
-        levels = 2
-        expandAll = 1
-        includeNotInMenu = 0
-        entryLevel = 0
-        as = footerNavigation
-        special = directory
-        special.value = {$sitepackage.footer.navigationRoot}
-      }
-
-      40 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
-      40 {
-        as = languageNavigation
-        languages = auto
-        addQueryString = 1
-        addQueryString.method = GET
-      }
+    templateRootPaths {
+      10 = EXT:ie_site_template/Resources/Private/Templates/Page/
     }
 
-    variables {
-      siteName = {$sitepackage.siteName}
-      logo = {$sitepackage.main.logo}
+    templateName = CASE
+    templateName {
+      key.data = pagelayout
+      key.ifEmpty.data = levelfield:-1, backend_layout_next_level, slide
+      key.ifEmpty.ifEmpty = default
+
+      pagets__ie_home = TEXT
+      pagets__ie_home.value = Home
+
+      pagets__ie_subpage = TEXT
+      pagets__ie_subpage.value = Subpage
+
+      default = TEXT
+      default.value = Standard
     }
 
     settings {
-      logo = {$sitepackage.main.logo}
+      siteName = {$ieSiteTemplate.siteName}
+      logo {
+        path = {$ieSiteTemplate.assets.logo}
+        alt = {$ieSiteTemplate.assets.logoAlt}
+      }
+    }
+    variables {
+      pageTitle = TEXT
+      pageTitle.data = page:title
     }
   }
 }
 
-##############################################
-# Fallback navigation objects for TypoScript usage
-##############################################
+##############################
+# Navigation TypoScript
+##############################
 
-lib.breadcrumb = HMENU
-lib.breadcrumb {
-  special = rootline
-  special.range = 0|-1
+lib.navigationPrimary = HMENU
+lib.navigationPrimary {
+  entryLevel = 0
+  wrap = <ul class="site-nav__list">|</ul>
+
   1 = TMENU
   1 {
+    wrap = | 
     NO = 1
     NO {
-      doNotLinkIt = 0
-      stdWrap.htmlSpecialChars = 1
-      ATagParams = class="text-sm text-white/70 hover:text-white transition-colors"
+      wrapItemAndSub = <li class="site-nav__item">|</li>
+      ATagParams = class="site-nav__link"
     }
     CUR < .NO
     CUR {
-      ATagParams = class="text-sm text-white font-semibold"
+      wrapItemAndSub = <li class="site-nav__item site-nav__item--active">|</li>
+      ATagParams = class="site-nav__link site-nav__link--active"
     }
-    wrap = <nav class="text-sm" aria-label="breadcrumb"><ol class="flex items-center gap-2">|</ol></nav>
-    NO.wrapItemAndSub = <li class="flex items-center gap-2">|</li>
+    ACT < .CUR
   }
-}
 
-lib.footerNavigation = HMENU
-lib.footerNavigation {
-  special = directory
-  special.value = {$sitepackage.footer.navigationRoot}
-  1 = TMENU
-  1 {
-    wrap = <ul class="space-y-2">|</ul>
-    NO = 1
-    NO {
-      wrapItemAndSub = <li>|</li>
-      ATagParams = class="text-sm text-white/80 hover:text-white transition-colors"
-    }
-    ACT < .NO
-    ACT {
-      ATagParams = class="text-sm text-white font-semibold"
-    }
-  }
-}
-
-lib.mainNavigation = HMENU
-lib.mainNavigation {
-  special = directory
-  special.value = {$sitepackage.main.navigationRoot}
-  1 = TMENU
-  1 {
-    expAll = 1
-    wrap = <ul class="hidden xl:flex items-center gap-6">|</ul>
-    NO = 1
-    NO {
-      wrapItemAndSub = <li class="relative group">|</li>
-      ATagParams = class="flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-white/80 hover:text-[#d9c409] transition-colors"
-    }
-    ACT < .NO
-    ACT {
-      ATagParams = class="flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-[#d9c409] font-semibold"
-    }
-    IFSUB < .NO
-    IFSUB {
-      ATagParams = class="flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-white/80 hover:text-[#d9c409] transition-colors after:content-[''] after:inline-block after:w-2 after:h-2 after:rounded-full after:bg-[#d9c409] after:opacity-0 group-hover:after:opacity-100"
-    }
-    ACTIFSUB < .IFSUB
-    ACTIFSUB {
-      ATagParams = class="flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-[#d9c409] font-semibold after:content-[''] after:inline-block after:w-2 after:h-2 after:rounded-full after:bg-[#d9c409]"
-    }
-  }
   2 = TMENU
   2 {
-    wrap = <div class="mega-menu absolute left-0 top-full mt-4 hidden group-hover:block w-[720px] bg-[#f3f3f3] text-[#1f1f1f] border border-white/10 rounded-2xl shadow-2xl shadow-black/20 p-8">|</div>
+    wrap = <ul class="site-nav__sub">|</ul>
     NO = 1
     NO {
-      wrapItemAndSub = <div class="grid grid-cols-1 md:grid-cols-2 gap-4">|</div>
-      ATagParams = class="block text-lg font-semibold text-[#1f1f1f] hover:text-[#d9c409] transition-colors"
+      wrapItemAndSub = <li class="site-nav__sub-item">|</li>
+      ATagParams = class="site-nav__sub-link"
     }
-    ACT < .NO
-    ACT {
-      ATagParams = class="block text-lg font-semibold text-[#d9c409]"
-    }
-  }
-  3 = TMENU
-  3 {
-    wrap = <ul class="mt-3 space-y-2">|</ul>
-    NO = 1
-    NO {
-      wrapItemAndSub = <li>|</li>
-      ATagParams = class="text-sm text-[#3e3e3e] hover:text-[#d9c409] transition-colors"
-    }
-    ACT < .NO
-    ACT {
-      ATagParams = class="text-sm text-[#d9c409] font-medium"
-    }
+    CUR < .NO
+    CUR.wrapItemAndSub = <li class="site-nav__sub-item site-nav__sub-item--active">|</li>
+    ACT < .CUR
   }
 }
 
-lib.mobileNavigation =< lib.mainNavigation
-lib.mobileNavigation {
-  1.wrap = <ul class="flex flex-col gap-4">|</ul>
-  2.wrap = <div class="pl-4 space-y-3">|</div>
-  3.wrap = <div class="pl-4 space-y-1">|</div>
+lib.navigationFooter = HMENU
+lib.navigationFooter {
+  entryLevel = 0
+  wrap = <ul class="site-footer__list">|</ul>
+  1 = TMENU
+  1.NO = 1
+  1.NO {
+    wrapItemAndSub = <li class="site-footer__item">|</li>
+    ATagParams = class="site-footer__link"
+  }
+  1.CUR < .NO
+  1.CUR.wrapItemAndSub = <li class="site-footer__item site-footer__item--active">|</li>
+  1.ACT < .CUR
 }
 
-lib.dynamicContent = COA
-lib.dynamicContent {
-  10 = LOAD_REGISTER
-  10.colPos.cObject = TEXT
-  10.colPos.cObject.field = colPos
-  20 = CONTENT
-  20 {
-    table = tt_content
-    select {
-      where = colPos={register:colPos}
-      where.insertData = 1
-      orderBy = sorting
-      pidInList.data = data:pageUid
-      languageField = sys_language_uid
-    }
-    stdWrap.wrap = <div class="space-y-12">|</div>
+##############################
+# Content Areas
+##############################
+
+lib.contentHero = CONTENT
+lib.contentHero {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos = 10
+    orderBy = sorting
+    languageField = sys_language_uid
   }
-  30 = RESTORE_REGISTER
+}
+
+lib.contentAreaPrimary = CONTENT
+lib.contentAreaPrimary {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos = 20
+    orderBy = sorting
+    languageField = sys_language_uid
+  }
+}
+
+lib.contentAreaSecondary = CONTENT
+lib.contentAreaSecondary {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos = 30
+    orderBy = sorting
+    languageField = sys_language_uid
+  }
+}
+
+lib.contentAreaTertiary = CONTENT
+lib.contentAreaTertiary {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos = 40
+    orderBy = sorting
+    languageField = sys_language_uid
+  }
+}
+
+lib.contentAreaQuaternary = CONTENT
+lib.contentAreaQuaternary {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos = 50
+    orderBy = sorting
+    languageField = sys_language_uid
+  }
+}
+
+##############################
+# Footer content block
+##############################
+
+lib.footerContent = CONTENT
+lib.footerContent {
+  table = tt_content
+  select {
+    pidInList = this
+    where = colPos = 60
+    orderBy = sorting
+    languageField = sys_language_uid
+  }
 }

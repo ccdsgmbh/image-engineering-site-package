@@ -1,47 +1,59 @@
-# Image Engineering Site Template (`ie_site_template`)
+# Image Engineering Site Template
 
-TYPO3 v13 site package that mirrors the Image Engineering design running at `http://localhost:8080/`. It provides the Fluid templates, TypoScript configuration, assets and site configuration needed to bootstrap an installation with the same layout and responsive navigation.
+TYPO3 site package that delivers the base layout, assets and TypoScript configuration required to reproduce the Image Engineering design prototype for TYPO3 v13.
 
 ## Features
 
-- Responsive header navigation with mega menu behaviour and mobile drawer toggle
-- Footer layout matching the original Vite/Tailwind/React project
-- Tailwind CSS via CDN and jQuery-powered mobile navigation interactions
-- Static TypoScript (`constants.typoscript`, `setup.typoscript`) registered for easy inclusion
-- Site configuration for English and German including 403/404 error handling
-- Custom CSS/JS assets and logo shipped with the extension
+- Fluid layouts and templates covering the home page, standard pages and automotive-style sub pages.
+- Tailwind-inspired styling implemented with vanilla CSS plus Tailwind CDN and jQuery support.
+- Configurable navigation, content areas and footer rendered via TypoScript libraries (`lib.content*`).
+- Backend layout definitions with dedicated column positions for hero, banner, body and highlight sections.
+- Ready-to-use site configuration (`English` + `Deutsch`) including error handling templates for 403/404.
+- Composer-ready extension structure without an extra root folder.
 
 ## Installation
 
-1. Require the extension with Composer from the TYPO3 web root:
+1. Require the extension in your TYPO3 project:
 
    ```bash
-   composer config repositories.ie_site_template path ./image-engineering-site-package
+   composer config repositories.ie_site_template path /path/to/image-engineering-site-package
    composer require image-engineering/ie-site-template:dev-main
    ```
 
-2. Activate the extension in the TYPO3 backend (`Admin Tools → Extensions`).
-3. Create a root page (UID `1` by default), assign the included site configuration (`Site Management → Sites → Import`) from `Configuration/Site/Main/config.yaml`.
-4. Add a root `sys_template` record on the root page and include the static TypoScript set **“Image Engineering Site Template”**.
-5. Create TYPO3 content elements within the standard column (`colPos 0`). The layout will render them in the main content area while keeping menus and CTAs empty for editorial control.
+2. Activate the extension in the TYPO3 Extension Manager.
+3. Import the supplied site configuration from `Configuration/Site/ie_site_template` for your root page.
+4. Assign the "Home Page Layout" backend layout to the start page and "Subpage Layout" (or leave default) for the remaining pages.
+5. Include the static TypoScript template **Image Engineering Site Package** in your site template record.
 
-## Configuration
+## Content Areas
 
-Adjust the TypoScript constants in `Configuration/TypoScript/constants.typoscript` to point menus to the correct root pages or to change asset locations. The default IDs assume the site root has UID `1`.
+Content rendering is organised into dedicated column positions to keep structure close to the reference build:
 
-## Asset Notes
+| Column position | TypoScript object                | Typical usage                        |
+|-----------------|----------------------------------|--------------------------------------|
+| 10              | `lib.contentHero`                | Hero / above-the-fold content        |
+| 20              | `lib.contentAreaPrimary`         | Announcement banner / lead section   |
+| 30              | `lib.contentAreaSecondary`       | Main body area                       |
+| 40              | `lib.contentAreaTertiary`        | Sidebar / supporting content         |
+| 50              | `lib.contentAreaQuaternary`      | Highlight / CTA stripe               |
+| 60              | `lib.footerContent`              | Footer widgets or teasers            |
 
-- Tailwind CSS is loaded from the official CDN (`https://cdn.tailwindcss.com`).
-- jQuery `3.7.1` is loaded from the jQuery CDN.
-- Navigation behaviour is handled by `Resources/Public/JavaScript/navigation.js`.
-- The original logo from the Vite project lives in `Resources/Public/Images/logo-ie-white.png`.
+All areas are rendered via standard TYPO3 content elements. They are empty by default until editors add content.
 
-## Development Tips
+## Assets
 
-- Extend the Fluid templates in `Resources/Private/Templates/Page/` and partials under `Resources/Private/Partials/` to add bespoke sections.
-- Use the provided `lib.dynamicContent` TypoScript object (`f:cObject`) in templates to render additional content columns if needed.
-- When adding new assets, register them in TypoScript (`page.includeCSS`/`includeJSFooter`).
+Static assets live under `Resources/Public`:
+
+- `Css/site.css` – main styling inspired by the Tailwind prototype.
+- `JavaScript/site.js` – mobile navigation toggle powered by jQuery.
+- `Images/` – essential layout imagery including the company logos and hero backgrounds.
+
+## Development Notes
+
+- Templates rely on TypoScript libraries (`lib.navigationPrimary`, `lib.navigationFooter`, `lib.content*`). Adjust these in `Configuration/TypoScript/setup.typoscript` as needed.
+- Tailwind CSS and jQuery are loaded from CDN endpoints as per project requirements. Local overrides can be added in the TypoScript include blocks.
+- Error documents are located in `Resources/Private/Templates/Error/` and referenced by the site configuration.
 
 ## License
 
-MIT License. See `composer.json` for details.
+MIT

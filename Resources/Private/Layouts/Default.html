@@ -1,11 +1,20 @@
-<!DOCTYPE html>
-<html lang="{f:if(condition: siteLanguage.locale, then: siteLanguage.locale, else: 'en')}">
-<head>
-    <meta charset="utf-8" />
-    <f:render section="Head" optional="true" />
-</head>
-<body class="min-h-screen bg-[#121418] text-white antialiased">
-    <f:render section="Body" />
-    <f:render section="FooterAssets" optional="true" />
-</body>
-</html>
+<f:spaceless>
+  <f:variable name="langAttribute">
+    <f:if condition="{siteLanguage.locale}">
+      <f:then>
+        <f:format.replace subject="{siteLanguage.locale}" search="_" replace="-" />
+      </f:then>
+      <f:else>en</f:else>
+    </f:if>
+  </f:variable>
+  <!DOCTYPE html>
+  <html lang="{langAttribute}">
+    <head>
+      <f:render partial="Meta/Head" arguments="{_all}" />
+    </head>
+    <body class="site-body">
+      <f:flashMessages />
+      <f:render section="Body" arguments="{_all}" />
+    </body>
+  </html>
+</f:spaceless>

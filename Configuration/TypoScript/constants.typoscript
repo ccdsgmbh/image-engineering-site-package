@@ -1,26 +1,27 @@
-##############################################
-# Image Engineering Site Template Constants
-##############################################
+##############################
+# Image Engineering Site Package
+# Constants configuration
+##############################
 
-sitepackage {
+plugin.tx_iesitetemplate {
+  view {
+    templateRootPath = EXT:ie_site_template/Resources/Private/Templates/
+    partialRootPath = EXT:ie_site_template/Resources/Private/Partials/
+    layoutRootPath = EXT:ie_site_template/Resources/Private/Layouts/
+  }
+}
+
+styles.content.image.maxWidth = 1920
+styles.content.image.maxHeight = 1080
+
+ieSiteTemplate {
   siteName = Image Engineering
-  baseUrl = https://www.image-engineering.de/
-
-  storagePid = 1
-
-  main {
-    navigationRoot = 1
-    logo = Images/logo-ie-white.png
-  }
-
-  footer {
-    navigationRoot = 1
-  }
-
   assets {
-    tailwindCdn = https://cdn.tailwindcss.com?plugins=forms,typography
+    logo = EXT:ie_site_template/Resources/Public/Images/logo-ie-white.png
+    logoAlt = Image Engineering logo
+  }
+  scripts {
+    tailwindCdn = https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css
     jqueryCdn = https://code.jquery.com/jquery-3.7.1.min.js
-    navigationJs = EXT:ie_site_template/Resources/Public/JavaScript/navigation.js
-    siteCss = EXT:ie_site_template/Resources/Public/Css/site.css
   }
 }

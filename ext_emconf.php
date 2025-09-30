@@ -2,20 +2,19 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Image Engineering Site Template',
-    'description' => 'Site package providing the base layout, assets and TypoScript configuration for the Image Engineering website.',
+    'description' => 'Site package delivering the Image Engineering layout with Fluid templates, TypoScript, CSS, and assets.',
     'category' => 'templates',
     'author' => 'Image Engineering',
     'author_email' => 'info@image-engineering.de',
+    'author_company' => 'Image Engineering',
     'state' => 'beta',
-    'clearcacheonload' => true,
+    'clearCacheOnLoad' => true,
     'version' => '1.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '13.0.0-13.9.99',
-            'php' => '8.2.0-8.9.99'
+            'typo3' => '13.0.0-13.99.99'
         ],
         'conflicts' => [],
         'suggests' => []
-    ],
+    ]
 ];
-
