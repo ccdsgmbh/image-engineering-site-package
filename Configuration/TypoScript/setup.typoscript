@@ -32,16 +32,16 @@ page {
             10 = EXT:ie_site_template/Resources/Private/Layouts/
         }
 
-        templateName = CASE
-        templateName {
+        templateName.cObject = CASE
+        templateName.cObject {
             key.data = levelfield:-1,backend_layout_next_level,slide
             key.ifEmpty.data = levelfield:-1,backend_layout,slide
 
             default = TEXT
             default.value = Default
 
-            ie_site_template__home = TEXT
-            ie_site_template__home.value = Home
+            ie_site_template_home = TEXT
+            ie_site_template_home.value = Home
         }
 
         dataProcessing {
