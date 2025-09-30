@@ -1,7 +1,7 @@
 @import 'EXT:ie_site_template/Configuration/PageTS/TCEFORM.tsconfig'
 
 mod.web_layout.BackendLayouts {
-    ie_site_template__home {
+    ie_site_template_home {
         title = Home Page Layout
         icon = EXT:backend/Resources/Public/Icons/Layout/PageLayoutHome.svg
         config {
@@ -65,7 +65,7 @@ mod.web_layout.BackendLayouts {
         }
     }
 
-    ie_site_template__default {
+    ie_site_template_default {
         title = Default Page Layout
         icon = EXT:backend/Resources/Public/Icons/Layout/PageLayoutDefault.svg
         config {
