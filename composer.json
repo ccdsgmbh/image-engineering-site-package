@@ -1,15 +1,15 @@
 {
   "name": "image-engineering/ie-site-template",
+  "description": "TYPO3 site package for the Image Engineering website layout and configuration.",
   "type": "typo3-cms-extension",
-  "description": "TYPO3 site package for Image Engineering website layout",
-  "keywords": ["typo3", "sitepackage", "image-engineering"],
   "license": "MIT",
   "require": {
+    "php": "^8.2",
     "typo3/cms-core": "^13.0"
   },
   "autoload": {
     "psr-4": {
-      "ImageEngineering\\IeSiteTemplate\\": "Classes/"
+      "ImageEngineering\\SiteTemplate\\": "Classes/"
     }
   },
   "extra": {

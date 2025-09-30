@@ -1,0 +1,18 @@
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <f:cObject typoscriptObjectPath="sitepackage.content.hero" data="{colPos: 10}" />
+
+    <div class="page-content site-container">
+        <div class="page-content__main">
+            <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 0}" />
+        </div>
+        <aside class="page-content__sidebar">
+            <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 60}" />
+        </aside>
+    </div>
+
+    <div class="page-content__footer">
+        <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 80}" />
+    </div>
+</f:section>

@@ -1,39 +1,50 @@
 <f:layout name="Default" />
 
-<f:section name="Body">
-  <f:render partial="Navigation/Main" arguments="{settings: settings}" />
+<f:section name="Main">
+    <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 5}" as="bannerContent">
+        <f:if condition="{bannerContent}">
+            <section class="home-banner">
+                <div class="site-container">
+                    {bannerContent -> f:format.raw()}
+                </div>
+            </section>
+        </f:if>
+    </f:cObject>
 
-  <main class="site-main site-main--home">
-    <section class="site-section site-section--hero">
-      <div class="site-section__wrapper">
-        <f:cObject typoscriptObjectPath="lib.contentHero" />
-      </div>
+    <section class="home-hero">
+        <div class="home-hero__background" style="background-image: url('{f:uri.resource(path: 'Images/hero-image.jpg', extensionName: 'IeSiteTemplate')}');"></div>
+        <div class="site-container home-hero__content">
+            <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 10}" />
+        </div>
     </section>
 
-    <section class="site-section site-section--banner">
-      <div class="site-section__wrapper">
-        <f:cObject typoscriptObjectPath="lib.contentAreaPrimary" />
-      </div>
+    <section class="home-industries">
+        <div class="site-container">
+            <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 20}" />
+        </div>
     </section>
 
-    <section class="site-section site-section--primary">
-      <div class="site-section__wrapper">
-        <f:cObject typoscriptObjectPath="lib.contentAreaSecondary" />
-      </div>
+    <section class="home-news">
+        <div class="site-container">
+            <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 30}" />
+        </div>
     </section>
 
-    <section class="site-section site-section--secondary">
-      <div class="site-section__wrapper">
-        <f:cObject typoscriptObjectPath="lib.contentAreaTertiary" />
-      </div>
+    <section class="home-standards">
+        <div class="site-container">
+            <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 40}" />
+        </div>
     </section>
 
-    <section class="site-section site-section--tertiary">
-      <div class="site-section__wrapper">
-        <f:cObject typoscriptObjectPath="lib.contentAreaQuaternary" />
-      </div>
+    <section class="home-general">
+        <div class="site-container">
+            <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 0}" />
+        </div>
     </section>
-  </main>
 
-  <f:render partial="Shared/Footer" arguments="{settings: settings}" />
+    <section class="home-footer-widgets">
+        <div class="site-container">
+            <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 80}" />
+        </div>
+    </section>
 </f:section>

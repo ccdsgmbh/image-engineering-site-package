@@ -1,47 +1,58 @@
-(function ($) {
-  'use strict';
+(function () {
+  const $doc = document;
+  const toggle = $doc.querySelector('.nav-toggle');
+  const nav = $doc.getElementById('primary-navigation');
+  const body = $doc.body;
 
-  $(function () {
-    var $header = $('[data-site-header]');
-    var $toggle = $('[data-site-mobile-toggle]');
-    var $mobileMenu = $('#site-mobile-menu');
+  if (!toggle || !nav) {
+    return;
+  }
 
-    if (!$header.length || !$toggle.length || !$mobileMenu.length) {
+  const openNav = () => {
+    nav.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    body.classList.add('nav-open');
+  };
+
+  const closeNav = () => {
+    nav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    body.classList.remove('nav-open');
+  };
+
+  toggle.addEventListener('click', () => {
+    if (nav.classList.contains('is-open')) {
+      closeNav();
+    } else {
+      openNav();
+    }
+  });
+
+  $doc.addEventListener('keyup', (event) => {
+    if (event.key === 'Escape') {
+      closeNav();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 860) {
+      closeNav();
+    }
+  });
+
+  const dropdownParents = nav.querySelectorAll('.nav__item');
+  dropdownParents.forEach((item) => {
+    const link = item.querySelector('a');
+    if (!link) {
       return;
     }
 
-    var closeMenu = function () {
-      $header.removeClass('is-open');
-      $toggle.attr('aria-expanded', 'false');
-      $mobileMenu.attr('hidden', 'hidden');
-      $('body').removeClass('site-lock-scroll');
-    };
-
-    var openMenu = function () {
-      $header.addClass('is-open');
-      $toggle.attr('aria-expanded', 'true');
-      $mobileMenu.removeAttr('hidden');
-      $('body').addClass('site-lock-scroll');
-    };
-
-    $toggle.on('click', function () {
-      if ($header.hasClass('is-open')) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
+    link.addEventListener('focus', () => {
+      item.classList.add('is-focused');
     });
 
-    $(window).on('resize', function () {
-      if (window.innerWidth >= 960) {
-        closeMenu();
-      }
-    });
-
-    $(document).on('keyup', function (event) {
-      if (event.key === 'Escape') {
-        closeMenu();
-      }
+    link.addEventListener('blur', () => {
+      item.classList.remove('is-focused');
     });
   });
-})(jQuery);
+})();

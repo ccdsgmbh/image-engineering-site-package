@@ -1,0 +1,3 @@
+TCEFORM.tt_content {
+    header_layout.removeItems = 1
+}

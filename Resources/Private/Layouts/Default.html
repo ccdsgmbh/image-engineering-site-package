@@ -1,20 +1,25 @@
-<f:spaceless>
-  <f:variable name="langAttribute">
-    <f:if condition="{siteLanguage.locale}">
-      <f:then>
-        <f:format.replace subject="{siteLanguage.locale}" search="_" replace="-" />
-      </f:then>
-      <f:else>en</f:else>
-    </f:if>
-  </f:variable>
-  <!DOCTYPE html>
-  <html lang="{langAttribute}">
-    <head>
-      <f:render partial="Meta/Head" arguments="{_all}" />
-    </head>
-    <body class="site-body">
-      <f:flashMessages />
-      <f:render section="Body" arguments="{_all}" />
-    </body>
-  </html>
-</f:spaceless>
+<!DOCTYPE html>
+<html lang="{f:if(condition: siteLanguage.twoLetterIsoCode, then: siteLanguage.twoLetterIsoCode, else: 'en')}">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        <f:if condition="{pageTitle}">
+            <f:then>{pageTitle} | Image Engineering</f:then>
+            <f:else>Image Engineering</f:else>
+        </f:if>
+    </title>
+    <f:render section="Meta" optional="true" />
+    <link rel="icon" href="/favicon.ico" />
+</head>
+<body class="site-body">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <f:render partial="Shared/Header" arguments="{mainNavigation: mainNavigation, utilityNavigation: utilityNavigation}" />
+    <main id="main-content" class="site-main">
+        <f:render section="Main" />
+    </main>
+    <f:render partial="Shared/Footer" arguments="{footerNavigation: footerNavigation}" />
+    <f:render section="Footer" optional="true" />
+</body>
+</html>

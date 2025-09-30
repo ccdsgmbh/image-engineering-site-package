@@ -4,12 +4,15 @@
 Create a TYPO Version 13 **site package extension** that delivers the website configuration and basic layout.  
 The extension must be installable via Composer.
 The extension is only for the basic layout including Fluid Templates, CSS, JS, Layout-Images like Logo and TypoScript. 
+Read ./typo3_src/typo3/sysext for typo3 version 13.x source code.
+Read ./typo3_docs/Documentation for typo3 version 13.x documentation.
 Read http://localhost:8080/ for the home page template
 Read http://localhost:8080/automotive for a subpage template
 Identify and create the necessary Fluid Templates, CSS, JS, Layout-Images like Logo and TypoScript to replicate the layout of the website that runs under http://localhost:8080/
 Ignore any content elements, all menus and content areas must be empty and rendered via TypoScript and Fluid Templates
 Identify the different areas in the layout for header, footer, navigations and content areas. The home template has multiple content areas, create TSConfig backend layout configurations for the different areas
 Ignore any password protection or login functionality
+The target site base URL is https://p-cfmuvv.project.space/
 
 ## Deliverable
 **Extension Key:** `ie_site_template`  

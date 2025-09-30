@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" product-name="ie_site_template">
+    <header/>
+    <body>
+      <trans-unit id="header.search.placeholder">
+        <source>Search</source>
+      </trans-unit>
+      <trans-unit id="footer.contact.heading">
+        <source>Contact</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

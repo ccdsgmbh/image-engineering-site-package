@@ -1,27 +1,19 @@
-##############################
-# Image Engineering Site Package
-# Constants configuration
-##############################
+sitepackage {
+    assets {
+        logoPrimary = EXT:ie_site_template/Resources/Public/Images/logo-ie-white.png
+        logoSecondary = EXT:ie_site_template/Resources/Public/Images/logo-ie-black.png
+        heroBackground = EXT:ie_site_template/Resources/Public/Images/hero-image.jpg
+        css = EXT:ie_site_template/Resources/Public/Styles/site.css
+        js = EXT:ie_site_template/Resources/Public/JavaScript/site.js
+    }
 
-plugin.tx_iesitetemplate {
-  view {
-    templateRootPath = EXT:ie_site_template/Resources/Private/Templates/
-    partialRootPath = EXT:ie_site_template/Resources/Private/Partials/
-    layoutRootPath = EXT:ie_site_template/Resources/Private/Layouts/
-  }
-}
+    layouts {
+        containerWidth = 1200px
+        gutter = 1.5rem
+    }
 
-styles.content.image.maxWidth = 1920
-styles.content.image.maxHeight = 1080
-
-ieSiteTemplate {
-  siteName = Image Engineering
-  assets {
-    logo = EXT:ie_site_template/Resources/Public/Images/logo-ie-white.png
-    logoAlt = Image Engineering logo
-  }
-  scripts {
-    tailwindCdn = https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css
-    jqueryCdn = https://code.jquery.com/jquery-3.7.1.min.js
-  }
+    navigation {
+        mainLevels = 2
+        utilityLevels = 1
+    }
 }

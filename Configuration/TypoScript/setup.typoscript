@@ -1,214 +1,151 @@
-##############################
-# Image Engineering Site Package
-# TypoScript setup
-##############################
-
 config {
-  absRefPrefix = auto
-  doctype = html5
-  no_cache = 0
-  renderCharset = utf-8
-  language = en
-  linkVars = L
+    absRefPrefix = auto
+    noPageTitle = 2
+    linkVars = L
+    uniqueLinkVars = 1
+    contentObjectExceptionHandler = 0
+}
+
+define { 
+    sitepackage.assetPath = EXT:ie_site_template/Resources/Public/
 }
 
 page = PAGE
-page.typeNum = 0
 page {
-  shortcutIcon = EXT:ie_site_template/Resources/Public/Images/logo-ie-white.png
-  meta {
-    viewport = width=device-width, initial-scale=1.0
-    X-UA-Compatible = IE=edge
-  }
-  includeCSS {
-    tailwind = {$ieSiteTemplate.scripts.tailwindCdn}
-    tailwind.external = 1
-    tailwind.disableCompression = 1
-    tailwind.excludeFromConcatenation = 1
+    typeNum = 0
+    shortcutIcon = {$sitepackage.assets.logoSecondary}
 
-    site = EXT:ie_site_template/Resources/Public/Css/site.css
-    site.media = all
-  }
-  includeJSFooterlibs {
-    jquery = {$ieSiteTemplate.scripts.jqueryCdn}
-    jquery.external = 1
-    jquery.disableCompression = 1
-    jquery.excludeFromConcatenation = 1
-    jquery.integrity = sha256-d29nMR9BXTrmNBLt9Pl6xNcNehJIK/gB1LsKCCK/A8Q=
-    jquery.crossorigin = anonymous
-  }
-  includeJSFooter {
-    site = EXT:ie_site_template/Resources/Public/JavaScript/site.js
-    site.async = 0
-    site.defer = 1
-  }
+    includeCSS.sitePackage = {$sitepackage.assets.css}
+    includeJSFooter.sitePackage = {$sitepackage.assets.js}
 
-  10 = FLUIDTEMPLATE
-  10 {
-    layoutRootPaths {
-      10 = EXT:ie_site_template/Resources/Private/Layouts/
+    meta.viewport = width=device-width, initial-scale=1
+
+    10 = FLUIDTEMPLATE
+    10 {
+        templateRootPaths {
+            10 = EXT:ie_site_template/Resources/Private/Templates/Page/
+        }
+        partialRootPaths {
+            10 = EXT:ie_site_template/Resources/Private/Partials/
+        }
+        layoutRootPaths {
+            10 = EXT:ie_site_template/Resources/Private/Layouts/
+        }
+
+        templateName = CASE
+        templateName {
+            key.data = levelfield:-1,backend_layout_next_level,slide
+            key.ifEmpty.data = levelfield:-1,backend_layout,slide
+
+            default = TEXT
+            default.value = Default
+
+            ie_site_template__home = TEXT
+            ie_site_template__home.value = Home
+        }
+
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            10 {
+                levels = 2
+                as = mainNavigation
+                expandAll = 1
+            }
+
+            20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            20 {
+                levels = 1
+                includeSpacer = 0
+                as = utilityNavigation
+                entryLevel = 1
+            }
+
+            30 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            30 {
+                levels = 1
+                as = footerNavigation
+                special = rootline
+                special.range = 0|-1
+            }
+        }
     }
-    partialRootPaths {
-      10 = EXT:ie_site_template/Resources/Private/Partials/
-    }
-    templateRootPaths {
-      10 = EXT:ie_site_template/Resources/Private/Templates/Page/
-    }
-
-    templateName = CASE
-    templateName {
-      key.data = pagelayout
-      key.ifEmpty.data = levelfield:-1, backend_layout_next_level, slide
-      key.ifEmpty.ifEmpty = default
-
-      pagets__ie_home = TEXT
-      pagets__ie_home.value = Home
-
-      pagets__ie_subpage = TEXT
-      pagets__ie_subpage.value = Subpage
-
-      default = TEXT
-      default.value = Standard
-    }
-
-    settings {
-      siteName = {$ieSiteTemplate.siteName}
-      logo {
-        path = {$ieSiteTemplate.assets.logo}
-        alt = {$ieSiteTemplate.assets.logoAlt}
-      }
-    }
-    variables {
-      pageTitle = TEXT
-      pageTitle.data = page:title
-    }
-  }
 }
 
-##############################
-# Navigation TypoScript
-##############################
+lib.navigationMain = HMENU
+lib.navigationMain {
+    entryLevel = 0
+    includeNotInMenu = 0
 
-lib.navigationPrimary = HMENU
-lib.navigationPrimary {
-  entryLevel = 0
-  wrap = <ul class="site-nav__list">|</ul>
+    1 = TMENU
+    1 {
+        wrap = <ul class="nav__list">|</ul>
+        expAll = 1
+        NO = 1
+        NO {
+            wrapItemAndSub = <li class="nav__item">|</li>
+            ATagTitle.field = nav_title // title
+        }
+        ACT < .NO
+        ACT.wrapItemAndSub = <li class="nav__item nav__item--active">|</li>
+        CUR < .ACT
+    }
 
-  1 = TMENU
-  1 {
-    wrap = | 
-    NO = 1
-    NO {
-      wrapItemAndSub = <li class="site-nav__item">|</li>
-      ATagParams = class="site-nav__link"
+    2 = TMENU
+    2 {
+        wrap = <ul class="nav__sub">|</ul>
+        NO = 1
+        NO.wrapItemAndSub = <li class="nav__sub-item">|</li>
+        ACT < .NO
+        ACT.wrapItemAndSub = <li class="nav__sub-item nav__sub-item--active">|</li>
+        CUR < .ACT
     }
-    CUR < .NO
-    CUR {
-      wrapItemAndSub = <li class="site-nav__item site-nav__item--active">|</li>
-      ATagParams = class="site-nav__link site-nav__link--active"
-    }
-    ACT < .CUR
-  }
+}
 
-  2 = TMENU
-  2 {
-    wrap = <ul class="site-nav__sub">|</ul>
-    NO = 1
-    NO {
-      wrapItemAndSub = <li class="site-nav__sub-item">|</li>
-      ATagParams = class="site-nav__sub-link"
+lib.navigationUtility = HMENU
+lib.navigationUtility {
+    entryLevel = 0
+    includeNotInMenu = 0
+
+    1 = TMENU
+    1 {
+        wrap = <ul class="utility-nav__list">|</ul>
+        NO = 1
+        NO.wrapItemAndSub = <li class="utility-nav__item">|</li>
     }
-    CUR < .NO
-    CUR.wrapItemAndSub = <li class="site-nav__sub-item site-nav__sub-item--active">|</li>
-    ACT < .CUR
-  }
 }
 
 lib.navigationFooter = HMENU
 lib.navigationFooter {
-  entryLevel = 0
-  wrap = <ul class="site-footer__list">|</ul>
-  1 = TMENU
-  1.NO = 1
-  1.NO {
-    wrapItemAndSub = <li class="site-footer__item">|</li>
-    ATagParams = class="site-footer__link"
-  }
-  1.CUR < .NO
-  1.CUR.wrapItemAndSub = <li class="site-footer__item site-footer__item--active">|</li>
-  1.ACT < .CUR
+    entryLevel = 0
+    includeNotInMenu = 0
+
+    1 = TMENU
+    1 {
+        wrap = <ul class="footer-nav__list">|</ul>
+        NO = 1
+        NO.wrapItemAndSub = <li class="footer-nav__item">|</li>
+    }
 }
 
-##############################
-# Content Areas
-##############################
-
-lib.contentHero = CONTENT
-lib.contentHero {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos = 10
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
+lib.dynamicContent = COA
+lib.dynamicContent {
+    10 = CONTENT
+    10 {
+        table = tt_content
+        select {
+            orderBy = sorting
+            where = colPos = ###colPos###
+            where.insertData = 1
+            languageField = sys_language_uid
+            pidInList.data = page:uid
+        }
+    }
 }
 
-lib.contentAreaPrimary = CONTENT
-lib.contentAreaPrimary {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos = 20
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
-}
-
-lib.contentAreaSecondary = CONTENT
-lib.contentAreaSecondary {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos = 30
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
-}
-
-lib.contentAreaTertiary = CONTENT
-lib.contentAreaTertiary {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos = 40
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
-}
-
-lib.contentAreaQuaternary = CONTENT
-lib.contentAreaQuaternary {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos = 50
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
-}
-
-##############################
-# Footer content block
-##############################
-
-lib.footerContent = CONTENT
-lib.footerContent {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos = 60
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
-}
+# Provide shortcuts to render dynamic content in Fluid
+sitepackage.content.main < lib.dynamicContent
+sitepackage.content.hero < lib.dynamicContent
+sitepackage.content.banner < lib.dynamicContent
+sitepackage.content.feature < lib.dynamicContent
+sitepackage.content.news < lib.dynamicContent
+sitepackage.content.standards < lib.dynamicContent

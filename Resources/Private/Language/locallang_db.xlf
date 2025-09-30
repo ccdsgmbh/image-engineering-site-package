@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" product-name="ie_site_template">
+    <header/>
+    <body>
+      <trans-unit id="backendLayout.home.title">
+        <source>Home Page Layout</source>
+      </trans-unit>
+      <trans-unit id="backendLayout.default.title">
+        <source>Default Page Layout</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

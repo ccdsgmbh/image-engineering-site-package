@@ -1,0 +1,110 @@
+@import 'EXT:ie_site_template/Configuration/PageTS/TCEFORM.tsconfig'
+
+mod.web_layout.BackendLayouts {
+    ie_site_template__home {
+        title = Home Page Layout
+        icon = EXT:backend/Resources/Public/Icons/Layout/PageLayoutHome.svg
+        config {
+            backend_layout {
+                colCount = 2
+                rowCount = 5
+                rows {
+                    1 {
+                        columns {
+                            1 {
+                                name = Announcement Banner
+                                colPos = 5
+                                colspan = 2
+                            }
+                        }
+                    }
+                    2 {
+                        columns {
+                            1 {
+                                name = Hero Area
+                                colPos = 10
+                                colspan = 2
+                            }
+                        }
+                    }
+                    3 {
+                        columns {
+                            1 {
+                                name = Industries Highlights
+                                colPos = 20
+                            }
+                            2 {
+                                name = News & Insights
+                                colPos = 30
+                            }
+                        }
+                    }
+                    4 {
+                        columns {
+                            1 {
+                                name = Standards & Expertise
+                                colPos = 40
+                                colspan = 2
+                            }
+                        }
+                    }
+                    5 {
+                        columns {
+                            1 {
+                                name = General Content
+                                colPos = 0
+                            }
+                            2 {
+                                name = Footer Widgets
+                                colPos = 80
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    ie_site_template__default {
+        title = Default Page Layout
+        icon = EXT:backend/Resources/Public/Icons/Layout/PageLayoutDefault.svg
+        config {
+            backend_layout {
+                colCount = 2
+                rowCount = 3
+                rows {
+                    1 {
+                        columns {
+                            1 {
+                                name = Page Header
+                                colPos = 10
+                                colspan = 2
+                            }
+                        }
+                    }
+                    2 {
+                        columns {
+                            1 {
+                                name = Main Content
+                                colPos = 0
+                            }
+                            2 {
+                                name = Sidebar
+                                colPos = 60
+                            }
+                        }
+                    }
+                    3 {
+                        columns {
+                            1 {
+                                name = Footer Content
+                                colPos = 80
+                                colspan = 2
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

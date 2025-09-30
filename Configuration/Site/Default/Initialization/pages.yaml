@@ -1,0 +1,35 @@
+pages:
+  - uid: 1
+    pid: 0
+    title: 'Image Engineering'
+    slug: /
+    doktype: 1
+    isSiteRoot: true
+    backend_layout: 'ie_site_template__home'
+    backend_layout_next_level: 'ie_site_template__default'
+    children:
+      - uid: 10
+        title: 'Automotive'
+        slug: /automotive
+        backend_layout: 'ie_site_template__default'
+      - uid: 11
+        title: 'Products'
+        slug: /products
+        backend_layout: 'ie_site_template__default'
+      - uid: 12
+        title: 'Services'
+        slug: /services
+        backend_layout: 'ie_site_template__default'
+      - uid: 13
+        title: 'About'
+        slug: /about
+        backend_layout: 'ie_site_template__default'
+      - uid: 14
+        title: 'Contact'
+        slug: /contact
+        backend_layout: 'ie_site_template__default'
+  - uid: 404
+    pid: 1
+    title: '404 Not Found'
+    slug: /404
+    doktype: 153
