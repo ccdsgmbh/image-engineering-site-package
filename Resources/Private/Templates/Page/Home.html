@@ -1,50 +1,76 @@
 <f:layout name="Default" />
 
 <f:section name="Main">
-    <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 5}" as="bannerContent">
-        <f:if condition="{bannerContent}">
-            <section class="home-banner">
-                <div class="site-container">
-                    {bannerContent -> f:format.raw()}
-                </div>
-            </section>
-        </f:if>
-    </f:cObject>
+    <f:if condition="{heroContent}">
+        <section class="hero hero--home">
+            <div class="hero__background"></div>
+            <div class="hero__inner">
+                {heroContent -> f:format.raw()}
+            </div>
+        </section>
+    </f:if>
 
-    <section class="home-hero">
-        <div class="home-hero__background" style="background-image: url('{f:uri.resource(path: 'Images/hero-image.jpg', extensionName: 'IeSiteTemplate')}');"></div>
-        <div class="site-container home-hero__content">
-            <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 10}" />
-        </div>
-    </section>
+    <f:if condition="{introContent}">
+        <section class="section section--intro">
+            <div class="section__inner">
+                {introContent -> f:format.raw()}
+            </div>
+        </section>
+    </f:if>
 
-    <section class="home-industries">
-        <div class="site-container">
-            <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 20}" />
-        </div>
-    </section>
+    <f:if condition="{mainContent}">
+        <section class="section section--content">
+            <div class="section__inner section__inner--narrow">
+                {mainContent -> f:format.raw()}
+            </div>
+        </section>
+    </f:if>
 
-    <section class="home-news">
-        <div class="site-container">
-            <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 30}" />
-        </div>
-    </section>
+    <f:if condition="{industriesContent}">
+        <section class="section section--industries">
+            <div class="section__inner">
+                {industriesContent -> f:format.raw()}
+            </div>
+        </section>
+    </f:if>
 
-    <section class="home-standards">
-        <div class="site-container">
-            <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 40}" />
-        </div>
-    </section>
+    <f:if condition="{capabilitiesContent}">
+        <section class="section section--capabilities">
+            <div class="section__inner">
+                {capabilitiesContent -> f:format.raw()}
+            </div>
+        </section>
+    </f:if>
 
-    <section class="home-general">
-        <div class="site-container">
-            <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 0}" />
-        </div>
-    </section>
+    <f:if condition="{newsContent}">
+        <section class="section section--news">
+            <div class="section__inner">
+                {newsContent -> f:format.raw()}
+            </div>
+        </section>
+    </f:if>
 
-    <section class="home-footer-widgets">
-        <div class="site-container">
-            <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 80}" />
-        </div>
-    </section>
+    <f:if condition="{standardsContent}">
+        <section class="section section--standards">
+            <div class="section__inner">
+                {standardsContent -> f:format.raw()}
+            </div>
+        </section>
+    </f:if>
+
+    <f:if condition="{ctaContent}">
+        <section class="section section--cta">
+            <div class="section__inner">
+                {ctaContent -> f:format.raw()}
+            </div>
+        </section>
+    </f:if>
+
+    <f:if condition="{contactContent}">
+        <section class="section section--contact">
+            <div class="section__inner">
+                {contactContent -> f:format.raw()}
+            </div>
+        </section>
+    </f:if>
 </f:section>

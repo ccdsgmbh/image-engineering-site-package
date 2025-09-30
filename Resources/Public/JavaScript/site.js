@@ -1,58 +1,32 @@
 (function () {
-  const $doc = document;
-  const toggle = $doc.querySelector('.nav-toggle');
-  const nav = $doc.getElementById('primary-navigation');
-  const body = $doc.body;
+    const root = document.documentElement;
+    const header = document.querySelector('.site-header');
+    const toggle = document.querySelector('.site-header__toggle');
+    const nav = document.getElementById('primary-navigation');
 
-  if (!toggle || !nav) {
-    return;
-  }
+    if (toggle && nav) {
+        toggle.addEventListener('click', function () {
+            const expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!expanded));
+            nav.classList.toggle('site-header__nav--open', !expanded);
+        });
 
-  const openNav = () => {
-    nav.classList.add('is-open');
-    toggle.setAttribute('aria-expanded', 'true');
-    body.classList.add('nav-open');
-  };
-
-  const closeNav = () => {
-    nav.classList.remove('is-open');
-    toggle.setAttribute('aria-expanded', 'false');
-    body.classList.remove('nav-open');
-  };
-
-  toggle.addEventListener('click', () => {
-    if (nav.classList.contains('is-open')) {
-      closeNav();
-    } else {
-      openNav();
-    }
-  });
-
-  $doc.addEventListener('keyup', (event) => {
-    if (event.key === 'Escape') {
-      closeNav();
-    }
-  });
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 860) {
-      closeNav();
-    }
-  });
-
-  const dropdownParents = nav.querySelectorAll('.nav__item');
-  dropdownParents.forEach((item) => {
-    const link = item.querySelector('a');
-    if (!link) {
-      return;
+        document.addEventListener('click', function (event) {
+            if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+                toggle.setAttribute('aria-expanded', 'false');
+                nav.classList.remove('site-header__nav--open');
+            }
+        });
     }
 
-    link.addEventListener('focus', () => {
-      item.classList.add('is-focused');
-    });
+    const handleScroll = function () {
+        if (!header) {
+            return;
+        }
+        const scrolled = window.scrollY > 24;
+        header.classList.toggle('site-header--compact', scrolled);
+    };
 
-    link.addEventListener('blur', () => {
-      item.classList.remove('is-focused');
-    });
-  });
+    document.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
 })();

@@ -1,160 +1,174 @@
+#############################
+# Base page configuration
+#############################
+
 config {
     absRefPrefix = auto
-    noPageTitle = 2
+    doctype = html5
     linkVars = L
-    uniqueLinkVars = 1
-    contentObjectExceptionHandler = 0
-}
-
-define { 
-    sitepackage.assetPath = EXT:ie_site_template/Resources/Public/
+    no_cache = 0
+    sendCacheHeaders = 1
 }
 
 page = PAGE
 page {
     typeNum = 0
-    shortcutIcon = {$sitepackage.assets.logoSecondary}
-
-    includeCSS.sitePackage = {$sitepackage.assets.css}
-    includeJSFooter.sitePackage = {$sitepackage.assets.js}
-
-    meta.viewport = width=device-width, initial-scale=1
-
     10 = FLUIDTEMPLATE
     10 {
-        templateRootPaths {
-            10 = EXT:ie_site_template/Resources/Private/Templates/Page/
-        }
-        partialRootPaths {
-            10 = EXT:ie_site_template/Resources/Private/Partials/
-        }
-        layoutRootPaths {
-            10 = EXT:ie_site_template/Resources/Private/Layouts/
-        }
+        layoutRootPaths.10 = EXT:ie_site_template/Resources/Private/Layouts/
+        partialRootPaths.10 = EXT:ie_site_template/Resources/Private/Partials/
+        templateRootPaths.10 = EXT:ie_site_template/Resources/Private/Templates/Page/
 
-        templateName.cObject = CASE
-        templateName.cObject {
-            key.data = levelfield:-1,backend_layout_next_level,slide
-            key.ifEmpty.data = levelfield:-1,backend_layout,slide
-
+        templateName = CASE
+        templateName {
+            key.data = levelfield:-1, backend_layout_next_level, slide
             default = TEXT
             default.value = Default
-
-            ie_site_template_home = TEXT
-            ie_site_template_home.value = Home
+            home = TEXT
+            home.value = Home
+            automotive = TEXT
+            automotive.value = Automotive
         }
 
-        dataProcessing {
-            10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-            10 {
-                levels = 2
-                as = mainNavigation
-                expandAll = 1
-            }
+        variables {
+            mainNavigation < lib.mainNavigation
+            footerNavigation < lib.footerNavigation
+            heroContent < lib.content.hero
+            introContent < lib.content.intro
+            industriesContent < lib.content.industries
+            capabilitiesContent < lib.content.capabilities
+            newsContent < lib.content.news
+            standardsContent < lib.content.standards
+            ctaContent < lib.content.cta
+            contactContent < lib.content.contact
 
-            20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-            20 {
-                levels = 1
-                includeSpacer = 0
-                as = utilityNavigation
-                entryLevel = 1
-            }
+            automotiveHero < lib.content.automotiveHero
+            automotiveApplications < lib.content.automotiveApplications
+            automotiveStandards < lib.content.automotiveStandards
+            automotiveSolutions < lib.content.automotiveSolutions
+            automotiveProducts < lib.content.automotiveProducts
+            automotiveCta < lib.content.automotiveCta
+            automotiveContact < lib.content.automotiveContact
 
-            30 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-            30 {
-                levels = 1
-                as = footerNavigation
-                special = rootline
-                special.range = 0|-1
-            }
+            mainContent < lib.content.main
+
+            siteLogo = TEXT
+            siteLogo.value = {ieSiteTemplate.logoLight}
+            siteLogo.insertData = 1
+            logoLinkUid = TEXT
+            logoLinkUid.data = leveluid:0
         }
+    }
+
+    includeCSS {
+        site = EXT:ie_site_template/Resources/Public/Styles/site.css
+    }
+
+    includeJSLibs {
+    }
+
+    includeJSFooter {
+        site = EXT:ie_site_template/Resources/Public/JavaScript/site.js
     }
 }
 
-lib.navigationMain = HMENU
-lib.navigationMain {
-    entryLevel = 0
-    includeNotInMenu = 0
+#############################
+# Navigation
+#############################
 
+lib.mainNavigation = HMENU
+lib.mainNavigation {
+    entryLevel = 0
+    wrap = <ul class="main-nav">|</ul>
     1 = TMENU
     1 {
-        wrap = <ul class="nav__list">|</ul>
-        expAll = 1
-        NO = 1
+        expAll = 0
         NO {
-            wrapItemAndSub = <li class="nav__item">|</li>
-            ATagTitle.field = nav_title // title
+            wrapItemAndSub = <li class="main-nav__item">|</li>
+            ATagParams = class="main-nav__link"
         }
         ACT < .NO
-        ACT.wrapItemAndSub = <li class="nav__item nav__item--active">|</li>
-        CUR < .ACT
-    }
-
-    2 = TMENU
-    2 {
-        wrap = <ul class="nav__sub">|</ul>
-        NO = 1
-        NO.wrapItemAndSub = <li class="nav__sub-item">|</li>
-        ACT < .NO
-        ACT.wrapItemAndSub = <li class="nav__sub-item nav__sub-item--active">|</li>
-        CUR < .ACT
-    }
-}
-
-lib.navigationUtility = HMENU
-lib.navigationUtility {
-    entryLevel = 0
-    includeNotInMenu = 0
-
-    1 = TMENU
-    1 {
-        wrap = <ul class="utility-nav__list">|</ul>
-        NO = 1
-        NO.wrapItemAndSub = <li class="utility-nav__item">|</li>
-    }
-}
-
-lib.navigationFooter = HMENU
-lib.navigationFooter {
-    entryLevel = 0
-    includeNotInMenu = 0
-
-    1 = TMENU
-    1 {
-        wrap = <ul class="footer-nav__list">|</ul>
-        NO = 1
-        NO.wrapItemAndSub = <li class="footer-nav__item">|</li>
-    }
-}
-
-lib.dynamicContent = COA
-lib.dynamicContent {
-    10 = CONTENT
-    10 {
-        table = tt_content
-        select {
-            orderBy = sorting
-            where = colPos = 0
-            where.insertData = 1
-            languageField = sys_language_uid
-            pidInList.data = page:uid
+        ACT {
+            ATagParams = class="main-nav__link main-nav__link--active"
         }
     }
 }
 
-# Provide shortcuts to render dynamic content in Fluid
-sitepackage.content.main < lib.dynamicContent
-sitepackage.content.hero < lib.dynamicContent
-sitepackage.content.hero.10.select.where = colPos = 10
-sitepackage.content.industries < lib.dynamicContent
-sitepackage.content.industries.10.select.where = colPos = 20
-sitepackage.content.banner < lib.dynamicContent
-sitepackage.content.banner.10.select.where = colPos = 5
-sitepackage.content.feature < lib.dynamicContent
-sitepackage.content.feature.10.select.where = colPos = 40
-sitepackage.content.news < lib.dynamicContent
-sitepackage.content.news.10.select.where = colPos = 30
-sitepackage.content.standards < lib.dynamicContent
-sitepackage.content.standards.10.select.where = colPos = 40
-sitepackage.content.footerwidgets < lib.dynamicContent
-sitepackage.content.footerwidgets.10.select.where = colPos = 80
+lib.footerNavigation = HMENU
+lib.footerNavigation {
+    special = directory
+    special.value.data = leveluid:0
+    wrap = <ul class="footer-nav">|</ul>
+    1 = TMENU
+    1 {
+        NO {
+            wrapItemAndSub = <li class="footer-nav__item">|</li>
+            ATagParams = class="footer-nav__link"
+        }
+        ACT < .NO
+        ACT {
+            ATagParams = class="footer-nav__link footer-nav__link--active"
+        }
+    }
+}
+
+#############################
+# Content areas
+#############################
+
+lib.content =
+lib.content {
+    hero < styles.content.get
+    hero.select.where = colPos = 10
+
+    intro < styles.content.get
+    intro.select.where = colPos = 11
+
+    industries < styles.content.get
+    industries.select.where = colPos = 12
+
+    capabilities < styles.content.get
+    capabilities.select.where = colPos = 13
+
+    news < styles.content.get
+    news.select.where = colPos = 14
+
+    standards < styles.content.get
+    standards.select.where = colPos = 15
+
+    cta < styles.content.get
+    cta.select.where = colPos = 16
+
+    contact < styles.content.get
+    contact.select.where = colPos = 17
+
+    automotiveHero < styles.content.get
+    automotiveHero.select.where = colPos = 20
+
+    automotiveApplications < styles.content.get
+    automotiveApplications.select.where = colPos = 21
+
+    automotiveStandards < styles.content.get
+    automotiveStandards.select.where = colPos = 22
+
+    automotiveSolutions < styles.content.get
+    automotiveSolutions.select.where = colPos = 23
+
+    automotiveProducts < styles.content.get
+    automotiveProducts.select.where = colPos = 24
+
+    automotiveCta < styles.content.get
+    automotiveCta.select.where = colPos = 25
+
+    automotiveContact < styles.content.get
+    automotiveContact.select.where = colPos = 26
+}
+
+lib.content.main < styles.content.get
+lib.content.main.select.where = colPos = 0
+
+#############################
+# Utility values
+#############################
+lib.currentYear = TEXT
+lib.currentYear.data = date:Y

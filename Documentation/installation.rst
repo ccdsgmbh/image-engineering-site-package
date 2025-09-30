@@ -1,13 +1,13 @@
 Installation
 ============
 
-1. Add the package as a dependency in your project composer root::
+1. Require the extension via Composer::
 
-       composer req image-engineering/ie-site-template
+   .. code-block:: bash
 
-2. Activate the site package in the Extension Manager within the TYPO3 backend.
-3. Include the static TypoScript template ``Image Engineering Site Template`` in your root template record.
-4. Import the site configuration by copying the files from ``Configuration/Site/Default`` into the instance specific site configuration directory (usually ``config/sites``).
-5. Flush all caches.
+      composer require image-engineering/ie-site-template
 
-Once installed you can assign the provided backend layouts ``Home Page Layout`` and ``Default Page Layout`` to your pages and start placing content elements into the dedicated content areas.
+2. Activate the extension in the TYPO3 Extension Manager.
+3. Import the provided site configuration via the Site Management module.
+4. Create or update the root page to use the **Home Layout** backend layout.
+5. Include the static TypoScript template "Image Engineering Site Template" on the root page.

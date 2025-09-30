@@ -1,18 +1,22 @@
-# Image Engineering Site Package
+# Image Engineering Site Package (`ie_site_template`)
 
-`ie_site_template` is the TYPO3 v13 site package that delivers the base layout, assets, TypoScript and backend configuration for the Image Engineering marketing website.
+TYPO3 site package for Image Engineering delivering the corporate layout, Fluid templates, TypoScript configuration and backend layout setup for TYPO3 13.
 
-## Features
+## What is included
 
-- Composer-installable site package for TYPO3 13.x (PHP 8.2+).
-- Fluid layout with dedicated templates for the home and inner pages.
-- Responsive CSS and lightweight JavaScript replicating the original design language.
-- Backend layouts and TSconfig for structured content authoring.
-- Preconfigured site setup (site configuration YAML, page tree seed and placeholders).
-- Utility helpers and a PHPUnit setup for extending the package.
+- Composer-installable TYPO3 extension (`typo3-cms-extension`)
+- Fluid page templates for the home page, automotive landing page and default pages
+- Responsive SCSS/CSS and lightweight JavaScript matching the provided reference layouts
+- Static TypoScript for content area mapping and navigation rendering
+- Backend layouts and Site Configuration scaffolding with predefined content areas
+- Basic assets such as SVG logos and favicon
 
-## Usage
+## Getting started
 
-Install through Composer, activate the extension in the TYPO3 backend, include the static TypoScript template and import the provided site configuration. Assign the delivered backend layouts to your pages and place content elements into the named columns to match the home page and inner page compositions.
+1. `composer require image-engineering/ie-site-template`
+2. Activate the extension in the TYPO3 install tool / Extension Manager.
+3. Import the site configuration from `Configuration/Site/Default` or map it to an existing site.
+4. Include the static TypoScript template on the root page and assign the **Home Layout** backend layout.
+5. Populate the dedicated content areas (colPos) with Fluid Styled Content elements.
 
-For more information see the documentation in `Documentation/`.
+For editing guidance refer to the documentation in `Documentation/`.

@@ -1,28 +1,26 @@
-Content Structure
-=================
+Content Editing
+===============
 
-The Fluid templates expose the following content areas:
+The Home layout exposes the following content areas via ``colPos`` assignments:
 
-Home page
----------
+* Hero (10)
+* Intro / Highlights (11)
+* Main Content (0)
+* Industries Grid (12)
+* Capabilities & Services (13)
+* News & Updates (14)
+* Standards & Partnerships (15)
+* Call to Action (16)
+* Contact (17)
 
-* ``Announcement Banner`` (``colPos = 5``) – slim ribbon above the hero for campaign teasers.
-* ``Hero Area`` (``colPos = 10``) – primary messaging with headline, copy and CTAs.
-* ``Industries Highlights`` (``colPos = 20``) – cards or grids for industry verticals.
-* ``News & Insights`` (``colPos = 30``) – short news teaser list.
-* ``Standards & Expertise`` (``colPos = 40``) – badges, logos or trust builders.
-* ``General Content`` (``colPos = 0``) – long form content below the fold.
-* ``Footer Widgets`` (``colPos = 80``) – newsletter forms or rich footer content.
+The Automotive landing page provides dedicated columns:
 
-Default page
-------------
+* Hero (20)
+* Main Applications (21)
+* Standards (22)
+* Solutions Overview (23)
+* Key Products (24)
+* CTA / Lead Capture (25)
+* Contact (26)
 
-* ``Page Header`` (``colPos = 10``) – hero or breadcrumb area.
-* ``Main Content`` (``colPos = 0``) – primary page content.
-* ``Sidebar`` (``colPos = 60``) – secondary navigation or teasers.
-* ``Footer Content`` (``colPos = 80``) – bottom call-to-action tiles.
-
-Menus
------
-
-Navigation is rendered automatically via TypoScript ``HMENU`` definitions. Use the page tree to control main, utility and footer menus.
+Editors can add Fluid Styled Content elements to each area. The sections are styled by the page template without requiring additional wrapping elements.

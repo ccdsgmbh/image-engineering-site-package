@@ -1,59 +1,23 @@
 <header class="site-header">
-    <div class="site-header__utility">
-        <div class="site-container">
-            <div class="site-header__utility-nav">
-                <f:if condition="{utilityNavigation}">
-                    <ul class="utility-nav__list">
-                        <f:for each="{utilityNavigation}" as="item">
-                            <li class="utility-nav__item{f:if(condition: item.active, then: ' is-active')}">
-                                <a href="{item.link}" title="{item.title}"{f:if(condition: item.target, then: ' target="{item.target}" rel="noopener"')}>{item.title}</a>
-                            </li>
-                        </f:for>
+    <div class="site-header__inner">
+        <a class="site-header__logo" href="{f:uri.page(pageUid: logoLinkUid)}">
+            <img src="{f:uri.resource(path: 'Images/logo-ie-light.svg')}" alt="Image Engineering" />
+        </a>
+        <button class="site-header__toggle" type="button" aria-controls="primary-navigation" aria-expanded="false">
+            <span class="site-header__toggle-bar"></span>
+            <span class="site-header__toggle-bar"></span>
+            <span class="site-header__toggle-bar"></span>
+            <span class="visually-hidden">Menu</span>
+        </button>
+        <nav id="primary-navigation" class="site-header__nav" aria-label="Main navigation">
+            <f:if condition="{mainNavigation}">
+                <f:then>{mainNavigation -> f:format.raw()}</f:then>
+                <f:else>
+                    <ul class="main-nav main-nav--empty">
+                        <li class="main-nav__item">Add navigation in the page tree</li>
                     </ul>
-                </f:if>
-            </div>
-            <div class="site-header__utility-actions">
-                <form class="site-search" action="/search" method="get">
-                    <label class="site-search__label" for="site-search-input">Search</label>
-                    <input id="site-search-input" class="site-search__input" type="search" name="q" placeholder="Search" />
-                    <button class="site-search__submit" type="submit">Go</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="site-header__main">
-        <div class="site-container site-header__main-inner">
-            <a class="site-logo" href="/" title="Image Engineering">
-                <img src="{f:uri.resource(path: 'Images/logo-ie-white.png', extensionName: 'IeSiteTemplate')}" alt="Image Engineering" loading="lazy" />
-            </a>
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
-                <span class="nav-toggle__line"></span>
-                <span class="nav-toggle__line"></span>
-                <span class="nav-toggle__line"></span>
-                <span class="nav-toggle__label">Menu</span>
-            </button>
-            <nav id="primary-navigation" class="main-navigation" aria-label="Primary">
-                <f:if condition="{mainNavigation}">
-                    <ul class="nav__list">
-                        <f:for each="{mainNavigation}" as="item">
-                            <li class="nav__item{f:if(condition: item.active, then: ' nav__item--active')}">
-                                <a href="{item.link}" title="{item.title}"{f:if(condition: item.target, then: ' target="{item.target}" rel="noopener"')}>{item.title}</a>
-                                <f:if condition="{item.children}">
-                                    <div class="nav__submenu">
-                                        <ul class="nav__sub">
-                                            <f:for each="{item.children}" as="child">
-                                                <li class="nav__sub-item{f:if(condition: child.active, then: ' nav__sub-item--active')}">
-                                                    <a href="{child.link}" title="{child.title}"{f:if(condition: child.target, then: ' target="{child.target}" rel="noopener"')}>{child.title}</a>
-                                                </li>
-                                            </f:for>
-                                        </ul>
-                                    </div>
-                                </f:if>
-                            </li>
-                        </f:for>
-                    </ul>
-                </f:if>
-            </nav>
-        </div>
+                </f:else>
+            </f:if>
+        </nav>
     </div>
 </header>

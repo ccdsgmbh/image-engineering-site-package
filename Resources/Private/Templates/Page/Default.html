@@ -1,18 +1,21 @@
 <f:layout name="Default" />
 
 <f:section name="Main">
-    <f:cObject typoscriptObjectPath="sitepackage.content.hero" data="{colPos: 10}" />
+    <f:if condition="{heroContent}">
+        <section class="section section--hero">
+            <div class="section__inner">{heroContent -> f:format.raw()}</div>
+        </section>
+    </f:if>
 
-    <div class="page-content site-container">
-        <div class="page-content__main">
-            <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 0}" />
+    <section class="section section--content">
+        <div class="section__inner section__inner--narrow">
+            {mainContent -> f:format.raw()}
         </div>
-        <aside class="page-content__sidebar">
-            <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 60}" />
-        </aside>
-    </div>
+    </section>
 
-    <div class="page-content__footer">
-        <f:cObject typoscriptObjectPath="sitepackage.content.main" data="{colPos: 80}" />
-    </div>
+    <f:if condition="{ctaContent}">
+        <section class="section section--cta">
+            <div class="section__inner">{ctaContent -> f:format.raw()}</div>
+        </section>
+    </f:if>
 </f:section>

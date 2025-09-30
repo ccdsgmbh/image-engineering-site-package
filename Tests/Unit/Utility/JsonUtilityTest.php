@@ -2,33 +2,41 @@
 
 declare(strict_types=1);
 
-namespace ImageEngineering\SiteTemplate\Tests\Unit\Utility;
+namespace ImageEngineering\IeSiteTemplate\Tests\Unit\Utility;
 
-use ImageEngineering\SiteTemplate\Utility\JsonUtility;
+use ImageEngineering\IeSiteTemplate\Utility\JsonUtility;
 use PHPUnit\Framework\TestCase;
 
 final class JsonUtilityTest extends TestCase
 {
-    public function testEncodeProducesJsonString(): void
+    public function testEncodeReturnsJsonString(): void
     {
         $data = ['foo' => 'bar'];
         $json = JsonUtility::encode($data);
 
-        self::assertJson($json);
-        self::assertSame('{"foo":"bar"}', $json);
+        $this->assertSame('{"foo":"bar"}', $json);
     }
 
     public function testDecodeReturnsArray(): void
     {
-        $json = '{"alpha":1,"beta":true}';
-        $decoded = JsonUtility::decode($json);
+        $json = '{"foo":"bar"}';
+        $data = JsonUtility::decode($json);
 
-        self::assertSame(['alpha' => 1, 'beta' => true], $decoded);
+        $this->assertIsArray($data);
+        $this->assertSame('bar', $data['foo'] ?? null);
     }
 
-    public function testDecodeReturnsEmptyArrayForEmptyStringWhenAllowed(): void
+    public function testDecodeMapsToClass(): void
     {
-        $decoded = JsonUtility::decode('', true);
-        self::assertSame([], $decoded);
+        $json = '{"title":"Test"}';
+        $object = JsonUtility::decode($json, DummyDto::class);
+
+        $this->assertInstanceOf(DummyDto::class, $object);
+        $this->assertSame('Test', $object->title);
     }
+}
+
+final class DummyDto
+{
+    public string $title = '';
 }

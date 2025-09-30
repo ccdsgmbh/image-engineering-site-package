@@ -1,13 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xliff version="1.0">
-  <file source-language="en" datatype="plaintext" original="messages" product-name="ie_site_template">
-    <header/>
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns:t3="http://typo3.org/schemas/xliff">
+  <file source-language="en" datatype="plaintext" original="messages" t3:id="ie_site_template">
     <body>
-      <trans-unit id="header.search.placeholder">
-        <source>Search</source>
-      </trans-unit>
-      <trans-unit id="footer.contact.heading">
-        <source>Contact</source>
+      <trans-unit id="sitepackage.label" xml:space="preserve">
+        <source>Image Engineering site package</source>
       </trans-unit>
     </body>
   </file>

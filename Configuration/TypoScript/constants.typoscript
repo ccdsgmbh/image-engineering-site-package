@@ -1,19 +1,17 @@
-sitepackage {
-    assets {
-        logoPrimary = EXT:ie_site_template/Resources/Public/Images/logo-ie-white.png
-        logoSecondary = EXT:ie_site_template/Resources/Public/Images/logo-ie-black.png
-        heroBackground = EXT:ie_site_template/Resources/Public/Images/hero-image.jpg
-        css = EXT:ie_site_template/Resources/Public/Styles/site.css
-        js = EXT:ie_site_template/Resources/Public/JavaScript/site.js
-    }
+#############################
+# Image Engineering constants
+#############################
 
-    layouts {
-        containerWidth = 1200px
-        gutter = 1.5rem
-    }
+ieSiteTemplate {
+    baseUrl = https://p-cfmuvv.project.space/
+    assetsPath = EXT:ie_site_template/Resources/Public/
+    logoLight = EXT:ie_site_template/Resources/Public/Images/logo-ie-light.svg
+    logoDark = EXT:ie_site_template/Resources/Public/Images/logo-ie-dark.svg
+}
 
-    navigation {
-        mainLevels = 2
-        utilityLevels = 1
+page {
+    meta {
+        viewport = width=device-width, initial-scale=1.0
+        robots = index,follow
     }
 }

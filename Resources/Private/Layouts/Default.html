@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html lang="{f:if(condition: siteLanguage.twoLetterIsoCode, then: siteLanguage.twoLetterIsoCode, else: 'en')}">
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title><f:if condition="{pageTitle}"><f:then>{pageTitle} | Image Engineering</f:then><f:else>Image Engineering</f:else></f:if></title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>
-        <f:if condition="{pageTitle}">
-            <f:then>{pageTitle} | Image Engineering</f:then>
-            <f:else>Image Engineering</f:else>
-        </f:if>
-    </title>
-    <f:render section="Meta" optional="true" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <f:render partial="Shared/Meta" arguments="{_all}" />
 </head>
-<body class="site-body">
+<body class="ie-site">
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <f:render partial="Shared/Header" arguments="{mainNavigation: mainNavigation, utilityNavigation: utilityNavigation}" />
-    <main id="main-content" class="site-main">
+
+    <f:render partial="Shared/Header" arguments="{mainNavigation: mainNavigation, siteLogo: siteLogo}" />
+
+    <main id="main-content" class="ie-main">
         <f:render section="Main" />
     </main>
+
     <f:render partial="Shared/Footer" arguments="{footerNavigation: footerNavigation}" />
-    <f:render section="Footer" optional="true" />
+
+    <f:render partial="Shared/Scripts" />
 </body>
 </html>

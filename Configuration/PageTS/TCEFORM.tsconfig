@@ -1,3 +1,1 @@
-TCEFORM.tt_content {
-    header_layout.removeItems = 1
-}
+# Placeholder for TCEFORM adjustments. Extend as soon as editors require customisations.

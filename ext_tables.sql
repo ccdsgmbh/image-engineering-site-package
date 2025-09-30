@@ -1,1 +1,1 @@
-# This extension does not add new database tables.
+# No custom tables required.

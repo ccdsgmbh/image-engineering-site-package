@@ -1,40 +1,19 @@
 <footer class="site-footer">
-    <div class="site-container site-footer__top">
+    <div class="site-footer__inner">
         <div class="site-footer__brand">
-            <a class="site-footer__logo" href="/">
-                <img src="{f:uri.resource(path: 'Images/logo-ie-white.png', extensionName: 'IeSiteTemplate')}" alt="Image Engineering" loading="lazy" />
-            </a>
-            <p class="site-footer__tagline">Advanced image quality engineering and testing solutions.</p>
+            <img src="{f:uri.resource(path: 'Images/logo-ie-dark.svg')}" alt="Image Engineering" />
+            <p>Advanced computer vision, testing and measurement solutions.</p>
         </div>
-        <div class="site-footer__nav">
-            <f:if condition="{footerNavigation}">
-                <ul class="footer-nav__list">
-                    <f:for each="{footerNavigation}" as="item">
-                        <li class="footer-nav__item{f:if(condition: item.active, then: ' is-active')}">
-                            <a href="{item.link}" title="{item.title}"{f:if(condition: item.target, then: ' target="{item.target}" rel="noopener"')}>{item.title}</a>
-                        </li>
-                    </f:for>
-                </ul>
-            </f:if>
-        </div>
+        <f:if condition="{footerNavigation}">
+            <nav class="site-footer__nav" aria-label="Footer navigation">{footerNavigation -> f:format.raw()}</nav>
+        </f:if>
         <div class="site-footer__contact">
-            <h2 class="site-footer__heading">Contact</h2>
-            <address>
-                Image Engineering GmbH &amp; Co. KG<br />
-                Im Gleisdreieck 5, 50169 Kerpen, Germany<br />
-                <a href="tel:+492273564000">+49 2273 5640 0</a><br />
-                <a href="mailto:info@image-engineering.de">info@image-engineering.de</a>
-            </address>
+            <p class="site-footer__heading">Contact</p>
+            <p class="site-footer__text">Image Engineering GmbH &amp; Co. KG<br />Huerth, Germany</p>
+            <p class="site-footer__text"><a href="mailto:info@image-engineering.de">info@image-engineering.de</a></p>
         </div>
     </div>
-    <div class="site-footer__bottom">
-        <div class="site-container site-footer__bottom-inner">
-            <p class="site-footer__copyright">&copy; {f:format.date(date: 'now', format: 'Y')} Image Engineering. All rights reserved.</p>
-            <ul class="site-footer__links">
-                <li><a href="/imprint">Imprint</a></li>
-                <li><a href="/privacy">Privacy Policy</a></li>
-                <li><a href="/terms">Terms of Service</a></li>
-            </ul>
-        </div>
+    <div class="site-footer__meta">
+        <p>&copy; <f:cObject typoscriptObjectPath="lib.currentYear" /> Image Engineering. All rights reserved.</p>
     </div>
 </footer>

@@ -1,0 +1,60 @@
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <f:if condition="{automotiveHero}">
+        <section class="hero hero--automotive">
+            <div class="hero__background hero__background--light"></div>
+            <div class="hero__inner">
+                {automotiveHero -> f:format.raw()}
+            </div>
+        </section>
+    </f:if>
+
+    <f:if condition="{automotiveApplications}">
+        <section class="section section--applications">
+            <div class="section__inner">
+                {automotiveApplications -> f:format.raw()}
+            </div>
+        </section>
+    </f:if>
+
+    <f:if condition="{automotiveStandards}">
+        <section class="section section--automotive-standards">
+            <div class="section__inner">
+                {automotiveStandards -> f:format.raw()}
+            </div>
+        </section>
+    </f:if>
+
+    <f:if condition="{automotiveSolutions}">
+        <section class="section section--solutions">
+            <div class="section__inner">
+                {automotiveSolutions -> f:format.raw()}
+            </div>
+        </section>
+    </f:if>
+
+    <f:if condition="{automotiveProducts}">
+        <section class="section section--products">
+            <div class="section__inner">
+                {automotiveProducts -> f:format.raw()}
+            </div>
+        </section>
+    </f:if>
+
+    <f:if condition="{automotiveCta}">
+        <section class="section section--cta">
+            <div class="section__inner">
+                {automotiveCta -> f:format.raw()}
+            </div>
+        </section>
+    </f:if>
+
+    <f:if condition="{automotiveContact}">
+        <section class="section section--contact">
+            <div class="section__inner">
+                {automotiveContact -> f:format.raw()}
+            </div>
+        </section>
+    </f:if>
+</f:section>
