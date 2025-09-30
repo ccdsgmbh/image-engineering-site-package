@@ -25,6 +25,15 @@ page {
         layoutRootPaths.10 = EXT:ie_site_template/Resources/Private/Layouts/
         partialRootPaths.10 = EXT:ie_site_template/Resources/Private/Partials/
         templateName = Index
+
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10 {
+                references.fieldName = media
+                maxItems = 1
+                as = backgroundImages
+            }
+        }
     }
 }
 

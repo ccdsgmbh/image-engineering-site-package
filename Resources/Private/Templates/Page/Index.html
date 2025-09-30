@@ -8,9 +8,20 @@
 <body class="min-h-screen bg-[#141414] text-white">
     <f:cObject typoscriptObjectPath="lib.mainNavigation" />
 
-    <main class="pt-40">
-        <div class="mx-auto w-full max-w-6xl px-6">
+    <f:if condition="{backgroundImages.0}">
+        <f:variable name="backgroundImage" value="{backgroundImages.0}" />
+        <div class="fixed inset-0 -z-20 overflow-hidden">
+            <div class="absolute inset-0 animate-fade-in">
+                <f:image image="{backgroundImage}" class="h-full w-full object-cover animate-ken-burns" alt="{f:if(condition: backgroundImage.properties.alternative, then: backgroundImage.properties.alternative, else: backgroundImage.properties.title)}" additionalAttributes="{loading: 'eager'}" />
+                <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent pointer-events-none"></div>
+            </div>
+        </div>
+    </f:if>
 
+    <main class="relative z-10 pt-40">
+        <div class="mx-auto w-full max-w-6xl px-6">
+            <f:cObject typoscriptObjectPath="lib.contentElement" data="{colPos: 0}" />
         </div>
     </main>
 </body>
