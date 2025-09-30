@@ -1,10 +1,14 @@
-ie_site_template {
-  siteName = Image Engineering
-  baseUrl = https://p-cfmuvv.project.space/
+ieSiteTemplate = ie_site_template
+ieSiteTemplate {
+  pageIds {
+    home = 1
+    automotive = 2
+  }
   assets {
-    logoPrimary = EXT:ie_site_template/Resources/Public/Images/logo-ie-white.png
-    logoSecondary = EXT:ie_site_template/Resources/Public/Images/logo-ie-black.png
-    heroHome = EXT:ie_site_template/Resources/Public/Images/precision-testing-hero.jpg
-    heroAutomotive = EXT:ie_site_template/Resources/Public/Images/automotive-hero-clean-new.jpg
+    logo = EXT:ie_site_template/Resources/Public/Images/logo-ie-white.png
+  }
+  cdn {
+    tailwind = https://cdn.tailwindcss.com
+    fontRoboto = https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;600;700&display=swap
   }
 }

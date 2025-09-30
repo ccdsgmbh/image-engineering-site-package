@@ -1,30 +1,63 @@
-(function ($) {
-  'use strict';
-
-  $(function () {
-    var $toggle = $('[data-toggle="mobile-nav"]');
-    var $menu = $('[data-mobile-nav]');
-
-    $toggle.on('click', function (event) {
-      event.preventDefault();
-      $menu.toggleClass('open');
-      $menu.stop(true, true).slideToggle(200);
-    });
-
-    $(document).on('click', function (event) {
-      if (!$(event.target).closest('[data-mobile-nav], [data-toggle="mobile-nav"]').length) {
-        if ($menu.hasClass('open')) {
-          $menu.removeClass('open').slideUp(200);
+(function () {
+    const ready = function (callback) {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', callback);
+        } else {
+            callback();
         }
-      }
-    });
+    };
 
-    $('a[href^="#"]').on('click', function (event) {
-      var target = $(this.getAttribute('href'));
-      if (target.length) {
-        event.preventDefault();
-        $('html, body').animate({ scrollTop: target.offset().top - 80 }, 500);
-      }
+    ready(function () {
+        const body = document.body;
+        const navTrigger = document.querySelector('[data-mobile-nav-trigger]');
+        const navPanel = document.querySelector('[data-mobile-nav-panel]');
+
+        if (navTrigger && navPanel) {
+            navTrigger.addEventListener('click', function () {
+                const isHidden = navPanel.classList.contains('hidden');
+                if (isHidden) {
+                    navPanel.classList.remove('hidden');
+                    navPanel.classList.add('open');
+                    body.classList.add('overflow-hidden');
+                } else {
+                    navPanel.classList.add('hidden');
+                    navPanel.classList.remove('open');
+                    body.classList.remove('overflow-hidden');
+                }
+            });
+        }
+
+        const standardsToggle = document.querySelector('[data-standards-toggle]');
+        const standardsPanel = document.querySelector('[data-standards-panel]');
+
+        if (standardsToggle && standardsPanel) {
+            const label = standardsToggle.querySelector('[data-standards-label]');
+            const icon = standardsToggle.querySelector('[data-standards-icon]');
+
+            standardsToggle.addEventListener('click', function () {
+                const isOpen = standardsPanel.classList.contains('open');
+                if (isOpen) {
+                    standardsPanel.classList.remove('open');
+                    standardsPanel.classList.add('hidden');
+                    standardsToggle.setAttribute('aria-expanded', 'false');
+                    if (label) {
+                        label.textContent = 'See all Standards';
+                    }
+                    if (icon) {
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                } else {
+                    standardsPanel.classList.add('open');
+                    standardsPanel.classList.remove('hidden');
+                    standardsToggle.setAttribute('aria-expanded', 'true');
+                    if (label) {
+                        label.textContent = 'Hide Standards';
+                    }
+                    if (icon) {
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                }
+            });
+        }
     });
-  });
-})(jQuery);
+})();

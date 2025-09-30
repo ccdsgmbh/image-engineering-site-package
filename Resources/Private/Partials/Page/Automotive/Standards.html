@@ -1,0 +1,110 @@
+<section id="standards" class="py-20 bg-white">
+    <div class="container mx-auto px-6 space-y-12">
+        <div class="text-center max-w-3xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-light-foreground mb-4">Automotive International Standards</h2>
+            <p class="text-lg text-light-muted">A look at the crucial industry standards for automotive image quality performance testing and evaluation.</p>
+        </div>
+        <div class="grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
+            <article class="standards-card">
+                <div class="h-24 flex items-center justify-center mb-6">
+                    <img src="{f:uri.resource(path: 'Images/ieee-logo.jpg', extensionName: 'ie_site_template')}" alt="IEEE" class="max-h-full object-contain" />
+                </div>
+                <h3 class="text-xl font-semibold mb-3">IEEE P2020</h3>
+                <p class="text-sm text-light-muted leading-relaxed mb-6">Defines repeatable test methods and KPIs for advanced driver assistance systems (ADAS) ensuring consistent image quality performance.</p>
+                <a href="#" class="inline-flex items-center justify-center px-6 py-2 rounded-full border border-ie-blue text-ie-blue font-semibold hover:bg-ie-blue hover:text-white transition">Learn More</a>
+            </article>
+            <article class="standards-card">
+                <div class="h-24 flex items-center justify-center mb-6">
+                    <img src="{f:uri.resource(path: 'Images/emva-logo.jpg', extensionName: 'ie_site_template')}" alt="EMVA" class="max-h-full object-contain" />
+                </div>
+                <h3 class="text-xl font-semibold mb-3">EMVA 1288 / ISO 24942</h3>
+                <p class="text-sm text-light-muted leading-relaxed mb-6">Provides threshold specifications and measurement methods for machine vision cameras used in safety-critical automotive applications.</p>
+                <a href="#" class="inline-flex items-center justify-center px-6 py-2 rounded-full border border-ie-blue text-ie-blue font-semibold hover:bg-ie-blue hover:text-white transition">Learn More</a>
+            </article>
+            <article class="standards-card">
+                <div class="h-24 flex items-center justify-center mb-6">
+                    <img src="{f:uri.resource(path: 'Images/iso-standards-logo-new.jpg', extensionName: 'ie_site_template')}" alt="ISO" class="max-h-full object-contain" />
+                </div>
+                <h3 class="text-xl font-semibold mb-3">ISO 19093</h3>
+                <p class="text-sm text-light-muted leading-relaxed mb-6">Focuses on evaluating camera systems in security and automotive environments to guarantee reliable detection in any lighting condition.</p>
+                <a href="#" class="inline-flex items-center justify-center px-6 py-2 rounded-full border border-ie-blue text-ie-blue font-semibold hover:bg-ie-blue hover:text-white transition">Learn More</a>
+            </article>
+        </div>
+        <div class="text-center">
+            <button type="button" class="inline-flex items-center justify-center px-8 py-3 bg-ie-blue text-white font-semibold rounded-full shadow-soft hover:bg-[#0d3365] transition" data-standards-toggle aria-expanded="false">
+                <span data-standards-label>See all Standards</span>
+                <svg data-standards-icon class="h-4 w-4 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+        </div>
+        <div class="mt-10 hidden" data-standards-panel>
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <h3 class="text-2xl font-semibold mb-2">Supported Standards</h3>
+                <p class="text-lg text-light-muted">Our testing procedures are based on internationally recognized standards.</p>
+            </div>
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <article class="standard-card">
+                    <div>
+                        <h4 class="text-xl font-semibold mb-2">IEEE P2020</h4>
+                        <p class="text-sm text-light-muted leading-relaxed">Automotive image quality standard outlining KPIs for ADAS perception.</p>
+                    </div>
+                    <div class="standard-footer">
+                        <div class="flex items-center gap-2"><svg class="h-5 w-5 text-scandi-grey" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 19V6h13l-1 5H9" /><circle cx="7" cy="19" r="2" /><circle cx="19" cy="19" r="2" /></svg><span class="text-sm font-semibold text-light-foreground">Automotive</span></div>
+                        <span class="badge badge-active">Active Member</span>
+                    </div>
+                </article>
+                <article class="standard-card">
+                    <div>
+                        <h4 class="text-xl font-semibold mb-2">ISO 12233</h4>
+                        <p class="text-sm text-light-muted leading-relaxed">Resolution &amp; spatial frequency responses for electronic imaging systems.</p>
+                    </div>
+                    <div class="standard-footer">
+                        <div class="flex items-center gap-2"><svg class="h-5 w-5 text-scandi-grey" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M2 12h4" /><path d="M18 12h4" /><path d="M12 2v4" /><path d="M12 18v4" /></svg><span class="text-sm font-semibold text-light-foreground">Photography</span></div>
+                        <span class="badge">Compliant</span>
+                    </div>
+                </article>
+                <article class="standard-card">
+                    <div>
+                        <h4 class="text-xl font-semibold mb-2">ISO 14524</h4>
+                        <p class="text-sm text-light-muted leading-relaxed">Measuring opto-electronic conversion functions for automotive cameras.</p>
+                    </div>
+                    <div class="standard-footer">
+                        <div class="flex items-center gap-2"><svg class="h-5 w-5 text-scandi-grey" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 4h6l2 5h-10z" /><rect x="6" y="9" width="12" height="11" rx="2" /></svg><span class="text-sm font-semibold text-light-foreground">Photography</span></div>
+                        <span class="badge">Compliant</span>
+                    </div>
+                </article>
+                <article class="standard-card">
+                    <div>
+                        <h4 class="text-xl font-semibold mb-2">ISO 15739</h4>
+                        <p class="text-sm text-light-muted leading-relaxed">Defines noise measurements for still picture and automotive cameras.</p>
+                    </div>
+                    <div class="standard-footer">
+                        <div class="flex items-center gap-2"><svg class="h-5 w-5 text-scandi-grey" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="m4 7 8-4 8 4-8 4z" /><path d="M4 17l8 4 8-4" /><path d="m4 12 8 4 8-4" /></svg><span class="text-sm font-semibold text-light-foreground">Photography</span></div>
+                        <span class="badge">Compliant</span>
+                    </div>
+                </article>
+                <article class="standard-card">
+                    <div>
+                        <h4 class="text-xl font-semibold mb-2">IEC 61966-2-1</h4>
+                        <p class="text-sm text-light-muted leading-relaxed">Colour measurement and management - sRGB colour space definition.</p>
+                    </div>
+                    <div class="standard-footer">
+                        <div class="flex items-center gap-2"><svg class="h-5 w-5 text-scandi-grey" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="3" /><path d="M7 12h10" /></svg><span class="text-sm font-semibold text-light-foreground">Color Science</span></div>
+                        <span class="badge">Compliant</span>
+                    </div>
+                </article>
+                <article class="standard-card">
+                    <div>
+                        <h4 class="text-xl font-semibold mb-2">EMVA 1288</h4>
+                        <p class="text-sm text-light-muted leading-relaxed">Characterization of image sensors and cameras for machine vision.</p>
+                    </div>
+                    <div class="standard-footer">
+                        <div class="flex items-center gap-2"><svg class="h-5 w-5 text-scandi-grey" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2v20" /><path d="M5 7h14" /><path d="M5 17h14" /><path d="M5 12h14" /></svg><span class="text-sm font-semibold text-light-foreground">Machine Vision</span></div>
+                        <span class="badge">Compliant</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>

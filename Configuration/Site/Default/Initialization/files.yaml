@@ -1,9 +1,0 @@
-files:
-  - source: EXT:ie_site_template/Resources/Public/Images/logo-ie-white.png
-    target: user_upload/logo-ie-white.png
-  - source: EXT:ie_site_template/Resources/Public/Images/logo-ie-black.png
-    target: user_upload/logo-ie-black.png
-  - source: EXT:ie_site_template/Resources/Public/Images/precision-testing-hero.jpg
-    target: user_upload/precision-testing-hero.jpg
-  - source: EXT:ie_site_template/Resources/Public/Images/automotive-hero-clean-new.jpg
-    target: user_upload/automotive-hero-clean-new.jpg

@@ -1,229 +1,48 @@
 config {
-  absRefPrefix = auto
-  baseURL = {$ie_site_template.baseUrl}
-  metaViewport = width=device-width, initial-scale=1
+  doctype = html5
+  absRefPrefix = /
+  admPanel = 0
+  debug = 0
   no_cache = 0
-  contentObjectExceptionHandler = 0
+  sendCacheHeaders = 1
+  prefixLocalAnchors = all
 }
 
 page = PAGE
 page {
   typeNum = 0
-  meta.description = Image Engineering site package template
+  shortcutIcon = {$ieSiteTemplate.assets.logo}
+  meta.viewport = width=device-width, initial-scale=1
+  meta.description = Image Engineering delivers precision image quality testing solutions for cameras, sensors and optics.
+  meta.robots = index,follow
+
   10 = FLUIDTEMPLATE
   10 {
-    layoutRootPaths.10 = EXT:ie_site_template/Resources/Private/Layouts/
-    partialRootPaths.10 = EXT:ie_site_template/Resources/Private/Partials/
-    templateRootPaths.10 = EXT:ie_site_template/Resources/Private/Templates/Page/
+    layoutRootPaths.0 = EXT:ie_site_template/Resources/Private/Layouts/Page/
+    templateRootPaths.0 = EXT:ie_site_template/Resources/Private/Templates/Page/
+    partialRootPaths.0 = EXT:ie_site_template/Resources/Private/Partials/Page/
 
-    dataProcessing {
-      10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-      10 {
-        as = mainNavigation
-        levels = 2
-        expandAll = 1
-        entryLevel = 0
-        includeSpacer = 1
-      }
-
-      20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-      20 {
-        as = footerNavigation
-        levels = 1
-        special = directory
-        special.value = 0
-      }
+    templateName = CASE
+    templateName {
+      key.data = page:uid
+      1 = TEXT
+      1.value = Home
+      2 = TEXT
+      2.value = Automotive
+      default = TEXT
+      default.value = Home
     }
 
-    variables {
-      TopBanner < lib.contentTopBanner
-      HeroPrimary < lib.contentHeroPrimary
-      HeroSecondary < lib.contentHeroSecondary
-      Industries < lib.contentIndustries
-      News < lib.contentNews
-      Standards < lib.contentStandards
-      LeadContent < lib.contentLead
-      AutomotiveHero < lib.contentAutomotiveHero
-      AutomotiveHighlights < lib.contentAutomotiveHighlights
-      AutomotiveApplications < lib.contentAutomotiveApplications
-      AutomotiveStandards < lib.contentAutomotiveStandards
-      AutomotiveProducts < lib.contentAutomotiveProducts
-      AutomotiveLogos < lib.contentAutomotiveLogos
-      AutomotiveContact < lib.contentAutomotiveContact
+    settings {
+      cdnTailwind = {$ieSiteTemplate.cdn.tailwind}
+      fontRoboto = {$ieSiteTemplate.cdn.fontRoboto}
+      assets.logo = {$ieSiteTemplate.assets.logo}
     }
   }
 
-  includeCSS.site = EXT:ie_site_template/Resources/Public/Styles/site.css
+  includeCSS.site = EXT:ie_site_template/Resources/Public/Css/site.css
   includeCSS.site.media = all
 
-  includeJSFooterlibs.jquery = https://code.jquery.com/jquery-3.7.1.min.js
-  includeJSFooterlibs.jquery.external = 1
-  includeJSFooterlibs.jquery.disableCompression = 1
-  includeJSFooterlibs.jquery.integrity = sha256-6ZvYFvCwUateh1ytY1/6Yr2vNh+lX6YsJhBKt3vn1Kg=
-  includeJSFooterlibs.jquery.crossorigin = anonymous
-
   includeJSFooter.site = EXT:ie_site_template/Resources/Public/JavaScript/site.js
-  includeJSFooter.site.async = 0
 }
 
-[page["uid"] == 1]
-page.10.templateName = Home
-[elseif page["uid"] == 2]
-page.10.templateName = Automotive
-[else]
-page.10.templateName = Default
-[end]
-
-lib.contentTopBanner = CONTENT
-lib.contentTopBanner {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos=10
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
-}
-
-lib.contentHeroPrimary = CONTENT
-lib.contentHeroPrimary {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos=11
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
-}
-
-lib.contentHeroSecondary = CONTENT
-lib.contentHeroSecondary {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos=12
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
-}
-
-lib.contentIndustries = CONTENT
-lib.contentIndustries {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos=20
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
-}
-
-lib.contentNews = CONTENT
-lib.contentNews {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos=30
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
-}
-
-lib.contentStandards = CONTENT
-lib.contentStandards {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos=40
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
-}
-
-lib.contentLead = CONTENT
-lib.contentLead {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos=50
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
-}
-
-lib.contentAutomotiveHero = CONTENT
-lib.contentAutomotiveHero {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos=110
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
-}
-
-lib.contentAutomotiveHighlights = CONTENT
-lib.contentAutomotiveHighlights {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos=111
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
-}
-
-lib.contentAutomotiveApplications = CONTENT
-lib.contentAutomotiveApplications {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos=120
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
-}
-
-lib.contentAutomotiveStandards = CONTENT
-lib.contentAutomotiveStandards {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos=130
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
-}
-
-lib.contentAutomotiveProducts = CONTENT
-lib.contentAutomotiveProducts {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos=140
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
-}
-
-lib.contentAutomotiveLogos = CONTENT
-lib.contentAutomotiveLogos {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos=150
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
-}
-
-lib.contentAutomotiveContact = CONTENT
-lib.contentAutomotiveContact {
-  table = tt_content
-  select {
-    pidInList = this
-    where = colPos=160
-    orderBy = sorting
-    languageField = sys_language_uid
-  }
-}

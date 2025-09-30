@@ -1,0 +1,46 @@
+<nav class="fixed inset-x-0 top-0 z-50">
+    <div class="bg-black/70 backdrop-blur-sm border-b border-white/10">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="flex items-center gap-3 text-white font-semibold text-lg tracking-wide">
+                    <img src="{f:uri.resource(path: 'Images/logo-ie-white.png', extensionName: 'ie_site_template')}" alt="Image Engineering" class="h-10 w-auto" />
+                    <span class="hidden sm:block uppercase tracking-[0.3em] text-sm">Image Engineering</span>
+                </a>
+                <div class="hidden lg:flex items-center gap-10 text-sm font-medium">
+                    <a href="#solutions" class="text-white/80 hover:text-white transition">Solutions</a>
+                    <a href="#industries" class="text-white/80 hover:text-white transition">Industries</a>
+                    <a href="#products" class="text-white/80 hover:text-white transition">Products</a>
+                    <a href="#services" class="text-white/80 hover:text-white transition">Testing Services</a>
+                    <a href="#resources" class="text-white/80 hover:text-white transition">Resources</a>
+                    <a href="#about" class="text-white/80 hover:text-white transition">About</a>
+                    <a href="#contact" class="text-white/80 hover:text-white transition">Contact</a>
+                </div>
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="#consultation" class="px-5 py-2 text-sm font-semibold text-black bg-ie-gold rounded-full shadow-md hover:bg-[#c4af08] transition">Book Consultation</a>
+                </div>
+                <button type="button" class="lg:hidden inline-flex items-center justify-center rounded-full p-2 text-white/90 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ie-gold" data-mobile-nav-trigger>
+                    <span class="sr-only">Toggle navigation</span>
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+                        <line x1="4" x2="20" y1="6" y2="6" />
+                        <line x1="4" x2="20" y1="12" y2="12" />
+                        <line x1="4" x2="20" y1="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="lg:hidden bg-black/85 text-white backdrop-blur-sm border-t border-white/10 hidden" data-mobile-nav-panel>
+        <div class="container mx-auto px-6 py-6 space-y-4 text-sm font-medium">
+            <a href="#solutions" class="block py-2 border-b border-white/10">Solutions</a>
+            <a href="#industries" class="block py-2 border-b border-white/10">Industries</a>
+            <a href="#products" class="block py-2 border-b border-white/10">Products</a>
+            <a href="#services" class="block py-2 border-b border-white/10">Testing Services</a>
+            <a href="#resources" class="block py-2 border-b border-white/10">Resources</a>
+            <a href="#about" class="block py-2 border-b border-white/10">About</a>
+            <a href="#contact" class="block py-2">Contact</a>
+            <div class="pt-4">
+                <a href="#consultation" class="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-semibold text-black bg-ie-gold rounded-full shadow-md hover:bg-[#c4af08] transition">Book Consultation</a>
+            </div>
+        </div>
+    </div>
+</nav>
