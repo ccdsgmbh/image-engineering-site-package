@@ -2,13 +2,6 @@ identifier: ie_site_template
 rootPageId: 1
 websiteTitle: Image Engineering
 base: /
-baseVariants:
-  - identifier: development
-    base: http://localhost:8080/
-    condition: 'applicationContext == "Development"'
-  - identifier: production
-    base: https://www.image-engineering.example/
-    condition: 'applicationContext == "Production"'
 languages:
   - title: English
     enabled: true
@@ -43,9 +36,3 @@ errorHandling:
     errorHandler: Fluid
     options:
       templatePathAndFilename: 'EXT:ie_site_template/Resources/Private/Templates/Error/403.html'
-sitemap:
-  generator: default
-  pages:
-    -
-      rootPageId: 1
-      priority: 0.5
