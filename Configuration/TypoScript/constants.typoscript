@@ -1,7 +1,7 @@
 # IE Site Template constants
 
-# Comma-separated list of page UIDs for the footer navigation. Leave empty to fall back to the first site-tree level.
-ieSiteTemplate.footerNavigationPages = 
+# UID of the page whose subpages populate the footer navigation. Leave empty to fall back to the first site-tree level.
+ieSiteTemplate.footerNavigationParentPage = 
 
 # Column position used for the footer content area.
 ieSiteTemplate.footerContentColPos = 300

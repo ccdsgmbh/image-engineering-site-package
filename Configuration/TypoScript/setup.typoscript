@@ -145,8 +145,8 @@ lib.footerNavigation = COA
 lib.footerNavigation {
     10 = HMENU
     10 {
-        special = list
-        special.value = {$ieSiteTemplate.footerNavigationPages}
+        special = directory
+        special.value = {$ieSiteTemplate.footerNavigationParentPage}
         wrap = <ul class="footer-nav text-sm text-white">|</ul>
 
         1 = TMENU
@@ -167,7 +167,7 @@ lib.footerNavigation {
             IFSUB < .NO
         }
     }
-    10.if.isTrue = {$ieSiteTemplate.footerNavigationPages}
+    10.if.isTrue = {$ieSiteTemplate.footerNavigationParentPage}
 
     20 = HMENU
     20 {
@@ -192,7 +192,7 @@ lib.footerNavigation {
             IFSUB < .NO
         }
     }
-    20.if.isFalse = {$ieSiteTemplate.footerNavigationPages}
+    20.if.isFalse = {$ieSiteTemplate.footerNavigationParentPage}
 }
 
 lib.footerContent < styles.content.get
@@ -202,5 +202,6 @@ lib.footerContent {
         orderBy = sorting
         slide = -1
         languageField = sys_language_uid
+        includeRecordsWithoutDefaultTranslation = 1
     }
 }
