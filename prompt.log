@@ -1,0 +1,4 @@
+Prompt: update the css so that the footer content h2 has the same font style as in rendered/index.html
+Response: Matched the footer content heading typography to the rendered design by styling `.site-footer-content h2` with bold 1.875rem/2.25rem sizing and a >=768px bump to 2.25rem/2.5rem (`Resources/Public/Css/site.css:394`).
+- Tests: not run (CSS-only change).
+- Next 1. Clear TYPO3 frontend caches or rebuild assets so the updated stylesheet is served.
