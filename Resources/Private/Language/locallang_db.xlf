@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" product-name="ie_site_template">
+    <body>
+      <trans-unit id="tt_content.colPos.footerContent">
+        <source>Footer content</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -2,3 +2,6 @@
 
 # Comma-separated list of page UIDs for the footer navigation. Leave empty to fall back to the first site-tree level.
 ieSiteTemplate.footerNavigationPages = 
+
+# Column position used for the footer content area.
+ieSiteTemplate.footerContentColPos = 300

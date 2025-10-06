@@ -381,6 +381,28 @@ nav [data-radix-navigation-menu-list] > li:last-child [data-radix-navigation-men
   color: #ffffff;
 }
 
+.site-footer-content {
+  color: inherit;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.site-footer-content__inner {
+  max-width: 72rem;
+}
+
+.site-footer-content a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-decoration-thickness: 1px;
+}
+
+.site-footer-content a:hover,
+.site-footer-content a:focus {
+  text-decoration-color: rgba(255, 255, 255, 0.8);
+}
+
 .site-footer__legal {
   margin: 0;
 }

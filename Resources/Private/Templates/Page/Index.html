@@ -26,6 +26,16 @@
     </main>
 
     <footer class="site-footer border-t border-[#4B4A4A] bg-[#4B4A4A]">
+        <f:cObject typoscriptObjectPath="lib.footerContent" as="footerContent">
+            <f:if condition="{footerContent}">
+                <div class="site-footer-content border-b border-white/10">
+                    <div class="site-footer-content__inner container mx-auto px-6 py-16">
+                        {footerContent -> f:format.raw()}
+                    </div>
+                </div>
+            </f:if>
+        </f:cObject>
+
         <div class="site-footer__inner container mx-auto px-6 py-6 text-center space-y-4">
             <p class="site-footer__legal text-sm text-white">© Image Engineering GmbH &amp; Co. KG - Member of the Nynomic Group</p>
             <nav class="site-footer__nav" aria-label="Footer">

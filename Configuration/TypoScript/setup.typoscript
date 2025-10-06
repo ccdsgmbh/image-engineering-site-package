@@ -194,3 +194,15 @@ lib.footerNavigation {
     }
     20.if.isFalse = {$ieSiteTemplate.footerNavigationPages}
 }
+
+lib.footerContent < styles.content.get
+lib.footerContent {
+    select {
+        where = colPos = {$ieSiteTemplate.footerContentColPos}
+        orderBy = sorting
+        slide = -1
+        languageField = sys_language_uid
+        includeRecordsWithoutDefaultTranslation = 1
+    }
+    stdWrap.required = 1
+}
