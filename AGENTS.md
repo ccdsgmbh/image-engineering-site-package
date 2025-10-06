@@ -29,3 +29,6 @@
 - `Classes/Service`: Service classes for business logic.
 - `Classes/Utility`: Utility classes for common functions.
 - `Classes/Middleware`: Middleware for request processing.
+
+## Additional instructions
+- Always log the latest prompt and response in a file named `prompt.log` in the root of the extension.

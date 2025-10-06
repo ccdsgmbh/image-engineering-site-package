@@ -30,7 +30,7 @@
             <f:if condition="{footerContent}">
                 <div class="site-footer-content border-b border-white/10">
                     <div class="site-footer-content__inner container mx-auto px-6 py-16">
-                        {footerContent -> f:format.raw()}
+                        <f:cObject typoscriptObjectPath="lib.footerContent" />
                     </div>
                 </div>
             </f:if>
