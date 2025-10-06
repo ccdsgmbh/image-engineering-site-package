@@ -140,3 +140,57 @@ lib.mainNavigation {
         20.value = <div class="2xl:hidden relative"></div>
     }
 }
+
+lib.footerNavigation = COA
+lib.footerNavigation {
+    10 = HMENU
+    10 {
+        special = list
+        special.value = {$ieSiteTemplate.footerNavigationPages}
+        wrap = <ul class="footer-nav text-sm text-white">|</ul>
+
+        1 = TMENU
+        1 {
+            NO = 1
+            NO {
+                ATagBeforeWrap = 1
+                ATagParams = class="footer-nav__link"
+                wrapItemAndSub = <li class="footer-nav__item">|</li>
+                stdWrap.htmlSpecialChars = 1
+                ATagTitle.field = nav_title // title
+            }
+
+            ACT < .NO
+            ACT.ATagParams = class="footer-nav__link footer-nav__link--active"
+
+            CUR < .ACT
+            IFSUB < .NO
+        }
+    }
+    10.if.isTrue = {$ieSiteTemplate.footerNavigationPages}
+
+    20 = HMENU
+    20 {
+        entryLevel = 0
+        wrap = <ul class="footer-nav text-sm text-white">|</ul>
+
+        1 = TMENU
+        1 {
+            NO = 1
+            NO {
+                ATagBeforeWrap = 1
+                ATagParams = class="footer-nav__link"
+                wrapItemAndSub = <li class="footer-nav__item">|</li>
+                stdWrap.htmlSpecialChars = 1
+                ATagTitle.field = nav_title // title
+            }
+
+            ACT < .NO
+            ACT.ATagParams = class="footer-nav__link footer-nav__link--active"
+
+            CUR < .ACT
+            IFSUB < .NO
+        }
+    }
+    20.if.isFalse = {$ieSiteTemplate.footerNavigationPages}
+}

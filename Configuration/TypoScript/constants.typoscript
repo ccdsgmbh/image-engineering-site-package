@@ -1,1 +1,4 @@
-# IE Site Template constants placeholder
+# IE Site Template constants
+
+# Comma-separated list of page UIDs for the footer navigation. Leave empty to fall back to the first site-tree level.
+ieSiteTemplate.footerNavigationPages = 
