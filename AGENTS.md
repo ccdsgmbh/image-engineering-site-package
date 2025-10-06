@@ -32,3 +32,6 @@
 
 ## Additional instructions
 - Always log the latest prompt and response in a file named `prompt.log` in the root of the extension.
+
+## Deployment
+- Always commit and push changes to the Git repository. Add a meaningful commit message.

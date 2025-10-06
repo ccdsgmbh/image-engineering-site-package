@@ -3,7 +3,32 @@ TCEFORM.tt_content.colPos {
     addItems.300 = LLL:EXT:ie_site_template/Resources/Private/Language/locallang_db.xlf:tt_content.colPos.footerContent
 }
 
-mod.web_layout.content.colPos_300 {
-    label = LLL:EXT:ie_site_template/Resources/Private/Language/locallang_db.xlf:tt_content.colPos.footerContent
-    iconIdentifier = content-text
+mod.web_layout.BackendLayouts.default {
+    title = LLL:EXT:backend/Resources/Private/Language/locallang_layout.xlf:default
+    icon = EXT:backend/Resources/Public/Images/Layout/default.svg
+    config {
+        backend_layout {
+            colCount = 1
+            rowCount = 2
+
+            rows {
+                1 {
+                    columns {
+                        1 {
+                            name = LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.content
+                            colPos = 0
+                        }
+                    }
+                }
+                2 {
+                    columns {
+                        1 {
+                            name = LLL:EXT:ie_site_template/Resources/Private/Language/locallang_db.xlf:tt_content.colPos.footerContent
+                            colPos = 300
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
