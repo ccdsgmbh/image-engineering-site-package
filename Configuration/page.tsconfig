@@ -1,0 +1,9 @@
+# Register footer content column and backend drop zone
+TCEFORM.tt_content.colPos {
+    addItems.300 = LLL:EXT:ie_site_template/Resources/Private/Language/locallang_db.xlf:tt_content.colPos.footerContent
+}
+
+mod.web_layout.content.colPos_300 {
+    label = LLL:EXT:ie_site_template/Resources/Private/Language/locallang_db.xlf:tt_content.colPos.footerContent
+    iconIdentifier = content-text
+}
