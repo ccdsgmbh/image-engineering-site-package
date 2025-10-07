@@ -30,3 +30,7 @@ Prompt: the icon of the new content element for trusted industries is not a file
 Response: Swapped the trusted industry card icon to use a dedicated emoji/input field (`tx_iesitetemplate_icon`) instead of file assets, updated the CType configuration (`Configuration/TCA/Overrides/tt_content_trustedIndustryItem.php`) and translations, removed the file processor from TypoScript (`Configuration/TypoScript/setup.typoscript:152`), rendered the symbol in Fluid (`Resources/Private/Templates/Content/TrustedIndustryItem.html`), and styled it with the specified font stack (`Resources/Public/Css/site.css:398`).
 - Tests: not run (rendering/style tweak only).
 - Next 1. Enter emoji/symbol characters in the new icon field for each trusted industry item.
+Prompt: the new content element is not rendered. why?
+Response: Rendering failed because the trusted industry FLUIDTEMPLATE had no partial lookup path, so the SVG partial call returned nothing. Added the shared partial root (`partialRootPaths.10`) to the content element setup so the selected icon partial can be resolved (`Configuration/TypoScript/setup.typoscript:346`).
+- Tests: not run (configuration fix only).
+- Next 1. Flush TYPO3 caches to reload TypoScript and confirm the cards reappear.

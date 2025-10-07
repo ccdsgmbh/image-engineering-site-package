@@ -345,5 +345,6 @@ lib.footerContent {
 tt_content.trusted_industry_item = FLUIDTEMPLATE
 tt_content.trusted_industry_item {
     templateRootPaths.10 = EXT:ie_site_template/Resources/Private/Templates/Content/
+    partialRootPaths.10 = EXT:ie_site_template/Resources/Private/Partials/
     templateName = TrustedIndustryItem
 }
