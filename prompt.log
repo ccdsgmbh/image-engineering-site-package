@@ -6,3 +6,7 @@ Prompt: the burger menu currently does not open on click and show the submenu. f
 Response: Added an accessible mobile drawer navigation (TypoScript wiring in `Configuration/TypoScript/setup.typoscript`, styles in `Resources/Public/Css/site.css:340`, behaviour in `Resources/Public/JavaScript/navigation.js`, and wrapped the nav in `Resources/Private/Templates/Page/Index.html`) so the burger toggle opens, closes, and reveals submenus.
 - Tests: not run (frontend change only).
 - Next 1. Flush TYPO3 caches or reload the frontend to pull in the updated assets.
+Prompt: replicate the flyout submenu of the subpages in the main navigation from rendered/index.html in this extension by updating the typoscript, css and js
+Response: Built a desktop mega-menu using TYPO3 HMENU (parent entries now load registers for slugged IDs and emit flyout markup, `Configuration/TypoScript/setup.typoscript:63`), styled the drawer and sub-links to mirror the rendered design (`Resources/Public/Css/site.css:344`), and extended `navigation.js` with desktop hover/focus logic while preserving the mobile drawer (`Resources/Public/JavaScript/navigation.js:1`).
+- Tests: not run (interaction change only).
+- Next 1. Clear TYPO3 caches and rebuild frontend assets to pick up the new navigation bundle.
