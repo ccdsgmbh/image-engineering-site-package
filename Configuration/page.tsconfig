@@ -41,3 +41,17 @@ mod.web_layout.BackendLayouts.default {
         }
     }
 }
+
+mod.wizards.newContentElement.wizardItems.common {
+    elements.trustedIndustryItem {
+        iconIdentifier = content-text
+        title = LLL:EXT:ie_site_template/Resources/Private/Language/locallang_db.xlf:tt_content.CType.trustedIndustryItem
+        description = LLL:EXT:ie_site_template/Resources/Private/Language/locallang_db.xlf:tt_content.CType.trustedIndustryItem.description
+        tt_content_defValues {
+            CType = trusted_industry_item
+            colPos = 200
+        }
+    }
+
+    show := addToList(trustedIndustryItem)
+}
