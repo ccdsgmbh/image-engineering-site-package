@@ -5,3 +5,6 @@ ieSiteTemplate.footerNavigationParentPage =
 
 # Column position used for the footer content area.
 ieSiteTemplate.footerContentColPos = 300
+
+# Column position used for the trusted industries spotlight.
+ieSiteTemplate.trustedIndustriesColPos = 200

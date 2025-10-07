@@ -1,5 +1,6 @@
 # Register footer content column and backend drop zone
 TCEFORM.tt_content.colPos {
+    addItems.200 = LLL:EXT:ie_site_template/Resources/Private/Language/locallang_db.xlf:tt_content.colPos.trustedIndustries
     addItems.300 = LLL:EXT:ie_site_template/Resources/Private/Language/locallang_db.xlf:tt_content.colPos.footerContent
 }
 
@@ -9,7 +10,7 @@ mod.web_layout.BackendLayouts.default {
     config {
         backend_layout {
             colCount = 1
-            rowCount = 2
+            rowCount = 3
 
             rows {
                 1 {
@@ -21,6 +22,14 @@ mod.web_layout.BackendLayouts.default {
                     }
                 }
                 2 {
+                    columns {
+                        1 {
+                            name = LLL:EXT:ie_site_template/Resources/Private/Language/locallang_db.xlf:tt_content.colPos.trustedIndustries
+                            colPos = 200
+                        }
+                    }
+                }
+                3 {
                     columns {
                         1 {
                             name = LLL:EXT:ie_site_template/Resources/Private/Language/locallang_db.xlf:tt_content.colPos.footerContent

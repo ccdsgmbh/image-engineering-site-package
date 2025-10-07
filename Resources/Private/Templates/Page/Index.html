@@ -22,9 +22,17 @@
     </f:if>
 
     <main class="relative z-10 pt-40">
-        <div class="mx-auto w-full max-w-6xl px-6">
-
-        </div>
+        <section class="trusted-industries" aria-labelledby="trusted-industries-heading">
+            <div class="trusted-industries__container">
+                <div class="trusted-industries__header">
+                    <h2 id="trusted-industries-heading" class="trusted-industries__title">Trusted Across All Industries</h2>
+                    <p class="trusted-industries__lead">Our advanced image processing solutions drive innovation across sectors worldwide.</p>
+                </div>
+                <div class="trusted-industries__grid" data-content-area="trusted-industries">
+                    <f:cObject typoscriptObjectPath="lib.trustedIndustriesContent" />
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer border-t border-[#4B4A4A] bg-[#4B4A4A]">

@@ -320,6 +320,17 @@ lib.footerNavigation {
     }
 }
 
+lib.trustedIndustriesContent < styles.content.get
+lib.trustedIndustriesContent {
+    select {
+        where = colPos = {$ieSiteTemplate.trustedIndustriesColPos}
+        orderBy = sorting
+        slide = -1
+        languageField = sys_language_uid
+        includeRecordsWithoutDefaultTranslation = 1
+    }
+}
+
 lib.footerContent < styles.content.get
 lib.footerContent {
     select {

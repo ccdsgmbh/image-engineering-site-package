@@ -5,6 +5,9 @@
       <trans-unit id="tt_content.colPos.footerContent">
         <source>Footer content</source>
       </trans-unit>
+      <trans-unit id="tt_content.colPos.trustedIndustries">
+        <source>Trusted industries content</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>
