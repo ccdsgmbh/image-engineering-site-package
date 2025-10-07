@@ -346,13 +346,4 @@ tt_content.trusted_industry_item = FLUIDTEMPLATE
 tt_content.trusted_industry_item {
     templateRootPaths.10 = EXT:ie_site_template/Resources/Private/Templates/Content/
     templateName = TrustedIndustryItem
-
-    dataProcessing {
-        10 = TYPO3\\CMS\\Frontend\\DataProcessing\\FilesProcessor
-        10 {
-            references.fieldName = assets
-            as = images
-            maxItems = 1
-        }
-    }
 }

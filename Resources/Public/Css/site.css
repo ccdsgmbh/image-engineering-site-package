@@ -412,10 +412,10 @@ select {
   box-shadow: 0 10px 30px rgba(16, 62, 124, 0.1);
 }
 
-.trusted-industry-card__icon-image {
-  width: 2.25rem;
-  height: 2.25rem;
-  object-fit: contain;
+.trusted-industry-card__icon-symbol {
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 2.5rem;
+  line-height: 1;
 }
 
 .trusted-industry-card__title {

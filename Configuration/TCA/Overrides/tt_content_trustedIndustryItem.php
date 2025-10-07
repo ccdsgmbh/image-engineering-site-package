@@ -16,46 +16,33 @@ ExtensionManagementUtility::addTcaSelectItem(
     'after'
 );
 
-$GLOBALS['TCA']['tt_content']['types']['trusted_industry_item'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['types']['textmedia'] ?? [],
+ExtensionManagementUtility::addTCAcolumns(
+    'tt_content',
     [
-        'showitem' => '--palette--;;general, header, bodytext, assets, --div--;Access, --palette--;;hidden, --palette--;;access',
-        'columnsOverrides' => [
-            'bodytext' => [
-                'config' => [
-                    'enableRichtext' => 0,
-                    'rows' => 5,
-                ],
-            ],
-            'assets' => [
-                'config' => [
-                    'maxitems' => 1,
-                    'overrideChildTca' => [
-                        'columns' => [
-                            'title' => [
-                                'config' => [
-                                    'max' => 128,
-                                ],
-                            ],
-                            'alternative' => [
-                                'config' => [
-                                    'max' => 128,
-                                ],
-                            ],
-                        ],
-                        'types' => [
-                            2 => [
-                                'showitem' => '--palette--;;imageoverlayPalette,--palette--;;filePalette',
-                            ],
-                            3 => [
-                                'showitem' => '--palette--;;imageoverlayPalette,--palette--;;filePalette',
-                            ],
-                        ],
-                    ],
-                ],
+        'tx_iesitetemplate_icon' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:ie_site_template/Resources/Private/Language/locallang_db.xlf:tt_content.tx_iesitetemplate_icon',
+            'config' => [
+                'type' => 'input',
+                'size' => 10,
+                'max' => 10,
+                'eval' => 'trim',
+                'placeholder' => '🚀',
             ],
         ],
     ]
 );
+
+$GLOBALS['TCA']['tt_content']['types']['trusted_industry_item'] = [
+    'showitem' => '--palette--;;general, tx_iesitetemplate_icon, header, bodytext, --div--;Access, --palette--;;hidden, --palette--;;access',
+    'columnsOverrides' => [
+        'bodytext' => [
+            'config' => [
+                'enableRichtext' => 0,
+                'rows' => 5,
+            ],
+        ],
+    ],
+];
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicons']['trusted_industry_item'] = 'content-text';

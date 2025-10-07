@@ -11,6 +11,9 @@
       <trans-unit id="tt_content.CType.trustedIndustryItem.description">
         <source>Card with icon, headline and description for the trusted industries spotlight.</source>
       </trans-unit>
+      <trans-unit id="tt_content.tx_iesitetemplate_icon">
+        <source>Icon (emoji or symbol)</source>
+      </trans-unit>
       <trans-unit id="tt_content.colPos.trustedIndustries">
         <source>Trusted industries content</source>
       </trans-unit>

@@ -1,8 +1,8 @@
 <f:section name="Main">
     <article class="trusted-industries__item trusted-industry-card">
-        <f:if condition="{images}">
-            <div class="trusted-industry-card__icon" role="presentation">
-                <f:image image="{images.0}" class="trusted-industry-card__icon-image" alt="{f:if(condition: images.0.properties.alternative, then: images.0.properties.alternative, else: data.header)}" />
+        <f:if condition="{data.tx_iesitetemplate_icon}">
+            <div class="trusted-industry-card__icon" aria-hidden="true">
+                <span class="trusted-industry-card__icon-symbol">{data.tx_iesitetemplate_icon}</span>
             </div>
         </f:if>
 
