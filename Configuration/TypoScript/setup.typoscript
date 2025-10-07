@@ -95,7 +95,7 @@ lib.mainNavigation {
                         CURIFSUB < .ACT
 
                         IFSUB < .NO
-                        IFSUB.before.cObject = LOAD_REGISTER
+                        #IFSUB.before.cObject = LOAD_REGISTER
                         IFSUB.before.cObject {
                             navFlyoutClass = TEXT
                             navFlyoutClass {
