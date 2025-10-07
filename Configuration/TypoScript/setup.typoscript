@@ -100,7 +100,7 @@ lib.mainNavigation {
                         IFSUB.wrapItemAndSub.insertData = 1
                         IFSUB.ATagParams = class="main-nav__link main-nav__link--parent inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 px-3 py-2 rounded-md text-base font-medium text-white hover:bg-[#d9c409] hover:text-black transition-colors duration-200 bg-transparent border-none h-auto" data-nav-trigger aria-expanded="false" data-nav-target="{register:navFlyoutClass}"
                         IFSUB.ATagParams.insertData = 1
-                        IFSUB.after.cObject = RESTORE_REGISTER
+                        
 
 
 
@@ -149,85 +149,6 @@ lib.mainNavigation {
                         </svg>
                         <span class="sr-only">Toggle navigation</span>
                     </button>
-                </div>
-            )
-        }
-
-        20 = COA
-        20 {
-            10 = TEXT
-            10.value (
-                <div class="mobile-nav 2xl:hidden" data-mobile-nav>
-                    <div class="mobile-nav__backdrop" data-mobile-nav-backdrop></div>
-                    <div class="mobile-nav__panel" data-mobile-nav-panel id="mobile-navigation" aria-hidden="true">
-                        <div class="mobile-nav__header">
-                            <span class="mobile-nav__title">Menu</span>
-                            <button class="mobile-nav__close" type="button" aria-label="Close navigation" data-mobile-nav-close>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="18" x2="6" y1="6" y2="18"></line>
-                                    <line x1="6" x2="18" y1="6" y2="18"></line>
-                                </svg>
-                                <span class="sr-only">Close navigation</span>
-                            </button>
-                        </div>
-                        <nav class="mobile-nav__menu" aria-label="Mobile primary navigation">
-            )
-
-            20 = HMENU
-            20 {
-                entryLevel = 0
-                1 = TMENU
-                1 {
-                    wrap = <ul class="mobile-nav__list">|</ul>
-                    expAll = 1
-
-                    NO = 1
-                    NO {
-                        wrapItemAndSub = <li class="mobile-nav__item">|</li>
-                        ATagBeforeWrap = 1
-                        ATagParams = class="mobile-nav__link"
-                        stdWrap.htmlSpecialChars = 1
-                        ATagTitle.field = nav_title // title
-                    }
-
-                    ACT < .NO
-                    ACT.wrapItemAndSub = <li class="mobile-nav__item mobile-nav__item--active">|</li>
-                    ACT.ATagParams = class="mobile-nav__link mobile-nav__link--active"
-
-                    IFSUB < .NO
-                    IFSUB.wrapItemAndSub = <li class="mobile-nav__item mobile-nav__item--has-children">|</li>
-                    IFSUB.ATagParams = class="mobile-nav__link mobile-nav__link--parent"
-                    IFSUB.stdWrap.innerWrap = <span class="mobile-nav__link-label">|</span>
-                    IFSUB.allWrap = <div class="mobile-nav__item-header">|<button class="mobile-nav__toggle" type="button" aria-expanded="false" data-mobile-nav-subtoggle><span class="sr-only">Toggle submenu</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button></div>
-
-                    CUR < .ACT
-                    CURIFSUB < .IFSUB
-                }
-
-                2 = TMENU
-                2 {
-                    wrap = <ul class="mobile-nav__sub-list" data-mobile-nav-submenu>|</ul>
-                    NO = 1
-                    NO {
-                        wrapItemAndSub = <li class="mobile-nav__sub-item">|</li>
-                        ATagBeforeWrap = 1
-                        ATagParams = class="mobile-nav__sub-link"
-                        stdWrap.htmlSpecialChars = 1
-                        ATagTitle.field = nav_title // title
-                    }
-
-                    ACT < .NO
-                    ACT.wrapItemAndSub = <li class="mobile-nav__sub-item mobile-nav__sub-item--active">|</li>
-                    ACT.ATagParams = class="mobile-nav__sub-link mobile-nav__sub-link--active"
-
-                    CUR < .ACT
-                }
-            }
-
-            30 = TEXT
-            30.value (
-                        </nav>
-                    </div>
                 </div>
             )
         }
