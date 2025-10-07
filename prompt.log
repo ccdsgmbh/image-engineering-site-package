@@ -10,3 +10,7 @@ Prompt: replicate the flyout submenu of the subpages in the main navigation from
 Response: Built a desktop mega-menu using TYPO3 HMENU (parent entries now load registers for slugged IDs and emit flyout markup, `Configuration/TypoScript/setup.typoscript:63`), styled the drawer and sub-links to mirror the rendered design (`Resources/Public/Css/site.css:344`), and extended `navigation.js` with desktop hover/focus logic while preserving the mobile drawer (`Resources/Public/JavaScript/navigation.js:1`).
 - Tests: not run (interaction change only).
 - Next 1. Clear TYPO3 caches and rebuild frontend assets to pick up the new navigation bundle.
+Prompt: LOAD_REGISTER and RESTORE_REGISTER that you used for the submenu are deprecated in TYPO3 13. fix it in the typoscript.
+Response: Replaced the deprecated register usage with a reusable slug helper (`lib.mainNavigation.slug`) and substituted placeholders via `stdWrap.replacement`, keeping the flyout markup identical while staying TYPO3 13 compliant (`Configuration/TypoScript/setup.typoscript:62`).
+- Tests: not run (configuration change only).
+- Next 1. Flush the TYPO3 caches so the updated TypoScript is parsed.
