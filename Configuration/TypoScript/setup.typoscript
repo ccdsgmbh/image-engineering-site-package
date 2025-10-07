@@ -13,6 +13,10 @@ page {
         020_tailwind.disableCompression = 1
     }
 
+    includeJSFooter {
+        010_ie_navigation = EXT:ie_site_template/Resources/Public/JavaScript/navigation.js
+    }
+
     headerData.10 = TEXT
     headerData.10.value (
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -124,7 +128,7 @@ lib.mainNavigation {
             30 = TEXT
             30.value (
                 <div class="2xl:hidden ml-auto relative z-50">
-                    <button class="flex h-10 w-10 items-center justify-center rounded-md bg-[#d9c409] text-black shadow-lg transition-colors hover:bg-[#c5b008]" type="button">
+                    <button class="mobile-nav__trigger flex h-10 w-10 items-center justify-center rounded-md bg-[#d9c409] text-black shadow-lg transition-colors hover:bg-[#c5b008]" type="button" data-mobile-nav-trigger aria-controls="mobile-navigation" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-[3]">
                             <line x1="4" x2="20" y1="6" y2="6"></line>
                             <line x1="4" x2="20" y1="12" y2="12"></line>
@@ -136,8 +140,84 @@ lib.mainNavigation {
             )
         }
 
-        20 = TEXT
-        20.value = <div class="2xl:hidden relative"></div>
+        20 = COA
+        20 {
+            10 = TEXT
+            10.value (
+                <div class="mobile-nav 2xl:hidden" data-mobile-nav>
+                    <div class="mobile-nav__backdrop" data-mobile-nav-backdrop></div>
+                    <div class="mobile-nav__panel" data-mobile-nav-panel id="mobile-navigation" aria-hidden="true">
+                        <div class="mobile-nav__header">
+                            <span class="mobile-nav__title">Menu</span>
+                            <button class="mobile-nav__close" type="button" aria-label="Close navigation" data-mobile-nav-close>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" x2="6" y1="6" y2="18"></line>
+                                    <line x1="6" x2="18" y1="6" y2="18"></line>
+                                </svg>
+                                <span class="sr-only">Close navigation</span>
+                            </button>
+                        </div>
+                        <nav class="mobile-nav__menu" aria-label="Mobile primary navigation">
+            )
+
+            20 = HMENU
+            20 {
+                entryLevel = 0
+                1 = TMENU
+                1 {
+                    wrap = <ul class="mobile-nav__list">|</ul>
+                    expAll = 1
+
+                    NO = 1
+                    NO {
+                        wrapItemAndSub = <li class="mobile-nav__item">|</li>
+                        ATagBeforeWrap = 1
+                        ATagParams = class="mobile-nav__link"
+                        stdWrap.htmlSpecialChars = 1
+                        ATagTitle.field = nav_title // title
+                    }
+
+                    ACT < .NO
+                    ACT.wrapItemAndSub = <li class="mobile-nav__item mobile-nav__item--active">|</li>
+                    ACT.ATagParams = class="mobile-nav__link mobile-nav__link--active"
+
+                    IFSUB < .NO
+                    IFSUB.wrapItemAndSub = <li class="mobile-nav__item mobile-nav__item--has-children">|</li>
+                    IFSUB.ATagParams = class="mobile-nav__link mobile-nav__link--parent"
+                    IFSUB.stdWrap.innerWrap = <span class="mobile-nav__link-label">|</span>
+                    IFSUB.allWrap = <div class="mobile-nav__item-header">|<button class="mobile-nav__toggle" type="button" aria-expanded="false" data-mobile-nav-subtoggle><span class="sr-only">Toggle submenu</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button></div>
+
+                    CUR < .ACT
+                    CURIFSUB < .IFSUB
+                }
+
+                2 = TMENU
+                2 {
+                    wrap = <ul class="mobile-nav__sub-list" data-mobile-nav-submenu>|</ul>
+                    NO = 1
+                    NO {
+                        wrapItemAndSub = <li class="mobile-nav__sub-item">|</li>
+                        ATagBeforeWrap = 1
+                        ATagParams = class="mobile-nav__sub-link"
+                        stdWrap.htmlSpecialChars = 1
+                        ATagTitle.field = nav_title // title
+                    }
+
+                    ACT < .NO
+                    ACT.wrapItemAndSub = <li class="mobile-nav__sub-item mobile-nav__sub-item--active">|</li>
+                    ACT.ATagParams = class="mobile-nav__sub-link mobile-nav__sub-link--active"
+
+                    CUR < .ACT
+                }
+            }
+
+            30 = TEXT
+            30.value (
+                        </nav>
+                    </div>
+                </div>
+            )
+        }
     }
 }
 

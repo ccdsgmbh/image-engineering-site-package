@@ -2,3 +2,7 @@ Prompt: update the css so that the footer content h2 has the same font style as 
 Response: Matched the footer content heading typography to the rendered design by styling `.site-footer-content h2` with bold 1.875rem/2.25rem sizing and a >=768px bump to 2.25rem/2.5rem (`Resources/Public/Css/site.css:394`).
 - Tests: not run (CSS-only change).
 - Next 1. Clear TYPO3 frontend caches or rebuild assets so the updated stylesheet is served.
+Prompt: the burger menu currently does not open on click and show the submenu. fix it by updating fluid template, css, js and typoscript
+Response: Added an accessible mobile drawer navigation (TypoScript wiring in `Configuration/TypoScript/setup.typoscript`, styles in `Resources/Public/Css/site.css:340`, behaviour in `Resources/Public/JavaScript/navigation.js`, and wrapped the nav in `Resources/Private/Templates/Page/Index.html`) so the burger toggle opens, closes, and reveals submenus.
+- Tests: not run (frontend change only).
+- Next 1. Flush TYPO3 caches or reload the frontend to pull in the updated assets.
