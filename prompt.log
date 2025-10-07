@@ -14,3 +14,7 @@ Prompt: LOAD_REGISTER and RESTORE_REGISTER that you used for the submenu are dep
 Response: Replaced the deprecated register usage with a reusable slug helper (`lib.mainNavigation.slug`) and substituted placeholders via `stdWrap.replacement`, keeping the flyout markup identical while staying TYPO3 13 compliant (`Configuration/TypoScript/setup.typoscript:62`).
 - Tests: not run (configuration change only).
 - Next 1. Flush the TYPO3 caches so the updated TypoScript is parsed.
+Prompt: js console says "tailwind is not defined" in tailwind config. load tailwind js properly.
+Response: Guarded the Tailwind config by initialising `window.tailwind` before assigning its `config`, preventing the ReferenceError while keeping the CDN order intact (`Resources/Public/JavaScript/tailwind-config.js:1`).
+- Tests: not run (JS safety fix only).
+- Next 1. Reload the frontend to confirm the console warning is gone.
