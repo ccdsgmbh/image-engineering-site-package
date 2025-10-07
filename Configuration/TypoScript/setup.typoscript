@@ -95,27 +95,7 @@ lib.mainNavigation {
                         CURIFSUB < .ACT
 
                         IFSUB < .NO
-                        #IFSUB.before.cObject = LOAD_REGISTER
-                        IFSUB.before.cObject {
-                            navFlyoutClass = TEXT
-                            navFlyoutClass {
-                                data = field:nav_title // field:title
-                                stdWrap {
-                                    trim = 1
-                                    replacement.10 {
-                                        search = /[^a-zA-Z0-9]+/
-                                        replace = -
-                                        useRegExp = 1
-                                    }
-                                    replacement.20 {
-                                        search = -$
-                                        replace =
-                                        useRegExp = 1
-                                    }
-                                    case = lower
-                                }
-                            }
-                        }
+
                         IFSUB.wrapItemAndSub = <div class="main-nav__item main-nav__item--has-children main-nav__item--{register:navFlyoutClass}" data-nav-item data-nav-group="{register:navFlyoutClass}">|</div>
                         IFSUB.wrapItemAndSub.insertData = 1
                         IFSUB.ATagParams = class="main-nav__link main-nav__link--parent inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 px-3 py-2 rounded-md text-base font-medium text-white hover:bg-[#d9c409] hover:text-black transition-colors duration-200 bg-transparent border-none h-auto" data-nav-trigger aria-expanded="false" data-nav-target="{register:navFlyoutClass}"
