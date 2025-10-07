@@ -102,36 +102,10 @@ lib.mainNavigation {
                         IFSUB.ATagParams.insertData = 1
                         IFSUB.after.cObject = RESTORE_REGISTER
 
-                        ACTIFSUB < .IFSUB
-                        ACTIFSUB.wrapItemAndSub = <div class="main-nav__item main-nav__item--has-children main-nav__item--active main-nav__item--{register:navFlyoutClass}" data-nav-item data-nav-group="{register:navFlyoutClass}">|</div>
-                        ACTIFSUB.wrapItemAndSub.insertData = 1
-                        ACTIFSUB.ATagParams = class="main-nav__link main-nav__link--parent main-nav__link--active inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 px-3 py-2 rounded-md text-base font-medium text-black bg-[#d9c409] hover:bg-[#c4b108] transition-colors duration-200 border border-[#d9c409]" data-nav-trigger aria-expanded="true" data-nav-target="{register:navFlyoutClass}"
-                        ACTIFSUB.ATagParams.insertData = 1
 
-                        CURIFSUB < .ACTIFSUB
 
                     }
 
-                    2 = TMENU
-                    2 {
-                        wrap = <div class="main-nav__flyout main-nav__flyout--{register:navFlyoutClass}" data-nav-flyout data-nav-parent="{register:navFlyoutClass}" aria-hidden="true"><div class="main-nav__flyout-inner"><ul class="main-nav__flyout-list">|</ul></div></div>
-                        wrap.insertData = 1
-
-                        NO = 1
-                        NO {
-                            ATagBeforeWrap = 1
-                            wrapItemAndSub = <li class="main-nav__flyout-item">|</li>
-                            ATagParams = class="main-nav__flyout-link"
-                            stdWrap.htmlSpecialChars = 1
-                            ATagTitle.field = nav_title // title
-                        }
-
-                        ACT < .NO
-                        ACT.wrapItemAndSub = <li class="main-nav__flyout-item main-nav__flyout-item--active">|</li>
-                        ACT.ATagParams = class="main-nav__flyout-link main-nav__flyout-link--active"
-
-                        CUR < .ACT
-                    }
                 }
             }
 
