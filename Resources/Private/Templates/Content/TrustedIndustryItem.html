@@ -1,9 +1,22 @@
 <f:section name="Main">
     <article class="trusted-industries__item trusted-industry-card">
         <f:if condition="{data.tx_iesitetemplate_icon}">
-            <div class="trusted-industry-card__icon" aria-hidden="true">
-                <span class="trusted-industry-card__icon-symbol">{data.tx_iesitetemplate_icon}</span>
-            </div>
+            <f:variable name="iconPartial" value="" />
+            <f:switch expression="{data.tx_iesitetemplate_icon}">
+                <f:case value="camera"><f:variable name="iconPartial" value="Camera" /></f:case>
+                <f:case value="smartphone"><f:variable name="iconPartial" value="Smartphone" /></f:case>
+                <f:case value="car"><f:variable name="iconPartial" value="Car" /></f:case>
+                <f:case value="tv"><f:variable name="iconPartial" value="Tv" /></f:case>
+                <f:case value="shield"><f:variable name="iconPartial" value="Shield" /></f:case>
+                <f:case value="cog"><f:variable name="iconPartial" value="Cog" /></f:case>
+                <f:case value="stethoscope"><f:variable name="iconPartial" value="Stethoscope" /></f:case>
+                <f:case value="scan-line"><f:variable name="iconPartial" value="ScanLine" /></f:case>
+            </f:switch>
+            <f:if condition="{iconPartial}">
+                <div class="trusted-industry-card__icon" aria-hidden="true">
+                    <f:render partial="TrustedIndustry/Icon/{iconPartial}" />
+                </div>
+            </f:if>
         </f:if>
 
         <f:if condition="{data.header}">

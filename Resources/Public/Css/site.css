@@ -410,12 +410,24 @@ select {
   background: rgba(16, 62, 124, 0.08);
   border: 2px solid rgba(16, 62, 124, 0.2);
   box-shadow: 0 10px 30px rgba(16, 62, 124, 0.1);
+  color: rgba(16, 62, 124, 0.7);
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.trusted-industry-card__icon-symbol {
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 2.5rem;
-  line-height: 1;
+.trusted-industry-card__icon-svg {
+  width: 2.25rem;
+  height: 2.25rem;
+  transition: transform 0.3s ease;
+}
+
+.trusted-industry-card:hover .trusted-industry-card__icon,
+.trusted-industry-card:focus-within .trusted-industry-card__icon {
+  color: #103e7c;
+}
+
+.trusted-industry-card:hover .trusted-industry-card__icon-svg,
+.trusted-industry-card:focus-within .trusted-industry-card__icon-svg {
+  transform: scale(1.1);
 }
 
 .trusted-industry-card__title {

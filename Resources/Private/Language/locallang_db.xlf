@@ -12,7 +12,31 @@
         <source>Card with icon, headline and description for the trusted industries spotlight.</source>
       </trans-unit>
       <trans-unit id="tt_content.tx_iesitetemplate_icon">
-        <source>Icon (emoji or symbol)</source>
+        <source>Icon</source>
+      </trans-unit>
+      <trans-unit id="trustedIndustries.icon.camera">
+        <source>Camera</source>
+      </trans-unit>
+      <trans-unit id="trustedIndustries.icon.smartphone">
+        <source>Smartphone</source>
+      </trans-unit>
+      <trans-unit id="trustedIndustries.icon.car">
+        <source>Automotive &amp; ADAS</source>
+      </trans-unit>
+      <trans-unit id="trustedIndustries.icon.tv">
+        <source>Broadcast &amp; HDTV</source>
+      </trans-unit>
+      <trans-unit id="trustedIndustries.icon.shield">
+        <source>Security &amp; Surveillance</source>
+      </trans-unit>
+      <trans-unit id="trustedIndustries.icon.cog">
+        <source>Machine Vision</source>
+      </trans-unit>
+      <trans-unit id="trustedIndustries.icon.stethoscope">
+        <source>Medical &amp; Endoscopy</source>
+      </trans-unit>
+      <trans-unit id="trustedIndustries.icon.scanLine">
+        <source>Scanning &amp; Archiving</source>
       </trans-unit>
       <trans-unit id="tt_content.colPos.trustedIndustries">
         <source>Trusted industries content</source>
